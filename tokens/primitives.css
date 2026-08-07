@@ -1,0 +1,48 @@
+/* ═══ LAYER 1 — PRIMITIVES ══════════════════════════════════════════════
+   Raw values. Never referenced by components directly (use ROLES), never
+   changed by themes. Copied verbatim from Hearth tokens v2. */
+:root {
+  /* Type — Geist everywhere */
+  --ht-font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --ht-fs-greeting: 28px;  /* dashboards, 500 */
+  --ht-fs-hero:     22px;  /* 500 on dark (optical) */
+  --ht-fs-title:    20px;  /* page/step titles, 500 */
+  --ht-fs-section:  16px;
+  --ht-fs-label:    15px;  /* card headlines/labels/buttons */
+  --ht-fs-body:     14px;
+  --ht-fs-caption:  12.5px;
+  --ht-fs-micro:    11px;  /* mobile nav labels */
+  /* Weights 400/500 only — 600 retired 2026-08-01, never 700. Size, color and
+     tracking carry hierarchy; CTAs never above 500.
+     Tracking: +0.01em body; negative on titles; 500/-0.005em on dark. */
+  --ht-w-regular: 400; /* @kind font */
+  --ht-w-medium:  500; /* @kind font */
+
+  /* Grey ladder — violet-cast neutrals */
+  --ht-grey-0: #FFFFFF;   /* card */
+  --ht-grey-1: #FAFAFC;   /* header zones, inputs */
+  --ht-grey-2: #F5F5F9;   /* sidebar, tint blocks, hover rows */
+  --ht-grey-3: #ECECF2;   /* internal dividers, zebra */
+  --ht-grey-4: #E4E4EC;   /* hairline strokes, hover fills */
+  --ht-grey-5: #DBDAE5;   /* pressed */
+  --ht-grey-head: #E7E7EE; /* cake-header zone fill (Figma grey/head) */
+
+  /* Spacing scale — Figma Primitives space/* (synced 2026-08-03) */
+  --ht-space-2xs: 4px;
+  --ht-space-xs:  8px;
+  --ht-space-sm:  12px;
+  --ht-space-md:  16px;
+  --ht-space-lg:  20px;
+  --ht-space-xl:  24px;
+  --ht-space-2xl: 32px;
+
+  /* Radii */
+  --ht-r-chip:  4px;      /* small status chips — badges/confidence/success (Atlas caseworker pass) */
+  --ht-r-input: 6px;      /* form controls, option cards, insets, alerts */
+  --ht-r-card:  8px;      /* app cards, panels, dashboard cards, BUTTONS */
+  --ht-r-dash:  var(--ht-r-card); /* DEPRECATED alias — the 10px tier is gone; use --ht-r-card */
+  --ht-r-block: 12px;     /* editorial blocks, highlight card */
+
+  /* Focus ring */
+  --ht-ring: 0 0 0 3px; /* @kind shadow */
+}

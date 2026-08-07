@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hearth — HT Design System · Component Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.44.0/iconfont/tabler-icons.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css" rel="stylesheet">
+<style>
+  :root {
+    --primary: #4C1EA8; --primary-dark: #3B1683; --tint: #F2ECFD; --tint-strong: #E7DDFA;
+    --royal: #4860FC; --royal-text: #2C3ECF; --royal-tint: #EEF0FE; --royal-mid: #DDE2FD;
+    --page: #F8F7FC; --hairline: #E4E4EC; --divider: #ECECF2;
+    --g0: #FFFFFF; --g1: #FAFAFC; --g2: #F5F5F9; --g3: #ECECF2; --g4: #E4E4EC; --g5: #DBDAE5;
+    --border: #D6D5E0; --ink: #14111F; --text: #1D1A2E; --muted: #6B7280; --subtle: #9CA3AF;
+    --inkbar: #201C33; --onink-muted: #C9C4DD; --onink-subtle: #A9A4C0;
+    --green-v: #16A34A; --green-t: #196A47; --green-bg: #e6f6eb; --green-line: #BFE3CD;
+    --amber-v: #F5B700; --amber-t: #7D5700; --amber-bg: #FFF3BF; --amber-line: #F0D25B; --amber-soft: #FFFBE6;
+    --red-v: #DC2626; --red-t: #B91C1C; --red-bg: #fee2e2; --red-line: #F2C7C7; --red-soft: #FEF5F5;
+    --info-line: #C9D1FD;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: 'Geist', system-ui, sans-serif; background: var(--page); color: var(--text);
+    font-size: 14px; line-height: 1.5; letter-spacing: 0.01em; padding: 48px 24px; }
+  .wrap { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
+  h1 { font-size: 26px; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); }
+  .pagesub { color: var(--muted); font-size: 14px; margin-top: 4px; }
+
+  /* Kit section card — the v3 container itself */
+  .kit { background: #fff; border: 1px solid var(--hairline); border-radius: 10px; overflow: hidden; }
+  .khead { background: var(--g1); border-bottom: 1px solid var(--divider); padding: 9px 22px 7px; }
+  .khead h2 { font-size: 15px; font-weight: 600; letter-spacing: -0.005em; color: var(--ink); }
+  .khead .ksub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+  .kbody { padding: 18px 22px 22px; }
+
+  .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .hint { font-size: 13px; color: var(--muted); margin-top: 12px; }
+
+  /* Buttons */
+  .btn { font-size: 14px; font-weight: 500; padding: 10px 18px; border-radius: 10px;
+    border: 1px solid transparent; cursor: pointer; font-family: inherit; letter-spacing: 0.01em; }
+  .btn.primary { background: var(--primary); color: #fff; }
+  .btn.primary:hover { background: var(--primary-dark); }
+  .btn.secondary { background: #fff; color: var(--primary); border-color: var(--border); }
+  .btn.tintbtn { background: var(--tint); color: var(--primary); }
+  .link { color: var(--royal-text); font-weight: 500; font-size: 14px; text-decoration: underline; text-underline-offset: 3px; }
+  .pill { font-size: 13px; font-weight: 500; padding: 8px 16px; border-radius: 999px; color: var(--muted); }
+  .pill.active { background: var(--tint-strong); color: var(--primary-dark); font-weight: 600; }
+
+  /* Hero */
+  .hero { background: linear-gradient(135deg, var(--primary) 0%, var(--royal) 100%); border-radius: 12px; padding: 28px 26px; }
+  .hero h3 { font-size: 22px; font-weight: 500; letter-spacing: -0.005em; margin-bottom: 5px; color: #fff; }
+  .hero p { color: #E4DEF8; font-size: 14px; }
+
+  /* Metric cards */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; }
+  .stat { background: #fff; border: 1px solid var(--hairline); border-radius: 10px; padding: 16px 18px; }
+  .stat .n { font-size: 26px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); font-variant-numeric: tabular-nums; line-height: 1.1; }
+  .stat .n .up { font-size: 13px; color: var(--green-v); font-weight: 500; }
+  .stat .l { font-size: 12.5px; color: var(--muted); margin-top: 4px; }
+  .stat.warn .n { color: #B45309; }
+  /* Tiered metrics: .mini for low-priority stat strips (2026-07-22) */
+  .stats.mini .stat { padding: 10px 14px; }
+  .stats.mini .stat .n { font-size: 18px; }
+  .stats.mini .stat .l { font-size: 11.5px; margin-top: 2px; }
+
+  /* Announcement bar */
+  .announce { display: flex; align-items: center; gap: 12px; background: var(--tint);
+    border: 1px solid #E0D3F8; border-radius: 10px; padding: 14px 18px; }
+  .announce .a-ic { width: 32px; height: 32px; border-radius: 999px; background: #fff; color: var(--primary);
+    display: grid; place-content: center; font-size: 16px; flex-shrink: 0; }
+  .announce p { font-size: 13.5px; color: var(--primary-dark); font-weight: 500; }
+  .announce button { margin-left: auto; font-size: 12.5px; font-weight: 500; color: var(--primary);
+    background: #fff; border: none; border-radius: 10px; padding: 7px 14px; cursor: pointer; font-family: inherit; }
+
+  /* Entry card — tappable feature entry point (announcement family) */
+  .entry-card { display: flex; align-items: center; gap: 12px; background: var(--tint);
+    border: 1px solid #E0D3F8; border-radius: 10px; padding: 14px 18px; max-width: 440px; cursor: pointer; }
+  .entry-card:hover { border-color: #CDB8F2; }
+  .entry-card .e-circle { width: 32px; height: 32px; border-radius: 999px; background: #fff;
+    color: var(--primary); display: grid; place-content: center; font-size: 16px; flex-shrink: 0; }
+  .entry-card .e-title { font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.4; }
+  .entry-card .e-sub { font-size: 13px; color: var(--muted); line-height: 1.4; }
+  .entry-card .e-arr { margin-left: auto; color: var(--primary); font-size: 17px; font-weight: 500; }
+
+  /* Highlight card */
+  .hl-card { background: #fff; border: 1px solid var(--primary); border-radius: 12px; padding: 14px 12px 12px; max-width: 260px; }
+  .hl-title { display: flex; align-items: center; gap: 7px; font-size: 13.5px; font-weight: 600; color: var(--primary); padding: 0 4px 10px; }
+  .hl-item { display: flex; align-items: center; gap: 8px; background: var(--g1); border: 1px solid var(--divider);
+    border-radius: 8px; padding: 9px 12px; font-size: 12.5px; font-weight: 500; color: var(--text); margin-bottom: 7px; cursor: pointer; }
+  .hl-item:last-child { margin-bottom: 0; }
+  .hl-item:hover { background: var(--tint); border-color: #E0D3F8; }
+  .hl-item .arr { margin-left: auto; font-size: 15px; color: var(--primary); font-weight: 500; }
+
+  /* Form fields */
+  .field label { display: block; font-size: 15px; font-weight: 500; margin-bottom: 6px; color: var(--ink); }
+  .field label + .hint { margin: -3px 0 10px; }
+  .field input, .field textarea { width: 100%; max-width: 380px; font: inherit; font-size: 15px;
+    padding: 11px 14px; border-radius: 6px; border: 1px solid var(--border); background: #fff; color: var(--text); }
+  .field input:focus, .field textarea:focus, .select select:focus { outline: none; border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(76,30,168,0.32); }
+  .field input::placeholder, .field textarea::placeholder { color: var(--subtle); }
+  .field input + .hint, .input-wrap + .hint { margin-top: 8px; }
+  .field input.invalid { border-color: var(--red-v); }
+  .field input.invalid:focus { box-shadow: 0 0 0 3px rgba(220,38,38,0.25); border-color: var(--red-v); }
+  .error-msg { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; color: var(--red-t); margin-top: 6px; }
+  .error-msg::before { content: '!'; width: 16px; height: 16px; border-radius: 999px; background: var(--red-v);
+    color: #fff; font-size: 11px; font-weight: 700; display: grid; place-content: center; flex-shrink: 0; }
+
+  .select { position: relative; max-width: 380px; }
+  .select select { width: 100%; height: 44px; font: inherit; font-size: 15px; padding: 0 36px 0 14px;
+    border-radius: 6px; border: 1px solid var(--border); background: #fff; color: var(--text);
+    appearance: none; -webkit-appearance: none; cursor: pointer; }
+  .select::after { content: ''; position: absolute; right: 14px; top: 50%; width: 9px; height: 9px;
+    border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted);
+    transform: translateY(-70%) rotate(45deg); pointer-events: none; }
+
+  .field textarea { min-height: 96px; line-height: 1.5; resize: vertical; }
+  .char-count { font-size: 13px; color: var(--muted); margin-top: 6px; max-width: 380px; text-align: right; }
+
+  .input-wrap { position: relative; max-width: 240px; }
+  .input-wrap input { padding-right: 60px; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+  .show-toggle { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: transparent;
+    border: none; color: var(--primary); cursor: pointer; font: inherit; font-size: 13px; font-weight: 500;
+    padding: 4px 8px; border-radius: 4px; }
+  .show-toggle:hover { background: var(--tint); }
+
+  .dob { display: grid; grid-template-columns: 60px 60px 82px; gap: 10px; }
+  .dob .field input { text-align: center; padding: 9px 8px; font-size: 14px; }
+  .dob .field label { font-size: 13px; color: var(--muted); font-weight: 500; margin-bottom: 4px; }
+
+  /* Progress */
+  .progress { height: 8px; border-radius: 999px; background: var(--royal-tint); overflow: hidden; max-width: 380px; }
+  .progress > div { height: 100%; width: 62%; border-radius: 999px; background: var(--royal); }
+  .steps { font-size: 13px; color: var(--muted); margin-top: 8px; }
+  .steps b { color: var(--royal-text); font-weight: 600; }
+
+  /* Option cards */
+  .choices { display: flex; flex-direction: column; gap: 10px; max-width: 460px; }
+  .choice { display: flex; gap: 8px; padding: 12px 16px; border-radius: 6px; cursor: pointer;
+    background: #fff; box-shadow: 0 0 0 1px var(--border); transition: box-shadow 150ms, background 150ms; }
+  .choice:hover { box-shadow: 0 0 0 1px var(--primary); }
+  .choice.selected { background: var(--tint); box-shadow: 0 0 0 1px var(--primary); }
+  .choice .ind { width: 18px; height: 18px; border-radius: 999px; background: var(--g1);
+    box-shadow: inset 0 0 0 1px var(--border); display: grid; place-content: center; flex-shrink: 0; margin-top: 2px; }
+  .choice.selected .ind { background: var(--primary); box-shadow: none; }
+  .choice.selected .ind::after { content: ''; width: 7px; height: 7px; border-radius: 999px; background: #fff; }
+  .choice.is-checkbox .ind, .choice.is-checkbox.selected .ind { width: 16px; height: 16px; border-radius: 4px; }
+  .choice.is-checkbox.selected .ind { background: var(--primary); }
+  .choice.is-checkbox.selected .ind::after { width: 10px; height: 10px; border-radius: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/contain no-repeat; }
+  .choice .title { font-size: 15px; font-weight: 600; line-height: 1.4; color: var(--ink); }
+  .choice .desc { font-size: 14px; font-weight: 400; color: var(--muted); line-height: 1.4; }
+  .choice.selected .title { color: var(--primary-dark); }
+  .choice.selected .desc { color: color-mix(in srgb, var(--primary) 65%, #6B7280); }
+
+  .segmented { display: inline-flex; background: var(--g4); padding: 3px; border-radius: 999px; gap: 2px; }
+  .segmented button { height: 34px; padding: 0 18px; border: none; background: transparent; font: inherit;
+    font-size: 15px; font-weight: 500; color: var(--muted); border-radius: 999px; cursor: pointer; }
+  .segmented button.on { background: #fff; color: var(--primary); box-shadow: 0 1px 2px rgba(59,22,131,0.10); font-weight: 600; }
+
+  /* Upload */
+  .dropzone { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px;
+    padding: 20px 24px; max-width: 460px; cursor: pointer; background: var(--g1); border-radius: 6px;
+    border: 2px dashed rgba(76,30,168,0.35); transition: background 150ms, border-color 150ms; }
+  .dropzone:hover { background: var(--tint); border-color: var(--primary); }
+  .dz-btn { font-size: 14px; font-weight: 500; color: var(--primary); background: #fff;
+    border: 1px solid var(--border); border-radius: 10px; padding: 8px 16px; cursor: pointer; font-family: inherit; }
+  .dz-desc { font-size: 13px; color: var(--muted); }
+  .file-row { display: flex; align-items: center; gap: 8px; max-width: 460px; margin-top: 10px;
+    padding: 10px 12px; background: #fff; border-radius: 6px; border: 1px solid var(--hairline); font-size: 14px; }
+  .file-row .f-ic { width: 32px; height: 32px; border-radius: 6px; background: var(--tint);
+    color: var(--primary); display: grid; place-items: center; flex-shrink: 0; }
+  .file-row .f-name { font-weight: 500; color: var(--ink); line-height: 1.3; }
+  .file-row .f-meta { font-size: 13px; color: var(--muted); }
+  .file-row .f-status { margin-left: auto; display: flex; align-items: center; gap: 5px; color: var(--green-t); font-size: 13px; font-weight: 500; }
+  .file-row .f-status i { color: var(--green-v); }
+  .file-row .f-remove { border: none; background: none; color: var(--muted); cursor: pointer; font-size: 15px; padding: 4px; }
+
+  /* Multi-step */
+  .step-back { display: inline-flex; align-items: center; gap: 4px; font-size: 14px; font-weight: 500;
+    color: var(--muted); background: none; border: none; cursor: pointer; padding: 0; margin-bottom: 10px; font-family: inherit; }
+  .step-label { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+  .step-label b { color: var(--royal-text); font-weight: 600; }
+  .step-title { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 4px; color: var(--ink); }
+  .form-nav { display: flex; align-items: center; gap: 12px; max-width: 460px; margin-top: 20px;
+    padding-top: 16px; border-top: 1px solid var(--divider); }
+  .form-nav .spacer { flex: 1; }
+  .save-later { font-size: 13px; font-weight: 500; color: var(--royal-text); background: none; border: none;
+    cursor: pointer; text-decoration: underline; text-underline-offset: 3px; padding: 0; font-family: inherit; }
+
+  /* Review */
+  .review-tile { background: #fff; border: 1px solid var(--hairline); border-radius: 6px;
+    overflow: hidden; max-width: 460px; margin-bottom: 10px; }
+  .review-tile .head { display: flex; align-items: baseline; justify-content: space-between;
+    background: var(--g1); border-bottom: 1px solid var(--divider); padding: 11px 16px 9px; }
+  .review-tile .head h4 { font-size: 15px; font-weight: 600; color: var(--ink); }
+  .review-tile .head a { font-size: 13px; font-weight: 500; color: var(--royal-text); text-decoration: underline; text-underline-offset: 3px; }
+  .review-tile p { margin: 0 0 4px; padding: 0 16px; font-size: 14px; line-height: 1.5; }
+  .review-tile p:first-of-type { padding-top: 11px; }
+  .review-tile p:last-child { margin-bottom: 0; padding-bottom: 13px; }
+  .review-tile .k { color: var(--muted); }
+  .review-tile .v { color: var(--text); font-weight: 500; }
+  .review-tile .v.missing { color: var(--red-t); }
+
+  /* Success / loading / empty */
+  .center-card { max-width: 460px; text-align: center; background: #fff; border: 1px solid var(--hairline);
+    border-radius: 8px; padding: 24px 16px; }
+  .s-ic { width: 36px; height: 36px; border-radius: 999px; background: var(--green-v); color: #fff;
+    display: grid; place-content: center; font-size: 17px; margin: 0 auto 8px; }
+  .center-card h3 { font-size: 16px; font-weight: 600; color: var(--ink); }
+  .center-card p { font-size: 14px; margin: 3px 0 0; color: var(--muted); line-height: 1.4; }
+  .ref-box { max-width: 460px; margin-top: 10px; background: #fff; border: 1px solid var(--hairline);
+    border-radius: 6px; padding: 12px 16px; display: flex; align-items: center; gap: 12px; }
+  .ref-box .r-label { font-size: 13px; color: var(--muted); }
+  .ref-box .r-num { font-size: 15px; font-weight: 600; color: var(--ink); }
+  .ref-box .r-copy { margin-left: auto; font-size: 13px; font-weight: 500; color: var(--primary);
+    background: var(--tint); border: none; border-radius: 10px; padding: 7px 14px; cursor: pointer; font-family: inherit; }
+  .spinner { width: 28px; height: 28px; margin: 0 auto 10px; border-radius: 999px;
+    border: 3px solid var(--tint); border-top-color: var(--primary); animation: spin 0.9s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .e-ic { width: 40px; height: 40px; border-radius: 999px; background: var(--tint); color: var(--primary);
+    display: grid; place-content: center; font-size: 19px; margin: 0 auto 8px; }
+  .center-card .btn { margin-top: 12px; }
+  .skeleton { max-width: 460px; margin-top: 12px; }
+  .sk-row { height: 14px; border-radius: 999px; background: var(--g4); margin-bottom: 10px; animation: pulse 1.4s ease-in-out infinite; }
+  .sk-row:nth-child(2) { width: 82%; animation-delay: 0.15s; }
+  .sk-row:nth-child(3) { width: 64%; animation-delay: 0.3s; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+
+  /* Alerts / notification cards */
+  .alerts { display: flex; flex-direction: column; gap: 10px; max-width: 460px; }
+  .alert { display: grid; grid-template-columns: 18px 1fr; gap: 8px; padding: 11px 14px; border-radius: 6px;
+    border: 1px solid; font-size: 13px; line-height: 1.45; }
+  .alert .t { font-weight: 600; font-size: 14px; }
+  .alert .d { font-weight: 400; color: color-mix(in srgb, currentColor 78%, #6B7280); }
+  .alert.info    { background: var(--royal-tint); border-color: var(--info-line); color: var(--royal-text); }
+  .alert.success { background: var(--green-bg); border-color: var(--green-line); color: var(--green-t); }
+  .alert.warning { background: var(--amber-bg); border-color: var(--amber-line); color: var(--amber-t); }
+  .alert.destr   { background: var(--red-bg); border-color: var(--red-line); color: var(--red-t); }
+  .alert i { font-size: 18px; margin-top: 1px; }
+  .alert.success i { color: var(--green-v); }
+  .alert.warning i { color: #A16207; }
+  .alert.destr i { color: var(--red-v); }
+  .alert.compact { padding: 8px 12px; font-size: 13px; gap: 7px; grid-template-columns: 17px 1fr; }
+  .alert.compact .t { font-size: 14px; }
+  .alert.compact.destr { background: var(--red-soft); border-color: #F2D8D8; }
+  .alert.compact i { font-size: 15px; }
+
+  /* Badges */
+  .badge-pill { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 500;
+    padding: 3px 10px; border-radius: 999px; line-height: 1.5; white-space: nowrap; }
+  .badge-pill .dot { width: 6px; height: 6px; border-radius: 999px; }
+  .badge-pill.neutral { background: var(--g4); color: #52525E; }
+  .badge-pill.outline { background: #fff; color: var(--muted); box-shadow: inset 0 0 0 1px var(--border); }
+  .badge-pill.brand   { background: var(--tint); color: var(--primary); }
+  .badge-pill.info    { background: #F4F5FE; color: var(--royal-text); box-shadow: inset 0 0 0 1px #DDE2FD; }
+  .badge-pill.info .dot { background: var(--royal); }
+  .badge-pill.success { background: #F0FAF4; color: var(--green-t); box-shadow: inset 0 0 0 1px #D6EBDD; }
+  .badge-pill.success .dot { background: var(--green-v); }
+  .badge-pill.warning { background: #FFFBE6; color: var(--amber-t); box-shadow: inset 0 0 0 1px #F0E2A8; }
+  .badge-pill.warning .dot { background: var(--amber-v); }
+  .badge-pill.danger  { background: #FEF5F5; color: var(--red-t); box-shadow: inset 0 0 0 1px #F3D6D6; }
+  .badge-pill.danger .dot { background: var(--red-v); }
+
+  /* Panels: header zone + checklist + transcript */
+  .panel { background: #fff; border: 1px solid var(--hairline); border-radius: 8px; overflow: hidden; max-width: 480px; }
+  .p-head { display: flex; align-items: baseline; gap: 7px; padding: 14px 18px 0; font-size: 15px;
+    font-weight: 600; letter-spacing: -0.005em; color: var(--ink); background: var(--g1); }
+  .p-head i { font-size: 15px; color: var(--primary); align-self: center; }
+  .p-head .p-action { margin-left: auto; font-size: 12.5px; font-weight: 500; color: var(--primary);
+    background: none; border: none; cursor: pointer; font-family: inherit; }
+  .p-headsub { padding: 1px 18px 12px; font-size: 12.5px; color: var(--muted); background: var(--g1);
+    border-bottom: 1px solid var(--divider); }
+  .p-head.band { padding: 8px 18px; background: var(--inkbar); color: #fff; font-size: 11.5px;
+    font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; align-items: center; }
+  .p-head.band .live { width: 7px; height: 7px; border-radius: 999px; background: #3DD68C; }
+  .p-head.band .p-meta { margin-left: auto; font-size: 11px; color: var(--onink-subtle); font-weight: 400; }
+  .p-sub { padding: 12px 18px 5px; font-size: 10.5px; font-weight: 500; letter-spacing: 0.07em;
+    text-transform: uppercase; color: var(--muted); }
+  .check-row { display: flex; gap: 10px; align-items: flex-start; padding: 12px 18px; font-size: 13px; cursor: pointer; }
+  .check-row + .check-row { border-top: 1px solid var(--divider); }
+  .check-row:hover { background: var(--g2); }
+  .cbox { width: 16px; height: 16px; border-radius: 4px; background: var(--g1); box-shadow: inset 0 0 0 1px var(--border);
+    flex-shrink: 0; margin-top: 1px; display: grid; place-content: center; }
+  .done .cbox { background: var(--green-v); box-shadow: none; color: #fff; font-size: 11px; font-weight: 700; }
+  .done .cbox::before { content: '✓'; }
+  .done .cbox i { display: none; }
+  .done .txt { color: var(--muted); text-decoration: line-through; }
+  .num { width: 19px; height: 19px; border-radius: 999px; background: var(--royal-mid); color: var(--royal-text);
+    font-size: 11px; font-weight: 600; display: grid; place-content: center; flex-shrink: 0; margin-top: 1px; }
+
+  .t-msg { padding: 12px 18px 13px; }
+  .t-msg + .t-msg { border-top: 1px solid var(--divider); }
+  .speaker { font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); }
+  .speaker.worker { color: var(--primary); }
+  .speaker .time { font-weight: 400; letter-spacing: 0.01em; text-transform: none; color: var(--subtle); margin-left: 6px; }
+  .t-msg p { margin: 3px 0 0; font-size: 13px; line-height: 1.5; }
+  .t-msg.flagged { background: var(--amber-bg); border-radius: 6px; margin: 3px 8px; padding: 10px 12px 11px;
+    border-top: none !important; box-shadow: inset 0 0 0 1px var(--amber-line); }
+  .t-msg.flagged + .t-msg { border-top: none; }
+  .flag-note { display: flex; align-items: center; gap: 6px; margin-top: 8px; padding: 6px 10px;
+    background: #FAE27E; border-radius: 6px; font-size: 12.5px; font-weight: 500; color: var(--amber-t); }
+  .flag-note i { font-size: 15px; color: #A16207; }
+  .flag-note button { margin-left: auto; font-size: 12.5px; font-weight: 500; color: var(--primary);
+    background: none; border: none; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; font-family: inherit; }
+
+  /* Data table */
+  .dtable { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .dtable th { text-align: left; font-size: 10.5px; font-weight: 500; letter-spacing: 0.07em;
+    text-transform: uppercase; color: var(--muted); padding: 10px 18px 6px; }
+  .dtable td { padding: 11px 18px; border-top: 1px solid var(--divider); color: var(--text); }
+  .dtable tbody tr:hover td { background: var(--g2); }
+  .dtable td.r, .dtable th.r { text-align: right; font-variant-numeric: tabular-nums; }
+  .dtable .name { font-weight: 500; color: var(--ink); }
+  .dtable .subid { color: var(--muted); font-size: 12px; }
+
+  /* Activity list */
+  .act-row { display: flex; gap: 10px; align-items: center; padding: 15px 0; border-bottom: 1px solid var(--divider); font-size: 13px; }
+  .act-row:last-child { border-bottom: none; }
+  .avatar { width: 28px; height: 28px; border-radius: 999px; background: var(--royal-mid); color: var(--royal-text);
+    font-size: 11px; font-weight: 600; display: grid; place-content: center; flex-shrink: 0; }
+  .act-row .when { margin-left: auto; font-size: 12px; color: var(--subtle); white-space: nowrap; }
+
+  /* Dark header */
+  .inkhead { background: var(--inkbar); border-radius: 8px; padding: 12px 16px; display: flex; align-items: center; gap: 12px; }
+  .inkhead .logo { width: 24px; height: 24px; border-radius: 6px; background: var(--primary); display: grid;
+    place-content: center; color: #fff; font-size: 13px; }
+  .inkhead .nm { font-size: 14px; font-weight: 600; color: #fff; }
+  .inkhead .rl { font-size: 13px; color: var(--onink-subtle); }
+  .inkhead .nav { margin-left: auto; display: flex; gap: 18px; align-items: center; }
+  .inkhead .nav .ghost { margin-left: 6px; }
+  .inkhead .nav span { font-size: 13px; color: var(--onink-muted); }
+  .inkhead .nav span.on { color: #fff; font-weight: 500; }
+  .inkhead .ghost { font-size: 13px; font-weight: 500; color: #fff; background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25); border-radius: 10px; padding: 6px 14px; cursor: pointer; font-family: inherit; }
+
+  /* Mobile nav */
+  .phone-frame { max-width: 390px; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; background: var(--page); }
+  .phone-frame .screen { height: 110px; display: grid; place-content: center; color: var(--subtle); font-size: 14px; }
+  .bottom-nav { display: grid; grid-template-columns: repeat(4, 1fr); background: #fff;
+    border-top: 1px solid var(--hairline); padding: 6px 8px 20px; }
+  .bottom-nav a { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 8px 4px;
+    min-height: 48px; text-decoration: none; font-size: 11px; font-weight: 500; color: var(--muted); position: relative; }
+  .bottom-nav a i { font-size: 21px; }
+  .bottom-nav a.active { color: var(--primary); }
+  .nbadge { position: absolute; top: 4px; right: calc(50% - 18px); min-width: 16px; height: 16px;
+    border-radius: 999px; background: var(--red-v); color: #fff; font-size: 10px; font-weight: 600;
+    display: grid; place-content: center; padding: 0 4px; }
+
+  /* Type specimen rows */
+  .trow { display: flex; align-items: baseline; gap: 14px; padding: 6px 0; }
+  .trow .tm { font-size: 12px; color: var(--muted); min-width: 90px; }
+
+  /* Swatches */
+  .swatches { display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 10px; }
+  .sw { border: 1px solid var(--hairline); border-radius: 8px; overflow: hidden; background: #fff; }
+  .sw .c { height: 44px; }
+  .sw .m { padding: 8px 10px; font-size: 11.5px; color: var(--muted); }
+  .sw .m b { display: block; font-size: 12.5px; color: var(--ink); font-weight: 500; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div>
+    <h1>Hearth — the HT Design System</h1>
+    <p class="pagesub">Component kit · CIVIC provides the structure, Hearth provides the warmth · themes: Healthy Together, Atlas</p>
+  </div>
+
+  <div class="kit">
+    <div class="khead"><h2>Palette</h2><p class="ksub">Brand, greys, and vivid status accents</p></div>
+    <div class="kbody">
+      <div class="swatches">
+        <div class="sw"><div class="c" style="background:#4C1EA8"></div><div class="m"><b>Violet primary</b>#4C1EA8</div></div>
+        <div class="sw"><div class="c" style="background:#4860FC"></div><div class="m"><b>Royal secondary</b>#4860FC</div></div>
+        <div class="sw"><div class="c" style="background:#2C3ECF"></div><div class="m"><b>Accent text</b>#2C3ECF</div></div>
+        <div class="sw"><div class="c" style="background:#F2ECFD"></div><div class="m"><b>Violet tint</b>#F2ECFD</div></div>
+        <div class="sw"><div class="c" style="background:#EEF0FE"></div><div class="m"><b>Royal tint</b>#EEF0FE</div></div>
+        <div class="sw"><div class="c" style="background:#F8F7FC"></div><div class="m"><b>Page</b>#F8F7FC</div></div>
+        <div class="sw"><div class="c" style="background:#16A34A"></div><div class="m"><b>Green vivid</b>#16A34A</div></div>
+        <div class="sw"><div class="c" style="background:#F59E0B"></div><div class="m"><b>Amber vivid</b>#F59E0B</div></div>
+        <div class="sw"><div class="c" style="background:#DC2626"></div><div class="m"><b>Red vivid</b>#DC2626</div></div>
+      </div>
+      <p class="hint">Vivid steps color dots, icons, and checks. Text on white always uses the darker AA steps.</p>
+    </div>
+  </div>
+
+  <div class="kit">
+    <div class="khead"><h2>Typography</h2><p class="ksub">Geist everywhere · 400 / 500 / 600 only</p></div>
+    <div class="kbody">
+      <div class="trow"><span class="tm">28 / 600</span><span style="font-size:28px; font-weight:600; letter-spacing:-0.015em; color:var(--ink)">Dashboard greeting</span></div>
+      <div class="trow"><span class="tm">22 / 500</span><span style="font-size:22px; font-weight:500; letter-spacing:-0.005em; color:var(--ink)">Hero on dark (optical)</span></div>
+      <div class="trow"><span class="tm">20 / 600</span><span style="font-size:20px; font-weight:600; letter-spacing:-0.01em; color:var(--ink)">Page / step title</span></div>
+      <div class="trow"><span class="tm">15 / 600</span><span style="font-size:15px; font-weight:600; color:var(--ink)">Card headline</span></div>
+      <div class="trow"><span class="tm">15 / 500</span><span style="font-size:15px; font-weight:500; color:var(--ink)">Label / button</span></div>
+      <div class="trow"><span class="tm">14 / 400</span><span style="font-size:14px;">Body and subcopy text</span></div>
+      <div class="trow"><span class="tm">12.5 / 400</span><span style="font-size:12.5px; color:var(--muted)">Card subtitle / hint</span></div>
+      <div class="trow"><span class="tm">10.5 / 500</span><span style="font-size:10.5px; font-weight:500; letter-spacing:0.07em; color:var(--muted)">SUB-SECTION CAPS (INSIDE CARDS ONLY)</span></div>
+    </div>
+  </div>
+
+  <div class="kit">
+    <div class="khead"><h2>Hero</h2><p class="ksub">Violet→royal gradient · 500-weight headline on dark</p></div>
+    <div class="kbody">
+      <div class="hero">
+        <h3>Welcome back, Maria</h3>
+        <p>Your next appointment is Tuesday, July 28 at 10:30 AM.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="kit">
+    <div class="khead"><h2>Buttons &amp; navigation</h2><p class="ksub">Medium weight, never semibold · one primary per view</p></div>
+    <div class="kbody">
+      <div class="row" style="margin-bottom:16px">
+        <button class="btn primary">Book appointment</button>
+        <button class="btn secondary">View details</button>
+        <button class="btn tintbtn">Save for later</button>
+        <a class="link" href="#">Learn what's covered</a>
+      </div>
+      <div class="row">
+        <span class="pill active">Home</span>
+        <span class="pill">Appointments</span>
+        <span class="pill">Benefits</span>
+        <span class="pill">Messages</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="kit">
+    <div class="khead"><h2>Metric cards</h2><p class="ksub">Spacious mode — the glance layer</p></div>
+    <div class="kbody">
+      <div class="stats">
+        <div class="stat"><div class="n">8</div><div class="l">Pending review</div></div>
+        <div class="stat warn"><div class="n">3</div><div class="l">Waiting on documents</div></div>
+        <div class="stat"><div class="n">21 <span class="up">▲ 4</span></div><div class="l">Completed this week</div></div>
+      </div>
+      <p class="hint">Tiered — spacious 26px is for primary dashboards. Low-priority stat strips use <code>.mini</code>:</p>
+      <div class="stats mini" style="margin-top:10px">
+        <div class="stat"><div class="n">24</div><div class="l">Total interviews</div></div>
+        <div class="stat"><div class="n">~12 min</div><div class="l">Avg duration</div></div>
+        <div class="stat"><div class="n">792 min</div><div class="l">Caseworker time saved</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kit">
+    <div class="khead"><h2>Announcement bar &amp; highlight card</h2><p class="ksub">Violet tint + stroke — for promoting and announcing only</p></div>
+    <div class="kbody">
+      <div class="announce" style="margin-bottom:16px">
+        <span class="a-ic"><i class="ti ti-speakerphone" aria-hidden="true"></i></span>
+        <p>New: excess shelter deductions are now flagged automatically.</p>
+        <button>See how it works</button>
+      </div>
+      <div class="entry-card" style="margin-bottom:16px">
+        <span class="e-circle"><i class="ti ti-refresh" aria-hidden="true"></i></span>
+        <span><span class="e-title">Recertification</span><br><span class="e-sub">Your certification ends July 12, 2026</span></span>
+        <span class="e-arr" aria-hidden="true">→</span>
+      </div>
+      <div class="hl-card">
+        <div class="hl-title"><i class="ti ti-wand" aria-hidden="true" style="font-size:15px"></i>What's new</div>
+        <div class="hl-item">Auto shelter flags<span class="arr" aria-hidden="true">→</span></div>
+        <div class="hl-item">Interview summaries<span class="arr" aria-hidden="true">→</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kit">
+    <div class="khead"><h2>Form fields</h2><p class="ksub">6px radius, violet focus · label 6px above, hint 8px below</p></div>
+    <div class="kbody">
+      <div class="field" style="margin-bottom:20px">
+        <label>Date of birth</label>
+        <input type="text" placeholder="MM/DD/YYYY">
+        <p class="hint" style="margin-top:8px">We use this to check which programs you qualify for.</p>
+      </div>
+      <div class="field" style="margin-bottom:20px">
+        <label>Preferred language</label>
+        <div class="select">
+          <select><option>English</option><option>Español</option><option>Tiếng Việt</option></select>
+        </div>
+      </div>
+      <div class="progress"><div></div></div>
+      <p class="steps"><b>Step 3 of 5</b> — royal on royal-tint track</p>
+    </div>
+  </div>
+
+  <div class="kit">
+    <div class="khead"><h2>Option cards</h2><p class="ksub">Radio + checkbox · 6px radius, 1px selected stroke, 8px gap</p></div>
+    <div class="kbody">
+      <div class="choices" style="margin-bottom:14px">
+        <label class="choice selected"><span class="ind"></span><span><span class="title">Text message</span><div class="desc">We'll text this number: (406) 555-0134</div></span></label>
+        <label class="choice"><span class="ind"></span><span><span class="title">Email</span><div class="desc">Best if you check email often</div></span></label>
+      </div>
+      <div class="choices" style="margin-bottom:14px">
+        <label class="choice is-checkbox selected"><span class="ind"></span><span><span class="title">Food assistance</span></span></label>
+        <label class="choice is-checkbox"><span class="ind"></span><span><span class="title">Housing support</span></span></label>
+      </div>
+      <div class="segmented">
+        <button class="on">✓ Yes</button>
+        <button>No</button>
+        <button>Unsure</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="kit">
+    <div class="khead"><h2>DOB capture &amp; masked inputs</h2><p class="ksub">Three-field gov pattern · auto-format phone · SSN show/hide</p></div>
+    <div class="kbody">
+      <div class="dob" style="margin-bottom:20px">
+        <div class="field"><label>Month</label><input type="text" inputmode="numeric" placeholder="MM" maxlength="2"></div>
+        <div class="field"><label>Day</label><input type="text" inputmode="numeric" placeholder="DD" maxlength="2"></div>
+        <div class="field"><label>Year</label><input type="text" inputmode="numeric" placeholder="YYYY" maxlength="4"></div>
+      </div>
+      <div class="field" style="margin-bottom:20px">
+        <label>Phone number</label>
+        <div class="input-wrap">
+          <input type="tel" inputmode="numeric" placeholder="(406) 555-0134" maxlength="14"
+            oninput="let d=this.value.replace(/\D/g,'').slice(0,10);this.value=d.length>6?`(${d.slice(0,3)}) ${d.slice(3,6)}-${d.slice(6)}`:d.length>3?`(${d.slice(0,3)}) ${d.slice(3)}`:d;">
+        </div>
+      </div>
+      <div class="field">
+        <label>Social Security number</label>
+        <div class="input-wrap">
+          <input type="password" inputmode="numeric" placeholder="•••-••-••••" maxlength="11" autocomplete="off"
+            oninput="let d=this.value.replace(/\D/g,'').slice(0,9);this.value=d.length>5?`${d.slice(0,3)}-${d.slice(3,5)}-${d.slice(5)}`:d.length>3?`${d.slice(0,3)}-${d.slice(3)}`:d;">
+          <button class="show-toggle" type="button"
+            onclick="const i=this.previousElementSibling;i.type=i.type==='password'?'text':'password';this.textContent=i.type==='password'?'Show':'Hide';">Show</button>
+        </div>
+        <p class="hint">We need this to check your eligibility. It's encrypted and never shown to staff.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="kit">
+    <div class="khead"><h2>Text area &amp; errors</h2><p class="ksub">Live counter · fix-it error copy</p></div>
+    <div class="kbody">
+      <div class="field" style="margin-bottom:20px">
+        <label>Anything else we should know?</label>
+        <p class="hint" style="margin:-3px 0 8px">Optional. For example: you're moving soon.</p>
+        <textarea placeholder="Type your answer here" maxlength="500" oninput="this.nextElementSibling.textContent=(500-this.value.length)+' characters left'"></textarea>
+        <p class="char-count">500 characters left</p>
+      </div>
+      <div class="field">
+        <label>Phone number</label>
+        <input type="text" class="invalid" value="406-555" aria-invalid="true" aria-describedby="perr">
+        <p class="error-msg" id="perr">Enter all 10 digits, like (406) 555-0134.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="kit">
+    <div class="khead"><h2>File upload</h2><p class="ksub">Choose file only · vivid green uploaded state</p></div>
+    <div class="kbody">
+      <div class="dropzone">
+        <button class="dz-btn" type="button">Choose file</button>
+        <div class="dz-desc">PDF, JPG, or PNG · up to 10 MB</div>
+      </div>
+      <div class="file-row">
+        <div class="f-ic"><i class="ti ti-file" aria-hidden="true"></i></div>
+        <div><div class="f-name">water-bill-june.jpg</div><div class="f-meta">1.2 MB</div></div>
+        <div class="f-status"><span style="color:var(--green-v); font-weight:700;">✓</span>Uploaded</div>
+        <button class="f-remove" type="button" aria-label="Remove file">✕</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="kit">
+    <div class="khead"><h2>Multi-step navigation</h2><p class="ksub">Back link · step label · footer controls</p></div>
+    <div class="kbody">
+      <button class="step-back" type="button"><i class="ti ti-arrow-left" aria-hidden="true" style="font-size:14px"></i> Back</button>
+      <div class="step-label"><b>Step 3 of 5</b> · About your household</div>
+      <div class="progress" style="margin-bottom:14px"><div style="width:60%"></div></div>
+      <div class="step-title">Who lives with you?</div>
+      <p class="hint" style="margin:0">Include everyone who shares meals or bills with you, even if they're not applying.</p>
+      <div class="form-nav">
+        <button class="btn secondary">Back</button>
+        <span class="spacer"></span>
+        <button class="save-later" type="button">Save and finish later</button>
+        <button class="btn primary">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="kit">
+    <div class="khead"><h2>Review your answers</h2><p class="ksub">Colon format · missing items flagged</p></div>
+    <div class="kbody">
+      <div class="review-tile">
+        <div class="head"><h4>About you</h4><a href="#">Edit</a></div>
+        <p><span class="k">Name:</span> <span class="v">Maria Alvarez</span></p>
+        <p><span class="k">Date of birth:</span> <span class="v">March 28, 1986</span></p>
+      </div>
+      <div class="review-tile" style="margin-bottom:0">
+        <div class="head"><h4>Documents</h4><a href="#">Edit</a></div>
+        <p><span class="k">Proof of address:</span> <span class="v">water-bill-june.jpg</span></p>
+        <p><span class="k">Proof of income:</span> <span class="v missing">Not added yet</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="kit">
+    <div class="khead"><h2>Success, loading &amp; empty states</h2><p class="ksub">Centered white cards · vivid check · invitation copy</p></div>
+    <div class="kbody">
+      <div class="center-card" style="margin-bottom:12px">
+        <div class="s-ic" style="font-weight:700;">✓</div>
+        <h3>Application submitted</h3>
+        <p>We sent a copy to your email.<br>You don't need to do anything else today.</p>
+      </div>
+      <div class="ref-box" style="margin-bottom:16px">
+        <span class="r-label">Reference number</span>
+        <span class="r-num">HT-2026-48211</span>
+        <button class="r-copy" type="button">Copy</button>
+      </div>
+      <div class="center-card" style="margin-bottom:12px">
+        <div class="spinner" role="status" aria-label="Loading"></div>
+        <h3 style="font-size:15px">Checking what you qualify for</h3>
+        <p>This takes about 10 seconds. Don't close the app.</p>
+      </div>
+      <div class="skeleton" aria-hidden="true" style="margin-bottom:16px">
+        <div class="sk-row"></div><div class="sk-row"></div><div class="sk-row"></div>
+      </div>
+      <div class="center-card">
+        <div class="e-ic"><i class="ti ti-calendar" aria-hidden="true"></i></div>
+        <h3 style="font-size:15px">No appointments yet</h3>
+        <p>When you book one, it will show up here with reminders.</p>
+        <button class="btn primary">Book appointment</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="kit">
+    <div class="khead"><h2>Notification cards</h2><p class="ksub">Vivid icons, AA text, outlined · compact variant for admin</p></div>
+    <div class="kbody">
+      <div class="alerts" style="margin-bottom:14px">
+        <div class="alert info"><i class="ti ti-info-circle" aria-hidden="true"></i><span><span class="t">Your renewal is coming up</span><br><span class="d">Renew by August 15 to keep your coverage.</span></span></div>
+        <div class="alert success"><i class="ti ti-circle-check" aria-hidden="true"></i><span><span class="t">Application submitted</span><br><span class="d">We'll send you a message within 3 business days.</span></span></div>
+        <div class="alert warning"><i class="ti ti-alert-triangle" aria-hidden="true"></i><span><span class="t">One document still needed</span><br><span class="d">Upload proof of address to finish your application.</span></span></div>
+        <div class="alert destr"><i class="ti ti-circle-x" aria-hidden="true"></i><span><span class="t">We couldn't verify your ID</span><br><span class="d">Check that your name matches your ID, then try again.</span></span></div>
+      </div>
+      <div class="alerts">
+        <div class="alert compact destr"><i class="ti ti-circle-x" aria-hidden="true"></i><span><span class="t">Over income limit</span><br><span class="d">Gross $4,000/mo vs. $3,380/mo threshold. Preliminary only.</span></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kit">
+    <div class="khead"><h2>Badges</h2><p class="ksub">Dot pills = statuses (outlined, vivid dots) · plain pills = tags</p></div>
+    <div class="kbody">
+      <div class="row" style="margin-bottom:14px">
+        <span class="badge-pill success"><span class="dot"></span>Approved</span>
+        <span class="badge-pill warning"><span class="dot"></span>Pending review</span>
+        <span class="badge-pill danger"><span class="dot"></span>Over income limit</span>
+        <span class="badge-pill info"><span class="dot"></span>In progress</span>
+      </div>
+      <div class="row">
+        <span class="badge-pill brand">High relevance</span>
+        <span class="badge-pill neutral">Standard</span>
+        <span class="badge-pill outline">60+ / Disabled</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="kit">
+    <div class="khead"><h2>Panel with checklist</h2><p class="ksub">Cake header zone · numbered questions vs. checkbox documents</p></div>
+    <div class="kbody">
+      <div class="panel">
+        <div class="p-head"><i class="ti ti-clipboard-list" aria-hidden="true"></i>Action items<button class="p-action">Copy all</button></div>
+        <div class="p-headsub">2 questions · 2 documents remaining</div>
+        <div class="p-sub">Follow-up questions</div>
+        <div class="check-row"><span class="num">1</span><span class="txt">Elderly household members but no medical expenses — confirm out-of-pocket costs.</span></div>
+        <div class="check-row"><span class="num">2</span><span class="txt">Carol's income is commission-based — request 30 days of pay stubs.</span></div>
+        <div class="p-sub" style="border-top:1px solid var(--divider)">Documents to request</div>
+        <div class="check-row done"><span class="cbox"><i class="ti ti-check" aria-hidden="true"></i></span><span class="txt">Government-issued photo ID</span></div>
+        <div class="check-row"><span class="cbox"></span><span class="txt">Mortgage statement</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kit">
+    <div class="khead"><h2>Live transcript</h2><p class="ksub">The one ink band per screen · flagged rows with outlined amber inset</p></div>
+    <div class="kbody">
+      <div class="panel">
+        <div class="p-head band"><span class="live"></span>Live transcript<span class="p-meta">73 MESSAGES</span></div>
+        <div class="t-msg">
+          <div class="speaker worker">Caseworker<span class="time">1:53 PM</span></div>
+          <p>And what do you pay in rent or mortgage each month?</p>
+        </div>
+        <div class="t-msg flagged">
+          <div class="speaker">Applicant<span class="time">1:55 PM</span></div>
+          <p>It's about $2,350 all in — mortgage, taxes, insurance.</p>
+          <div class="flag-note"><i class="ti ti-alert-triangle" aria-hidden="true"></i>High shelter costs — check deduction<button type="button">Add note</button></div>
+        </div>
+        <div class="t-msg">
+          <div class="speaker worker">Caseworker<span class="time">1:56 PM</span></div>
+          <p>Thanks — that may qualify you for a deduction.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kit">
+    <div class="khead"><h2>Data table</h2><p class="ksub">Hairline rows · hover tint · dot-pill statuses</p></div>
+    <div class="kbody" style="padding:0">
+      <table class="dtable">
+        <thead><tr><th>Resident</th><th>Status</th><th>Assigned</th><th class="r">Updated</th></tr></thead>
+        <tbody>
+          <tr><td><span class="name">Bob Stoops</span><br><span class="subid">2026-499-929</span></td><td><span class="badge-pill warning"><span class="dot"></span>Pending review</span></td><td>J. Chen</td><td class="r">2:04 PM</td></tr>
+          <tr><td><span class="name">Maria Alvarez</span><br><span class="subid">2026-499-871</span></td><td><span class="badge-pill info"><span class="dot"></span>In progress</span></td><td>J. Chen</td><td class="r">1:38 PM</td></tr>
+          <tr><td><span class="name">Sam Ortiz</span><br><span class="subid">2026-499-702</span></td><td><span class="badge-pill success"><span class="dot"></span>Approved</span></td><td>R. Patel</td><td class="r">11:20 AM</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="kit">
+    <div class="khead"><h2>Activity list</h2><p class="ksub">Avatars · 15px row padding · quiet timestamps</p></div>
+    <div class="kbody" style="padding-top:4px">
+      <div class="act-row"><span class="avatar">BS</span><span><b style="font-weight:500">Bob Stoops</b> — interview completed</span><span class="when">2:04 PM</span></div>
+      <div class="act-row"><span class="avatar">MA</span><span><b style="font-weight:500">Maria Alvarez</b> — uploaded proof of address</span><span class="when">1:38 PM</span></div>
+      <div class="act-row"><span class="avatar">SO</span><span><b style="font-weight:500">Sam Ortiz</b> — approved, notice sent</span><span class="when">11:20 AM</span></div>
+    </div>
+  </div>
+
+  <div class="kit">
+    <div class="khead"><h2>Admin dark header</h2><p class="ksub">Violet ink · admin app only · ghost buttons, never violet-on-ink</p></div>
+    <div class="kbody">
+      <div class="inkhead">
+        <span class="logo"><i class="ti ti-heart" aria-hidden="true"></i></span>
+        <span class="nm">Healthy Together</span>
+        <span class="rl">Caseworker</span>
+        <span class="nav"><span class="on">Queue</span><span>Residents</span><span>Reports</span></span>
+        <button class="ghost">Send invite</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="kit">
+    <div class="khead"><h2>Mobile bottom nav</h2><p class="ksub">48px targets · labels always visible</p></div>
+    <div class="kbody">
+      <div class="phone-frame">
+        <div class="screen">Screen content</div>
+        <nav class="bottom-nav">
+          <a href="#" class="active"><i class="ti ti-home" aria-hidden="true"></i>Home</a>
+          <a href="#"><i class="ti ti-calendar" aria-hidden="true"></i>Appointments</a>
+          <a href="#"><i class="ti ti-heart" aria-hidden="true"></i>Benefits</a>
+          <a href="#"><span class="nbadge">2</span><i class="ti ti-mail" aria-hidden="true"></i>Messages</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

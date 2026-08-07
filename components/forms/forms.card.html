@@ -1,0 +1,77 @@
+<!-- @dsCard group="Components" viewport="700x700" name="Forms — fields, choices, stepper, upload, steps" subtitle="Labelled controls · option cards · yes/no · count stepper · file upload · multi-step nav" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../styles.css">
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css" rel="stylesheet">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:20px;background:var(--ht-bg)}.cols{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}.stack{display:flex;flex-direction:column;gap:12px}</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { Input, OptionCard, FileUpload, StepNav, StepNavSpacer, StepNavSaveLater, Button, ProgressBar, SegmentedYesNo, Stepper, Select } = window.Hearth_5938e8;
+function Demo(){
+  const [contact,setContact] = React.useState('sms');
+  const [progs,setProgs] = React.useState(['food']);
+  const [smokes,setSmokes] = React.useState('no');
+  const [people,setPeople] = React.useState(3);
+  const [state,setState] = React.useState(null);
+  const toggle = (v)=>setProgs(p=>p.includes(v)?p.filter(x=>x!==v):[...p,v]);
+  return (<div className="cols">
+    <div className="stack">
+      <Input label="Date of birth" placeholder="MM/DD/YYYY"
+        hint="We use this to check which programs you qualify for." />
+      <Input as="select" label="Preferred language" options={['English','Español','Tiếng Việt']} />
+      <div>
+        <div style={{fontSize:14,fontWeight:500,marginBottom:6}}>State</div>
+        <Select options={['Montana','Idaho','Wyoming','North Dakota']} value={state}
+          onChange={setState} placeholder="Select state…" />
+      </div>
+      <Input label="Phone number" defaultValue="406-555"
+        error="Enter all 10 digits, like (406) 555-0134." />
+      <FileUpload hint="A photo of the VOC card or letter for this person."
+        files={[{name:'water-bill-june.jpg',size:'1.2 MB',status:'Uploaded'}]} />
+    </div>
+    <div className="stack">
+      <div className="stack" style={{gap:10}}>
+        <OptionCard title="Text message" value="sms" selected={contact==='sms'}
+          description="We'll text this number: (406) 555-0134" onSelect={setContact} />
+        <OptionCard title="Email" value="email" selected={contact==='email'}
+          description="Best if you check email often" onSelect={setContact} />
+        <OptionCard type="checkbox" title="Food assistance" value="food"
+          selected={progs.includes('food')} onSelect={toggle} />
+        <OptionCard type="checkbox" title="Housing support" value="housing"
+          selected={progs.includes('housing')} onSelect={toggle} />
+      </div>
+      <div>
+        <div style={{fontSize:14,fontWeight:500,marginBottom:6}}>Does anyone in your household smoke?</div>
+        <SegmentedYesNo value={smokes} onChange={setSmokes} />
+      </div>
+      <div>
+        <div style={{fontSize:14,fontWeight:500,marginBottom:6}}>How many people are applying today?</div>
+        <Stepper value={people} onChange={setPeople} min={1} max={12} label="people applying" />
+      </div>
+      <StepNav step={3} of={5} section="About your household"
+        title="Who lives with you?"
+        hint="Include everyone who shares meals or bills with you."
+        onBack={()=>{}}
+        footer={<>
+          <Button variant="secondary" size="sm">Back</Button>
+          <StepNavSpacer/>
+          <StepNavSaveLater/>
+          <Button variant="primary" size="sm">Continue</Button>
+        </>}>
+        <ProgressBar value={60} fullWidth/>
+      </StepNav>
+    </div>
+  </div>);
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+</script>
+</body>
+</html>

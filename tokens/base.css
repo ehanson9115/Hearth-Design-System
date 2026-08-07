@@ -1,0 +1,14 @@
+/* Hearth base — the few global element rules that back the token system.
+   Everything else is component-scoped. */
+html, body, button, input, select, textarea {
+  font-family: var(--ht-font-sans);
+}
+body {
+  background: var(--ht-bg);
+  color: var(--ht-text);
+  letter-spacing: 0.01em;
+}
+/* Links default to data-text royal with a 3px-offset underline — never
+   browser blue. */
+a { color: var(--ht-data-text); text-underline-offset: 3px; }
+a:hover { color: var(--ht-primary-dark); }

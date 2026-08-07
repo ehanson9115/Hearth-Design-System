@@ -1,0 +1,7 @@
+/* Hearth — webfonts.
+   Geist is the single typeface, weights 400 and 500 only (600 retired 2026-08-01).
+   Source project referenced self-hosted woff2 ("Geist everywhere; self-host
+   woff2 in production"); no binaries were provided, so we load the exact
+   family from Google Fonts. Swap these @imports for @font-face + local
+   woff2 when the font files are available. */
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap');

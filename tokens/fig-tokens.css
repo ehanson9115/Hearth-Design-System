@@ -1,0 +1,108 @@
+/* Generated from Figma Variables. First mode = :root default.
+   FLOAT tokens are unitless — multiply by 1px in calc() where a length is needed. */
+
+:root {
+  --action-default: var(--violet-500); /* @kind color */
+  --action-hover: var(--violet-700); /* @kind color */
+  --action-selected: var(--violet-150); /* @kind color */
+  --action-stroke: var(--violet-stroke); /* @kind color */
+  --action-text-dark: var(--violet-700); /* @kind color */
+  --action-tint: var(--violet-100); /* @kind color */
+  --border-divider: var(--grey-3); /* @kind color */
+  --border-hairline: var(--grey-4); /* @kind color */
+  --border-interactive: var(--grey-border); /* @kind color */
+  --border-strong: var(--grey-border-strong); /* @kind color */
+  --data-default: var(--royal-500); /* @kind color */
+  --data-line: var(--royal-line); /* @kind color */
+  --data-mid: var(--royal-200); /* @kind color */
+  --data-text: var(--royal-700); /* @kind color */
+  --data-tint: var(--royal-100); /* @kind color */
+  --green-100: rgb(230,246,235); /* @kind color */
+  --green-line: rgb(191,227,205); /* @kind color */
+  --green-text: rgb(25,106,71); /* @kind color */
+  --green-vivid: rgb(22,163,74); /* @kind color */
+  --grey-0: rgb(255,255,255); /* @kind color */
+  --grey-1: rgb(250,250,252); /* @kind color */
+  --grey-2: rgb(245,245,249); /* @kind color */
+  --grey-3: rgb(236,236,242); /* @kind color */
+  --grey-4: rgb(228,228,236); /* @kind color */
+  --grey-5: rgb(219,218,229); /* @kind color */
+  --grey-border-strong: rgb(156,154,175); /* @kind color */
+  --grey-border: rgb(214,213,224); /* @kind color */
+  --grey-head: rgb(231,231,238); /* @kind color */
+  --grey-muted: rgb(107,114,128); /* @kind color */
+  --grey-subtle: rgb(156,163,175); /* @kind color */
+  --ink-bar: var(--ink-surface); /* @kind color */
+  --ink-head: rgb(20,17,31); /* @kind color */
+  --ink-on-default: var(--grey-0); /* @kind color */
+  --ink-on-muted: var(--onink-muted); /* @kind color */
+  --ink-on-subtle: var(--onink-subtle); /* @kind color */
+  --ink-surface: rgb(32,28,51); /* @kind color */
+  --ink-text: rgb(29,26,46); /* @kind color */
+  --onink-muted: rgb(201,196,221); /* @kind color */
+  --onink-subtle: rgb(169,164,192); /* @kind color */
+  --page-tint: rgb(248,247,252); /* @kind color */
+  --radius-block: 12;
+  --radius-button: 8;
+  --radius-card: 8;
+  --radius-control: 6;
+  --radius-hero: 16;
+  --red-100: rgb(254,226,226); /* @kind color */
+  --red-line: rgb(242,199,199); /* @kind color */
+  --red-soft: rgb(254,245,245); /* @kind color */
+  --red-text: rgb(185,28,28); /* @kind color */
+  --red-vivid: rgb(220,38,38); /* @kind color */
+  --royal-100: rgb(238,240,254); /* @kind color */
+  --royal-200: rgb(221,226,253); /* @kind color */
+  --royal-500: rgb(72,96,252); /* @kind color */
+  --royal-700: rgb(44,62,207); /* @kind color */
+  --royal-line: rgb(201,209,253); /* @kind color */
+  --space-2xl: 32;
+  --space-2xs: 4;
+  --space-lg: 20;
+  --space-md: 16;
+  --space-sm: 12;
+  --space-xl: 24;
+  --space-xs: 8;
+  --status-bg: rgba(255,243,191,0.2); /* @kind color */
+  --status-danger-bg: var(--red-100); /* @kind color */
+  --status-danger-line: var(--red-line); /* @kind color */
+  --status-danger-soft: var(--red-soft); /* @kind color */
+  --status-danger-text: var(--red-text); /* @kind color */
+  --status-danger-vivid: var(--red-vivid); /* @kind color */
+  --status-success-bg: var(--green-100); /* @kind color */
+  --status-success-line: var(--green-line); /* @kind color */
+  --status-success-text: var(--green-text); /* @kind color */
+  --status-success-vivid: var(--green-vivid); /* @kind color */
+  --status-warning-bg: var(--sunflower-100); /* @kind color */
+  --status-warning-icon: var(--sunflower-icon); /* @kind color */
+  --status-warning-line: var(--sunflower-line); /* @kind color */
+  --status-warning-note: var(--sunflower-note); /* @kind color */
+  --status-warning-solid: var(--sunflower-solid); /* @kind color */
+  --status-warning-text: var(--sunflower-text); /* @kind color */
+  --status-warning-vivid: var(--sunflower-vivid); /* @kind color */
+  --sunflower-100: rgb(255,243,191); /* @kind color */
+  --sunflower-icon: rgb(161,98,7); /* @kind color */
+  --sunflower-line: rgb(240,210,91); /* @kind color */
+  --sunflower-note: rgb(250,226,126); /* @kind color */
+  --sunflower-solid: rgb(255,197,61); /* @kind color */
+  --sunflower-text: rgb(125,87,0); /* @kind color */
+  --sunflower-vivid: rgb(245,183,0); /* @kind color */
+  --surface-card: var(--grey-0); /* @kind color */
+  --surface-head-zone: var(--grey-head); /* @kind color */
+  --surface-hover: var(--grey-4); /* @kind color */
+  --surface-input: var(--grey-1); /* @kind color */
+  --surface-inset: var(--grey-3); /* @kind color */
+  --surface-page: var(--page-tint); /* @kind color */
+  --surface-pressed: var(--grey-5); /* @kind color */
+  --surface-sidebar: var(--grey-2); /* @kind color */
+  --text-heading: var(--ink-head); /* @kind color */
+  --text-muted: var(--grey-muted); /* @kind color */
+  --text-primary: var(--ink-text); /* @kind color */
+  --text-subtle: var(--grey-subtle); /* @kind color */
+  --violet-100: rgb(242,236,253); /* @kind color */
+  --violet-150: rgb(231,221,250); /* @kind color */
+  --violet-500: rgb(76,30,168); /* @kind color */
+  --violet-700: rgb(59,22,131); /* @kind color */
+  --violet-stroke: rgb(224,211,248); /* @kind color */
+}

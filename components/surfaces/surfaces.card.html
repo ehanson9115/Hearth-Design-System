@@ -1,0 +1,80 @@
+<!-- @dsCard group="Components" viewport="700x1080" name="Surfaces — hero, metrics, panels, review, records" subtitle="Gradient hero · metric cards · highlight · panel + checklist · review tile · entry card · record card · program card" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../styles.css">
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css" rel="stylesheet">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:20px;background:var(--ht-bg)}.stack{display:flex;flex-direction:column;gap:16px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.cols{display:grid;grid-template-columns:1fr 260px;gap:16px;align-items:start}.rstack{display:flex;flex-direction:column;gap:10px}.progs{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { Hero, MetricCard, HighlightCard, Panel, PanelBody, PanelSection, ChecklistRow, ReviewTile, EntryCard, RecordCard, ProgramCard } = window.Hearth_5938e8;
+function Demo(){
+  const [ok,setOk] = React.useState(false);
+  return (
+  <div className="stack">
+    <Hero title="Welcome back, Maria">Your next appointment is Tuesday, July 28 at 10:30 AM.</Hero>
+    <div className="stats">
+      <MetricCard value="8" label="Pending review" />
+      <MetricCard value="3" label="Waiting on documents" variant="warn" />
+      <MetricCard value="21" trend="4" label="Completed this week" />
+    </div>
+    <div className="cols">
+      <Panel title="Action items" icon="ti-clipboard-list" subtitle="2 questions · 2 documents remaining" action="Copy all">
+        <PanelSection>Follow-up questions</PanelSection>
+        <ChecklistRow number={1}>Elderly household members but no medical expenses — confirm out-of-pocket costs.</ChecklistRow>
+        <ChecklistRow number={2}>Carol's income is commission-based — request 30 days of pay stubs.</ChecklistRow>
+        <PanelSection divide>Documents to request</PanelSection>
+        <ChecklistRow done>Government-issued photo ID</ChecklistRow>
+        <ChecklistRow>Mortgage statement</ChecklistRow>
+      </Panel>
+      <div className="rstack">
+        <HighlightCard items={[{label:'Auto shelter flags',href:'#'},{label:'Interview summaries',href:'#'},{label:'Spanish transcripts',href:'#'}]} />
+        <EntryCard icon="ti-calendar-repeat" title="Recertification"
+          subtitle="Your certification ends July 12, 2026" onClick={()=>{}} />
+      </div>
+    </div>
+    <div className="rstack">
+      <ReviewTile title="About you" editHref="#" items={[{label:'Name',value:'Maria Alvarez'},{label:'Date of birth',value:'March 28, 1986'}]} />
+      <ReviewTile title="Documents" editHref="#" items={[{label:'Proof of address',value:'water-bill-june.jpg'},{label:'Proof of income',value:'Not added yet',missing:true}]} />
+      <RecordCard icon="ti-building" title="Casey's General Stores" subtitle="Cashier / Team Member"
+        details={[
+          {icon:'ti-calendar',text:'Jun 15, 2024 – Nov 2, 2025'},
+          {icon:'ti-currency-dollar',text:'$1,240.00 / bi-weekly'},
+          {icon:'ti-alert-circle',text:'Reason for leaving: Laid off'},
+        ]}
+        confirmed={ok} onConfirm={setOk} onEdit={()=>{}} onRemove={()=>{}} />
+    </div>
+    <div className="progs">
+      <ProgramCard logo="ti ti-apple" title="Women, Infants & Children"
+        subtitle="Food benefits and nutrition support"
+        meta={[
+          {icon:'ti ti-users',label:'Pregnant people, infants & children under 5'},
+          {icon:'ti ti-clock',label:'Apply in about 15 minutes'},
+        ]}
+        ctaLabel="Apply for WIC" />
+      <div className="rstack">
+        <ProgramCard logo="ti ti-carrot" title="Farmers Market Nutrition"
+          subtitle="Fresh produce at Montana farmers markets"
+          meta={[
+            {icon:'ti ti-calendar',label:'Seasonal benefit · June – October'},
+            {icon:'ti ti-map-pin',label:'62 participating markets statewide'},
+          ]}
+          ctaLabel="Apply for Farmers Market" ctaVariant="secondary" />
+        <ProgramCard tone="pending" logo="ti ti-file-text" title="Application status"
+          meta={[{label:'We are reviewing your application'}]} />
+      </div>
+    </div>
+  </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+</script>
+</body>
+</html>

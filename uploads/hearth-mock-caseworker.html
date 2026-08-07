@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healthy Together — Caseworker Screen Mock v1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.44.0/iconfont/tabler-icons.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css" rel="stylesheet">
+<style>
+  :root {
+    --ht-primary: #4C1EA8; --ht-primary-dark: #3B1683; --ht-primary-tint: #F2ECFD;
+    --ht-royal: #4860FC; --ht-royal-text: #2C3ECF; --ht-royal-tint: #EEF0FE;
+    --ht-grey-0: #FFFFFF; --ht-grey-1: #FAFAFC; --ht-grey-2: #F5F5F9;
+    --ht-grey-3: #ECECF2; --ht-grey-4: #E4E4EC; --ht-grey-5: #DBDAE5;
+    --ht-border: #D6D5E0; --ht-text: #1D1A2E; --ht-muted: #6B7280; --ht-subtle: #9CA3AF;
+    --ht-ink: #201C33; --on-ink-muted: #C9C4DD; --on-ink-subtle: #A9A4C0;
+    --ht-green: #218358; --ht-green-bg: #e6f6eb;
+    --ht-amber: #7D5700; --ht-amber-bg: #FFF3BF; --ht-amber-soft: #fffbeb;
+    --ht-red: #dc2626; --ht-red-bg: #fee2e2; --ht-red-border: #f3c2c4;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: 'Geist', system-ui, sans-serif; background: #F8F7FC;
+    color: var(--ht-text); font-size: 14px; line-height: 1.45; letter-spacing: 0.01em; }
+
+  .topbar { background: var(--ht-ink); color: #fff; display: flex; align-items: center;
+    gap: 14px; padding: 12px 20px; }
+  .topbar .logo { width: 26px; height: 26px; border-radius: 6px; background: var(--ht-primary);
+    display: grid; place-content: center; font-size: 14px; }
+  .topbar .name { font-size: 14px; font-weight: 600; }
+  .topbar .role { font-size: 13px; color: var(--on-ink-subtle); }
+  .topbar nav { margin-left: auto; display: flex; align-items: center; gap: 18px; }
+  .topbar nav a { font-size: 13px; color: var(--on-ink-muted); text-decoration: none; }
+  .topbar nav a.active { color: #fff; font-weight: 500; }
+  .topbar .btn-ghost { font-size: 13px; font-weight: 500; color: #fff; background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25); border-radius: 10px; padding: 6px 14px; cursor: pointer; font-family: inherit; }
+
+  .layout { display: grid; grid-template-columns: 220px 1fr; min-height: calc(100vh - 50px); }
+  .sidebar { background: var(--ht-grey-2); border-right: 1px solid var(--ht-border); padding: 14px 10px; }
+  .sidebar .s-label { font-size: 11px; font-weight: 600; letter-spacing: 0.07em; color: var(--ht-muted);
+    padding: 0 8px; margin-bottom: 6px; }
+  .s-item { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 6px;
+    font-size: 13px; color: var(--ht-text); cursor: pointer; margin-bottom: 2px; }
+  .s-item:hover { background: var(--ht-grey-4); }
+  .s-item.active { background: #E7DDFA; color: var(--ht-primary-dark); font-weight: 500; }
+  .s-item .count { margin-left: auto; font-size: 12px; color: var(--ht-muted); }
+  .s-item.active .count { color: var(--ht-primary); }
+
+  .main { padding: 28px 32px; max-width: 1040px; }
+  .case-head { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+  .case-head h1 { font-size: 19px; font-weight: 500; letter-spacing: -0.01em; color: #14111F; }
+  .case-head .id { font-size: 13px; color: var(--ht-muted); }
+  .case-head .actions { margin-left: auto; display: flex; gap: 8px; }
+  .btn { font-size: 13px; font-weight: 500; border-radius: 10px; padding: 8px 14px; cursor: pointer;
+    font-family: inherit; border: 1px solid transparent; }
+  .btn.primary { background: var(--ht-primary); color: #fff; }
+  .btn.secondary { background: #fff; color: var(--ht-primary); border-color: var(--ht-border); }
+
+  .badge { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 500;
+    padding: 3px 10px; border-radius: 999px; }
+  .badge .dot { width: 6px; height: 6px; border-radius: 999px; background: currentColor; }
+  .badge.warning { background: var(--ht-amber-bg); color: var(--ht-amber); box-shadow: inset 0 0 0 1px #F0D25B; }
+  .badge.danger { background: var(--ht-red-bg); color: #B91C1C; box-shadow: inset 0 0 0 1px #F2C7C7; }
+
+  .alert { display: grid; grid-template-columns: 18px 1fr; gap: 7px; padding: 8px 12px;
+    border-radius: 6px; border: 1px solid #F2D8D8; background: #FEF5F5;
+    color: var(--ht-red); font-size: 13px; line-height: 1.4; margin-bottom: 18px; max-width: 720px; }
+  .alert .t { font-weight: 600; font-size: 14px; }
+  .alert .d { color: color-mix(in srgb, var(--ht-red) 78%, #6B7280); }
+
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+  .panel { background: #fff; border: 1px solid #E4E4EC; border-radius: 8px; overflow: hidden; }
+  .p-head { display: flex; align-items: baseline; gap: 7px; padding: 14px 18px 0; font-size: 15px;
+    font-weight: 600; letter-spacing: -0.005em; color: #14111F; background: var(--ht-grey-1); }
+  .p-head i { font-size: 15px; color: var(--ht-primary); align-self: center; }
+  .p-headsub { padding: 1px 18px 12px; font-size: 12.5px; color: var(--ht-muted);
+    background: var(--ht-grey-1); border-bottom: 1px solid var(--ht-grey-3); }
+  .p-head .p-action { margin-left: auto; font-size: 12.5px; font-weight: 500; color: var(--ht-primary);
+    background: none; border: none; border-radius: 5px; padding: 3px 9px;
+    cursor: pointer; font-family: inherit; letter-spacing: 0.02em; text-transform: none; }
+  .p-head .p-action:hover { background: var(--ht-primary-tint); }
+  .p-head .p-meta { color: var(--ht-muted); }
+  /* Band variant — reserved for the live/primary panel only */
+  .p-head.band { padding: 8px 16px; background: var(--ht-ink); color: #fff; font-size: 11.5px;
+    font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; align-items: center; }
+  .p-head.band i { color: var(--on-ink-muted); }
+  .p-head.band .live { background: #3DD68C; }
+  .p-head.band .p-action { color: #fff; background: rgba(255,255,255,0.12); }
+  .p-head.band .p-action:hover { background: rgba(255,255,255,0.2); }
+  .p-head.band .p-meta { color: var(--on-ink-subtle); }
+  .p-body { padding: 12px 18px 16px; }
+  .row-kv { margin: 0 0 5px; font-size: 13px; line-height: 1.55; }
+  .row-kv .k { color: var(--ht-muted); }
+  .row-kv .v { font-weight: 500; }
+  .p-sub { padding: 12px 18px 5px; font-size: 10.5px; font-weight: 500; letter-spacing: 0.07em;
+    text-transform: uppercase; color: var(--ht-muted); }
+  .check-row { display: flex; gap: 10px; align-items: flex-start; padding: 12px 18px; font-size: 13px; cursor: pointer; }
+  .check-row + .check-row, .p-sub + .check-row { border-top: 1px solid var(--ht-grey-4); }
+  .check-row:hover { background: var(--ht-grey-3); }
+  .panel .check-row:last-child { padding-bottom: 16px; }
+  .cbox { width: 16px; height: 16px; border-radius: 4px; background: var(--ht-grey-1);
+    box-shadow: inset 0 0 0 1px var(--ht-border); flex-shrink: 0; margin-top: 1px;
+    display: grid; place-content: center; }
+  .done .cbox { background: #16A34A; box-shadow: none; color: #fff; font-size: 11px; font-weight: 700; }
+  .done .cbox::before { content: '✓'; }
+  .done .cbox i { display: none; }
+  .done .txt { color: var(--ht-muted); text-decoration: line-through; }
+  .num { width: 19px; height: 19px; border-radius: 999px; background: #DDE2FD;
+    color: var(--ht-royal-text); font-size: 11px; font-weight: 600; display: grid;
+    place-content: center; flex-shrink: 0; margin-top: 1px; }
+
+  .t-msg { padding: 12px 18px 13px; }
+  .t-msg + .t-msg { border-top: 1px solid var(--ht-grey-4); }
+  .speaker { font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ht-muted); }
+  .speaker.worker { color: var(--ht-primary); }
+  .speaker .time { font-weight: 400; letter-spacing: 0.01em; text-transform: none; color: var(--ht-subtle); margin-left: 6px; }
+  .t-msg p { margin: 3px 0 0; font-size: 13px; line-height: 1.5; }
+  .t-msg.flagged { background: var(--ht-amber-bg); border-radius: 6px; margin: 3px 8px; padding: 8px 10px 9px;
+    border-top: none !important; box-shadow: inset 0 0 0 1px #E9CB4F; }
+  .t-msg.flagged + .t-msg { border-top: none; }
+  .flag-note { display: flex; align-items: center; gap: 6px; margin-top: 8px; padding: 6px 10px;
+    background: #FAE27E; border-radius: 6px; font-size: 12px; font-weight: 500; color: var(--ht-amber); }
+  .flag-note .f-action { margin-left: auto; color: var(--ht-primary); background: none; border: none;
+    cursor: pointer; font-family: inherit; font-size: 12px; font-weight: 500;
+    text-decoration: underline; text-underline-offset: 3px; }
+  .live { width: 7px; height: 7px; border-radius: 999px; background: var(--ht-green); }
+  .p-meta { margin-left: auto; font-size: 12px; font-weight: 400; color: var(--ht-muted); }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <span class="logo"><i class="ti ti-heart" aria-hidden="true"></i></span>
+  <span class="name">Healthy Together</span>
+  <span class="role">Caseworker</span>
+  <nav>
+    <a href="#" class="active">Queue</a>
+    <a href="#">Residents</a>
+    <a href="#">Reports</a>
+    <a href="#">Settings</a>
+  </nav>
+  <button class="btn-ghost">Send interview invite</button>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <p class="s-label">QUEUE — TODAY</p>
+    <div class="s-item active"><i class="ti ti-user" aria-hidden="true"></i>Bob Stoops<span class="count">1:44p</span></div>
+    <div class="s-item"><i class="ti ti-user" aria-hidden="true"></i>Maria Alvarez<span class="count">2:15p</span></div>
+    <div class="s-item"><i class="ti ti-user" aria-hidden="true"></i>Sam Ortiz<span class="count">3:00p</span></div>
+    <p class="s-label" style="margin-top:16px">VIEWS</p>
+    <div class="s-item"><i class="ti ti-clock" aria-hidden="true"></i>Pending review<span class="count">8</span></div>
+    <div class="s-item"><i class="ti ti-alert-triangle" aria-hidden="true"></i>Needs documents<span class="count">3</span></div>
+    <div class="s-item"><i class="ti ti-check" aria-hidden="true"></i>Completed<span class="count">21</span></div>
+  </aside>
+
+  <main class="main">
+    <div class="case-head">
+      <h1>Bob Stoops</h1>
+      <span class="id">2026-499-929</span>
+      <span class="badge warning"><span class="dot"></span>Pending review</span>
+      <div class="actions">
+        <button class="btn secondary">View case summary</button>
+        <button class="btn primary">Copy case notes</button>
+      </div>
+    </div>
+
+    <div class="alert">
+      <i class="ti ti-circle-x" aria-hidden="true" style="font-size:16px; margin-top:2px"></i>
+      <span><span class="t">Over income limit</span><br>
+      <span class="d">Gross $4,000/mo vs. $3,380/mo threshold (household of 4). Preliminary screening only — not a final determination.</span></span>
+    </div>
+
+    <div class="cols">
+      <div style="display:flex; flex-direction:column; gap:16px">
+        <div class="panel">
+          <div class="p-head"><i class="ti ti-id" aria-hidden="true"></i>Applicant<button class="p-action">Copy</button></div>
+          <div class="p-headsub">Case 2026-499-929 · opened July 14</div>
+          <div class="p-body">
+            <p class="row-kv"><span class="k">Name:</span> <span class="v">Bob Stoops</span></p>
+            <p class="row-kv"><span class="k">Date of birth:</span> <span class="v">September 9, 1960</span></p>
+            <p class="row-kv"><span class="k">Household:</span> <span class="v">4 — Bob, Carol, Isaac (26), Drake (26)</span></p>
+            <p class="row-kv"><span class="k">Income:</span> <span class="v">$4,000/mo</span></p>
+            <p class="row-kv" style="margin:0"><span class="k">130% FPL limit:</span> <span class="v">$3,380/mo</span></p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="p-head"><i class="ti ti-clipboard-list" aria-hidden="true"></i>Action items<button class="p-action">Copy all</button></div>
+          <div class="p-headsub">3 questions · 4 documents remaining</div>
+          <div class="p-sub">Follow-up questions</div>
+          <div class="check-row"><span class="num">1</span><span class="txt">Elderly household members but no medical expenses reported — confirm out-of-pocket costs.</span></div>
+          <div class="check-row"><span class="num">2</span><span class="txt">Isaac and Drake are ABAWDs not working — verify work requirement compliance or exemption.</span></div>
+          <div class="check-row"><span class="num">3</span><span class="txt">Shelter costs are high relative to income — verify for excess shelter deduction.</span></div>
+          <div class="p-sub" style="border-top:1px solid var(--ht-grey-4)">Documents to request</div>
+          <div class="check-row done"><span class="cbox"><i class="ti ti-check" aria-hidden="true"></i></span><span class="txt">Government-issued photo ID for Bob and Carol</span></div>
+          <div class="check-row done"><span class="cbox"><i class="ti ti-check" aria-hidden="true"></i></span><span class="txt">Proof of Social Security Number</span></div>
+          <div class="check-row"><span class="cbox"></span><span class="txt">Carol's pay stubs or commission statements (30 days)</span></div>
+          <div class="check-row"><span class="cbox"></span><span class="txt">Bob's pension award letter or statement</span></div>
+          <div class="check-row"><span class="cbox"></span><span class="txt">Mortgage statement</span></div>
+          <div class="check-row"><span class="cbox"></span><span class="txt">Recent utility bills (electricity, gas, water)</span></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="p-head band"><span class="live"></span>Live transcript<span class="p-meta">73 messages</span></div>
+        <div class="t-msg">
+          <div class="speaker worker">Caseworker<span class="time">1:53 PM</span></div>
+          <p>And what do you pay in rent or mortgage each month?</p>
+        </div>
+        <div class="t-msg flagged">
+          <div class="speaker">Applicant<span class="time">1:55 PM</span></div>
+          <p>It's about $2,350 all in — mortgage, taxes, insurance.</p>
+          <div class="flag-note"><i class="ti ti-alert-triangle" aria-hidden="true"></i>High shelter costs — check excess shelter deduction<button class="f-action">Add note</button></div>
+        </div>
+        <div class="t-msg">
+          <div class="speaker worker">Caseworker<span class="time">1:56 PM</span></div>
+          <p>Thanks — that may qualify you for a deduction. Let me note it.</p>
+        </div>
+        <div class="t-msg">
+          <div class="speaker">Applicant<span class="time">1:57 PM</span></div>
+          <p>Okay, thank you. Do you need anything else from me?</p>
+        </div>
+        <div class="t-msg">
+          <div class="speaker worker">Caseworker<span class="time">1:57 PM</span></div>
+          <p>Just a few documents — I'll text you the list after we hang up.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+</body>
+</html>

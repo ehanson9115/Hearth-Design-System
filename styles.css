@@ -1,0 +1,12 @@
+/* Hearth — the HT Design System · global entry point.
+   Consumers link THIS file only. It is a list of @imports; every token,
+   font, and base rule ships through this closure. */
+/* Figma Variables, exported verbatim (Primitives 55 + Theme 47). Provenance
+   layer only — a different namespace from --ht-*, so nothing collides. The
+   --ht-* layers below are the public API components consume. */
+@import url('./tokens/fig-tokens.css');
+@import url('./tokens/fonts.css');
+@import url('./tokens/primitives.css');
+@import url('./tokens/palette.css');
+@import url('./tokens/roles.css');
+@import url('./tokens/base.css');

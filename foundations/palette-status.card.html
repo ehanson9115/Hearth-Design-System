@@ -1,0 +1,42 @@
+<!-- @dsCard group="Colors" viewport="700x290" name="Status — green, sunflower, red, info" subtitle="Vivid stroke · AA text step · wash fill · mid tint · line — info derives from the primary" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><link rel="stylesheet" href="../styles.css">
+<style>body{margin:0;padding:18px;background:var(--ht-bg);font-family:var(--ht-font-sans)}
+.row{display:grid;grid-template-columns:88px 1fr;align-items:center;gap:12px;margin-bottom:10px}
+.row:last-child{margin-bottom:0}
+.nm{font-size:12.5px;font-weight:500;color:var(--ht-text-head)}
+.nm span{display:block;font-size:11px;color:var(--ht-text-muted);font-weight:400}
+.chips{display:flex;gap:8px}
+.chip{flex:1;border:1px solid var(--ht-hairline);border-radius:7px;overflow:hidden;background:#fff}
+.chip .c{height:34px}.chip .t{padding:4px 8px;font-size:10px;color:var(--ht-text-muted)}</style></head>
+<body>
+<div class="row"><div class="nm">Success<span>green</span></div><div class="chips">
+<div class="chip"><div class="c" style="background:var(--ht-green-vivid)"></div><div class="t">vivid · stroke</div></div>
+<div class="chip"><div class="c" style="background:var(--ht-green-text)"></div><div class="t">text</div></div>
+<div class="chip"><div class="c" style="background:var(--ht-green-wash)"></div><div class="t">wash · card</div></div>
+<div class="chip"><div class="c" style="background:var(--ht-green-bg)"></div><div class="t">bg · badge</div></div>
+<div class="chip"><div class="c" style="background:var(--ht-green-line)"></div><div class="t">line</div></div>
+</div></div>
+<div class="row"><div class="nm">Warning<span>sunflower</span></div><div class="chips">
+<div class="chip"><div class="c" style="background:var(--ht-amber-vivid)"></div><div class="t">vivid · stroke</div></div>
+<div class="chip"><div class="c" style="background:var(--ht-amber-text)"></div><div class="t">text</div></div>
+<div class="chip"><div class="c" style="background:var(--ht-amber-wash)"></div><div class="t">wash · card</div></div>
+<div class="chip"><div class="c" style="background:var(--ht-amber-bg)"></div><div class="t">bg · badge</div></div>
+<div class="chip"><div class="c" style="background:var(--ht-amber-line)"></div><div class="t">line</div></div>
+</div></div>
+<div class="row"><div class="nm">Danger<span>red</span></div><div class="chips">
+<div class="chip"><div class="c" style="background:var(--ht-red-vivid)"></div><div class="t">vivid · stroke</div></div>
+<div class="chip"><div class="c" style="background:var(--ht-red-text)"></div><div class="t">text</div></div>
+<div class="chip"><div class="c" style="background:var(--ht-red-wash)"></div><div class="t">wash · card</div></div>
+<div class="chip"><div class="c" style="background:var(--ht-red-bg)"></div><div class="t">bg · badge</div></div>
+<div class="chip"><div class="c" style="background:var(--ht-red-line)"></div><div class="t">line</div></div>
+</div></div>
+<div class="row"><div class="nm">Info<span>= primary</span></div><div class="chips">
+<div class="chip"><div class="c" style="background:var(--ht-action)"></div><div class="t">action · stroke</div></div>
+<div class="chip"><div class="c" style="background:var(--ht-action-hover)"></div><div class="t">text</div></div>
+<div class="chip"><div class="c" style="background:var(--ht-action-wash)"></div><div class="t">wash · card</div></div>
+<div class="chip"><div class="c" style="background:var(--ht-action-tint)"></div><div class="t">tint · badge</div></div>
+<div class="chip"><div class="c" style="background:var(--ht-action-select)"></div><div class="t">select</div></div>
+</div></div>
+<p style="margin:12px 0 0;font-size:11.5px;color:var(--ht-text-muted);border-top:1px solid var(--ht-hairline);padding-top:10px">The info row is not a fourth hue — every step is derived from <b style="font-weight:500;color:var(--ht-text-head)">--ht-primary</b> by <code>color-mix</code>, so a product that re-points primary to blue gets a blue info card, blue selected states and a blue focus ring with no other edits.</p>
+</body></html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healthy Together — Dashboard + Mobile Mock v1 (Spacious mode)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.44.0/iconfont/tabler-icons.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css" rel="stylesheet">
+<style>
+  :root {
+    --ht-primary: #4C1EA8; --ht-primary-dark: #3B1683; --ht-primary-tint: #F2ECFD;
+    --ht-royal: #4860FC; --ht-royal-text: #2C3ECF; --ht-royal-tint: #EEF0FE; --ht-royal-mid: #DDE2FD;
+    --ht-grey-0: #FFFFFF; --ht-grey-1: #FAFAFC; --ht-grey-2: #F5F5F9;
+    --ht-grey-3: #ECECF2; --ht-grey-4: #E4E4EC; --ht-grey-5: #DBDAE5;
+    --ht-border: #D6D5E0; --ht-hairline: #E4E4EC;
+    --ht-text: #1D1A2E; --ht-ink-head: #14111F; --ht-muted: #6B7280; --ht-subtle: #9CA3AF;
+    --ht-ink: #201C33; --on-ink-muted: #C9C4DD; --on-ink-subtle: #A9A4C0;
+    --ht-green: #218358; --ht-green-bg: #e6f6eb;
+    --ht-amber: #7D5700; --ht-amber-bg: #FFF3BF;
+    --ht-red: #dc2626; --ht-red-bg: #fee2e2;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: 'Geist', system-ui, sans-serif; background: var(--ht-grey-2);
+    color: var(--ht-text); font-size: 14px; line-height: 1.45; letter-spacing: 0.01em; padding-bottom: 60px; }
+  .section-label { max-width: 1240px; margin: 28px auto 12px; padding: 0 24px;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.07em; color: var(--ht-muted); }
+
+  /* ══ Desktop dashboard ══ */
+  .shell { max-width: 1240px; margin: 0 auto; border: 1px solid var(--ht-border); border-radius: 12px;
+    overflow: hidden; background: #F8F7FC; }
+  .topbar { background: var(--ht-ink); color: #fff; display: flex; align-items: center; gap: 14px; padding: 12px 20px; }
+  .topbar .logo { width: 26px; height: 26px; border-radius: 6px; background: var(--ht-primary); display: grid; place-content: center; font-size: 14px; }
+  .topbar .name { font-size: 14px; font-weight: 600; }
+  .topbar .role { font-size: 13px; color: var(--on-ink-subtle); }
+  .topbar nav { margin-left: auto; display: flex; align-items: center; gap: 18px; }
+  .topbar nav a { font-size: 13px; color: var(--on-ink-muted); text-decoration: none; }
+  .topbar nav a.active { color: #fff; font-weight: 500; }
+  .layout { display: grid; grid-template-columns: 210px 1fr; }
+  .sidebar { background: var(--ht-grey-2); border-right: 1px solid var(--ht-hairline); padding: 14px 10px; }
+  .s-label { font-size: 11px; font-weight: 500; letter-spacing: 0.07em; color: var(--ht-muted); padding: 0 8px; margin: 0 0 6px; }
+  .s-item { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 6px;
+    font-size: 13px; color: var(--ht-text); cursor: pointer; margin-bottom: 2px; }
+  .s-item:hover { background: var(--ht-grey-4); }
+  .s-item.active { background: #E7DDFA; color: var(--ht-primary-dark); font-weight: 500; }
+  .s-item .count { margin-left: auto; font-size: 12px; color: var(--ht-muted); }
+
+  /* Highlight card — "What's new" pattern: white + violet stroke,
+     items as soft rounded rows */
+  .hl-card { background: #fff; border: 1px solid var(--ht-primary); border-radius: 12px;
+    padding: 14px 12px 12px; margin-top: 22px; }
+  .hl-card .hl-title { display: flex; align-items: center; gap: 7px; font-size: 13.5px;
+    font-weight: 600; color: var(--ht-primary); padding: 0 4px 10px; }
+  .hl-item { display: flex; align-items: center; gap: 8px; background: var(--ht-grey-1);
+    border: 1px solid var(--ht-grey-3); border-radius: 8px; padding: 9px 12px;
+    font-size: 12.5px; font-weight: 500; color: var(--ht-text); margin-bottom: 7px; cursor: pointer; }
+  .hl-item:last-child { margin-bottom: 0; }
+  .hl-item:hover { background: var(--ht-primary-tint); border-color: #E0D3F8; }
+  .hl-item i { margin-left: auto; font-size: 16px; color: var(--ht-primary); }
+
+  .main { padding: 32px 34px; }
+  .greet { font-size: 28px; font-weight: 600; letter-spacing: -0.015em; color: var(--ht-ink-head); }
+  .greet-sub { font-size: 14px; color: var(--ht-muted); margin: 4px 0 24px; }
+
+  .announce { display: flex; align-items: center; gap: 12px; background: var(--ht-primary-tint);
+    border: 1px solid #E0D3F8; border-radius: 10px; padding: 14px 18px; margin-bottom: 24px; }
+  .announce .a-ic { width: 32px; height: 32px; border-radius: 999px; background: #fff; color: var(--ht-primary);
+    display: grid; place-content: center; font-size: 16px; flex-shrink: 0; }
+  .announce p { font-size: 13.5px; color: var(--ht-primary-dark); font-weight: 500; }
+  .announce .a-btn { margin-left: auto; font-size: 12.5px; font-weight: 500; color: var(--ht-primary);
+    background: #fff; border: none; border-radius: 10px; padding: 7px 14px; cursor: pointer; font-family: inherit; }
+  .announce .a-x { color: var(--ht-primary-dark); font-size: 14px; cursor: pointer; }
+
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+  .stat { background: #fff; border: 1px solid var(--ht-hairline); border-radius: 10px; padding: 18px 20px; }
+  .stat .s-num { font-size: 26px; font-weight: 600; letter-spacing: -0.01em; color: var(--ht-ink-head);
+    font-variant-numeric: tabular-nums; line-height: 1.1; }
+  .stat .s-num .trend { font-size: 13px; color: #16A34A; font-weight: 500; margin-left: 4px; }
+  .stat .s-label { font-size: 12.5px; color: var(--ht-muted); margin-top: 4px; }
+  .stat.alerty .s-num { color: #B45309; }
+
+  .grid2 { display: grid; grid-template-columns: 1.4fr 1fr; gap: 16px; }
+  .card { background: #fff; border: 1px solid var(--ht-hairline); border-radius: 10px; overflow: hidden; }
+  .c-head { background: var(--ht-grey-1); border-bottom: 1px solid var(--ht-grey-3); padding: 15px 22px 13px; }
+  .card h3 { font-size: 15px; font-weight: 600; color: var(--ht-ink-head); letter-spacing: -0.005em; }
+  .card .sub { font-size: 12.5px; color: var(--ht-muted); margin: 2px 0 0; }
+  .c-body { padding: 14px 22px 18px; }
+  .card .c-link { float: right; font-size: 12.5px; font-weight: 500; color: var(--ht-royal-text);
+    text-decoration: underline; text-underline-offset: 3px; }
+
+  .donut-wrap { display: flex; gap: 24px; align-items: center; }
+  .legend { flex: 1; }
+  .leg-row { display: flex; align-items: center; gap: 8px; font-size: 13px; padding: 6px 0; border-bottom: 1px solid var(--ht-grey-3); }
+  .leg-row:last-child { border-bottom: none; }
+  .leg-row .sw { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+  .leg-row .pct { margin-left: auto; font-weight: 500; font-variant-numeric: tabular-nums; }
+
+  .act-row { display: flex; gap: 10px; align-items: center; padding: 15px 0; border-bottom: 1px solid var(--ht-grey-3); font-size: 13px; }
+  .act-row:last-child { border-bottom: none; }
+  .avatar { width: 28px; height: 28px; border-radius: 999px; background: var(--ht-royal-mid); color: var(--ht-royal-text);
+    font-size: 11px; font-weight: 600; display: grid; place-content: center; flex-shrink: 0; }
+  .act-row .when { margin-left: auto; font-size: 12px; color: var(--ht-subtle); white-space: nowrap; }
+  .badge { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; padding: 2px 9px; border-radius: 999px; }
+  .badge .dot { width: 5px; height: 5px; border-radius: 999px; background: currentColor; }
+  .badge.warning { background: var(--ht-amber-bg); color: var(--ht-amber); box-shadow: inset 0 0 0 1px #EFD9A0; }
+  .badge.success { background: var(--ht-green-bg); color: #196A47; box-shadow: inset 0 0 0 1px #BFE3CD; }
+
+  /* ══ Mobile ══ */
+  .mobile-row { display: flex; gap: 28px; justify-content: center; align-items: flex-start; flex-wrap: wrap; }
+  .phone { width: 375px; border: 1px solid var(--ht-border); border-radius: 28px; overflow: hidden;
+    background: var(--ht-grey-1); box-shadow: 0 12px 32px -8px rgba(59,22,131,0.10); }
+  .m-hero { background: linear-gradient(135deg, var(--ht-primary) 0%, var(--ht-royal) 100%); padding: 52px 20px 20px; color: #fff; }
+  .m-hero .m-greet { font-size: 22px; font-weight: 500; letter-spacing: -0.005em; }
+  .m-hero .m-sub { font-size: 13.5px; color: #E4DEF8; margin-top: 3px; }
+  .m-body { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+  .m-card { background: #fff; border: 1px solid var(--ht-hairline); border-radius: 10px; padding: 14px 16px; }
+  .m-card .eyebrow { font-size: 10.5px; font-weight: 500; letter-spacing: 0.07em; color: var(--ht-muted); margin-bottom: 6px; }
+  .m-appt { display: flex; gap: 12px; align-items: center; }
+  .m-appt .cal { width: 46px; border-radius: 8px; background: var(--ht-royal-tint); text-align: center; padding: 6px 0; flex-shrink: 0; }
+  .m-appt .cal .mo { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; color: var(--ht-royal-text); }
+  .m-appt .cal .day { font-size: 20px; font-weight: 600; color: var(--ht-ink-head); line-height: 1.1; }
+  .m-appt .t { font-size: 14.5px; font-weight: 600; color: var(--ht-ink-head); }
+  .m-appt .d { font-size: 13px; color: var(--ht-muted); margin-top: 1px; }
+  .m-alert { display: flex; gap: 8px; background: var(--ht-amber-bg); box-shadow: inset 0 0 0 1px #F0D25B;
+    border-radius: 6px; padding: 10px 12px; font-size: 13px; color: var(--ht-amber); line-height: 1.4; }
+  .m-alert .t { font-weight: 600; }
+  .m-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .m-action { background: #fff; border: 1px solid var(--ht-hairline); border-radius: 10px; padding: 14px; text-align: center; }
+  .m-action .ic { width: 36px; height: 36px; border-radius: 999px; background: var(--ht-primary-tint);
+    color: var(--ht-primary); display: grid; place-content: center; font-size: 17px; margin: 0 auto 6px; }
+  .m-action .l { font-size: 12.5px; font-weight: 500; color: var(--ht-ink-head); }
+  .m-nav { display: grid; grid-template-columns: repeat(4, 1fr); background: #fff; border-top: 1px solid var(--ht-hairline);
+    padding: 6px 8px 20px; }
+  .m-nav a { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 8px 4px;
+    text-decoration: none; font-size: 11px; font-weight: 500; color: var(--ht-muted); position: relative; }
+  .m-nav a i { font-size: 21px; }
+  .m-nav a.active { color: var(--ht-primary); }
+  .m-nav .nbadge { position: absolute; top: 4px; right: calc(50% - 18px); min-width: 16px; height: 16px;
+    border-radius: 999px; background: var(--ht-red); color: #fff; font-size: 10px; font-weight: 600;
+    display: grid; place-content: center; padding: 0 4px; }
+</style>
+</head>
+<body>
+
+<p class="section-label">CASEWORKER DASHBOARD — SPACIOUS MODE</p>
+<div class="shell">
+  <header class="topbar">
+    <span class="logo"><i class="ti ti-heart" aria-hidden="true"></i></span>
+    <span class="name">Healthy Together</span>
+    <span class="role">Caseworker</span>
+    <nav>
+      <a href="#" class="active">Home</a>
+      <a href="#">Queue</a>
+      <a href="#">Residents</a>
+      <a href="#">Reports</a>
+    </nav>
+  </header>
+  <div class="layout">
+    <aside class="sidebar">
+      <p class="s-label">MENU</p>
+      <div class="s-item active"><i class="ti ti-layout-dashboard" aria-hidden="true"></i>Dashboard</div>
+      <div class="s-item"><i class="ti ti-list-check" aria-hidden="true"></i>My queue<span class="count">8</span></div>
+      <div class="s-item"><i class="ti ti-users" aria-hidden="true"></i>Residents</div>
+      <div class="s-item"><i class="ti ti-file-text" aria-hidden="true"></i>Documents<span class="count">3</span></div>
+      <div class="s-item"><i class="ti ti-chart-bar" aria-hidden="true"></i>Reports</div>
+      <div class="s-item"><i class="ti ti-settings" aria-hidden="true"></i>Settings</div>
+      <div class="hl-card">
+        <div class="hl-title"><i class="ti ti-wand" aria-hidden="true" style="font-size:15px"></i>What's new</div>
+        <div class="hl-item">Auto shelter flags<i class="ti ti-arrow-right" aria-hidden="true"></i></div>
+        <div class="hl-item">Interview summaries<i class="ti ti-arrow-right" aria-hidden="true"></i></div>
+        <div class="hl-item">Spanish transcripts<i class="ti ti-arrow-right" aria-hidden="true"></i></div>
+      </div>
+    </aside>
+    <main class="main">
+      <h1 class="greet">Good morning, Jordan</h1>
+      <p class="greet-sub">Monday, July 20 — you have 5 interviews scheduled today.</p>
+
+      <div class="announce">
+        <span class="a-ic"><i class="ti ti-speakerphone" aria-hidden="true"></i></span>
+        <p>New: excess shelter deductions are now flagged automatically during interviews.</p>
+        <button class="a-btn">See how it works</button>
+        <i class="ti ti-x a-x" aria-hidden="true"></i>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="s-num">8</div><div class="s-label">Pending review</div></div>
+        <div class="stat alerty"><div class="s-num">3</div><div class="s-label">Waiting on documents</div></div>
+        <div class="stat"><div class="s-num">5</div><div class="s-label">Interviews today</div></div>
+        <div class="stat"><div class="s-num">21<span class="trend">▲ 4</span></div><div class="s-label">Completed this week</div></div>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <div class="c-head">
+            <a class="c-link" href="#">View queue</a>
+            <h3>Recent activity</h3>
+            <p class="sub">Last updated 2 minutes ago</p>
+          </div>
+          <div class="c-body">
+          <div class="act-row"><span class="avatar">BS</span><span><b style="font-weight:500">Bob Stoops</b> — interview completed, notes ready</span><span class="badge warning"><span class="dot"></span>Pending review</span><span class="when">2:04 PM</span></div>
+          <div class="act-row"><span class="avatar">MA</span><span><b style="font-weight:500">Maria Alvarez</b> — uploaded proof of address</span><span class="badge success"><span class="dot"></span>Complete</span><span class="when">1:38 PM</span></div>
+          <div class="act-row"><span class="avatar">SO</span><span><b style="font-weight:500">Sam Ortiz</b> — approved, notice sent</span><span class="badge success"><span class="dot"></span>Approved</span><span class="when">11:20 AM</span></div>
+          <div class="act-row"><span class="avatar">DW</span><span><b style="font-weight:500">Dana Whitfield</b> — flagged over income limit</span><span class="when">Yesterday</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="c-head">
+            <h3>Caseload by status</h3>
+            <p class="sub">32 open cases</p>
+          </div>
+          <div class="c-body">
+          <div class="donut-wrap">
+            <svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="Caseload donut chart">
+              <circle cx="60" cy="60" r="48" fill="none" stroke="#EEF0FE" stroke-width="16"/>
+              <circle cx="60" cy="60" r="48" fill="none" stroke="#4C1EA8" stroke-width="16" stroke-dasharray="120.6 301.6" transform="rotate(-90 60 60)" stroke-linecap="butt"/>
+              <circle cx="60" cy="60" r="48" fill="none" stroke="#4860FC" stroke-width="16" stroke-dasharray="90.5 301.6" stroke-dashoffset="-120.6" transform="rotate(-90 60 60)"/>
+              <circle cx="60" cy="60" r="48" fill="none" stroke="#DDE2FD" stroke-width="16" stroke-dasharray="60.3 301.6" stroke-dashoffset="-211.1" transform="rotate(-90 60 60)"/>
+              <text x="60" y="57" text-anchor="middle" font-size="22" font-weight="600" fill="#14111F" font-family="Geist, sans-serif">32</text>
+              <text x="60" y="74" text-anchor="middle" font-size="10" fill="#6B7280" font-family="Geist, sans-serif">open</text>
+            </svg>
+            <div class="legend">
+              <div class="leg-row"><span class="sw" style="background:#4C1EA8"></span>Pending review<span class="pct">40%</span></div>
+              <div class="leg-row"><span class="sw" style="background:#4860FC"></span>In progress<span class="pct">30%</span></div>
+              <div class="leg-row"><span class="sw" style="background:#DDE2FD"></span>Needs documents<span class="pct">20%</span></div>
+              <div class="leg-row"><span class="sw" style="background:#EEF0FE"></span>Other<span class="pct">10%</span></div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<p class="section-label">RESIDENT APP — MOBILE HOME</p>
+<div class="mobile-row">
+  <div class="phone">
+    <div class="m-hero">
+      <p class="m-greet">Good morning, Maria</p>
+      <p class="m-sub">Your application is in review — no action needed today.</p>
+    </div>
+    <div class="m-body">
+      <div class="m-alert"><i class="ti ti-alert-triangle" aria-hidden="true" style="font-size:16px; margin-top:1px;"></i><span><span class="t">One document still needed</span><br>Upload proof of income to finish your application.</span></div>
+      <div class="m-card">
+        <p class="eyebrow">NEXT APPOINTMENT</p>
+        <div class="m-appt">
+          <div class="cal"><div class="mo">JUL</div><div class="day">28</div></div>
+          <div>
+            <p class="t">Phone interview</p>
+            <p class="d">Tuesday, 10:30 AM · with Jordan Chen</p>
+          </div>
+        </div>
+      </div>
+      <div class="m-actions">
+        <div class="m-action"><span class="ic"><i class="ti ti-upload" aria-hidden="true"></i></span><span class="l">Upload document</span></div>
+        <div class="m-action"><span class="ic"><i class="ti ti-calendar" aria-hidden="true"></i></span><span class="l">Book appointment</span></div>
+        <div class="m-action"><span class="ic"><i class="ti ti-message" aria-hidden="true"></i></span><span class="l">Messages</span></div>
+        <div class="m-action"><span class="ic"><i class="ti ti-heart" aria-hidden="true"></i></span><span class="l">My benefits</span></div>
+      </div>
+    </div>
+    <nav class="m-nav">
+      <a href="#" class="active"><i class="ti ti-home" aria-hidden="true"></i>Home</a>
+      <a href="#"><i class="ti ti-calendar" aria-hidden="true"></i>Appointments</a>
+      <a href="#"><i class="ti ti-heart" aria-hidden="true"></i>Benefits</a>
+      <a href="#"><span class="nbadge">2</span><i class="ti ti-mail" aria-hidden="true"></i>Messages</a>
+    </nav>
+  </div>
+</div>
+
+</body>
+</html>

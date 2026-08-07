@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Caseworker — Case detail" description="Admin case-detail screen: applicant summary, action-item checklist, and a live interview transcript with flagged turns." -->
+<helmet>
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css" rel="stylesheet">
+<script src="./ds-base.js"></script>
+<style>body{margin:0;background:var(--ht-bg);font-family:var(--ht-font-sans);color:var(--ht-text)}</style>
+</helmet>
+<div style="min-height:100vh;background:var(--ht-bg)">
+<x-import component-from-global-scope="Hearth_5938e8.DarkHeader" name="Healthy Together" role="Caseworker" nav="{{ nav }}" action="Send interview invite" hint-size="100%,52px"></x-import>
+<div style="display:grid;grid-template-columns:220px 1fr">
+<x-import component-from-global-scope="Hearth_5938e8.SideNav" groups="{{ queueGroups }}" style="min-height:calc(100vh - 52px)" hint-size="220px,100%"></x-import>
+<main style="padding:28px 32px;max-width:1040px">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+<h1 style="font-size:19px;font-weight:500;letter-spacing:-0.01em;color:var(--ht-text-head);margin:0;white-space:nowrap">Bob Stoops</h1>
+<span style="font-size:13px;color:var(--ht-text-muted)">2026-499-929</span>
+<x-import component-from-global-scope="Hearth_5938e8.Badge" variant="warning" hint-size="130px,26px">Pending review</x-import>
+<div style="margin-left:auto;display:flex;gap:8px">
+<x-import component-from-global-scope="Hearth_5938e8.Button" variant="secondary" size="sm" hint-size="150px,40px">View case summary</x-import>
+<x-import component-from-global-scope="Hearth_5938e8.Button" variant="primary" size="sm" hint-size="150px,40px">Copy case notes</x-import>
+</div>
+</div>
+<div style="max-width:720px;margin-bottom:18px">
+<x-import component-from-global-scope="Hearth_5938e8.NotificationCard" variant="danger" compact="{{ true }}" title="Over income limit" hint-size="100%,64px">Gross $4,000/mo vs. $3,380/mo threshold (household of 4). Preliminary screening only — not a final determination.</x-import>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start">
+<div style="display:flex;flex-direction:column;gap:16px">
+<x-import component-from-global-scope="Hearth_5938e8.Panel" title="Applicant" icon="ti-id" subtitle="Case 2026-499-929 · opened July 14" action="Copy" hint-size="100%,220px">
+<x-import component-from-global-scope="Hearth_5938e8.PanelBody" hint-size="100%,160px">
+<p style="margin:0 0 5px;font-size:13px;line-height:1.55"><span style="color:var(--ht-text-muted)">Name:</span> <span style="font-weight:500">Bob Stoops</span></p>
+<p style="margin:0 0 5px;font-size:13px;line-height:1.55"><span style="color:var(--ht-text-muted)">Date of birth:</span> <span style="font-weight:500">September 9, 1960</span></p>
+<p style="margin:0 0 5px;font-size:13px;line-height:1.55"><span style="color:var(--ht-text-muted)">Household:</span> <span style="font-weight:500">4 — Bob, Carol, Isaac (26), Drake (26)</span></p>
+<p style="margin:0 0 5px;font-size:13px;line-height:1.55"><span style="color:var(--ht-text-muted)">Income:</span> <span style="font-weight:500">$4,000/mo</span></p>
+<p style="margin:0;font-size:13px;line-height:1.55"><span style="color:var(--ht-text-muted)">130% FPL limit:</span> <span style="font-weight:500">$3,380/mo</span></p>
+</x-import>
+</x-import>
+<x-import component-from-global-scope="Hearth_5938e8.Panel" title="Action items" icon="ti-clipboard-list" subtitle="3 questions · 4 documents remaining" action="Copy all" hint-size="100%,420px">
+<x-import component-from-global-scope="Hearth_5938e8.PanelSection" hint-size="100%,28px">Follow-up questions</x-import>
+<x-import component-from-global-scope="Hearth_5938e8.ChecklistRow" number="{{ 1 }}" hint-size="100%,48px">Elderly household members but no medical expenses reported — confirm out-of-pocket costs.</x-import>
+<x-import component-from-global-scope="Hearth_5938e8.ChecklistRow" number="{{ 2 }}" hint-size="100%,48px">Isaac and Drake are ABAWDs not working — verify work requirement compliance or exemption.</x-import>
+<x-import component-from-global-scope="Hearth_5938e8.ChecklistRow" number="{{ 3 }}" hint-size="100%,48px">Shelter costs are high relative to income — verify for excess shelter deduction.</x-import>
+<x-import component-from-global-scope="Hearth_5938e8.PanelSection" divide="{{ true }}" hint-size="100%,28px">Documents to request</x-import>
+<x-import component-from-global-scope="Hearth_5938e8.ChecklistRow" done="{{ true }}" hint-size="100%,44px">Government-issued photo ID for Bob and Carol</x-import>
+<x-import component-from-global-scope="Hearth_5938e8.ChecklistRow" done="{{ true }}" hint-size="100%,44px">Proof of Social Security Number</x-import>
+<x-import component-from-global-scope="Hearth_5938e8.ChecklistRow" hint-size="100%,44px">Carol's pay stubs or commission statements (30 days)</x-import>
+<x-import component-from-global-scope="Hearth_5938e8.ChecklistRow" hint-size="100%,44px">Bob's pension award letter or statement</x-import>
+<x-import component-from-global-scope="Hearth_5938e8.ChecklistRow" hint-size="100%,44px">Mortgage statement</x-import>
+<x-import component-from-global-scope="Hearth_5938e8.ChecklistRow" hint-size="100%,44px">Recent utility bills (electricity, gas, water)</x-import>
+</x-import>
+</div>
+<x-import component-from-global-scope="Hearth_5938e8.Panel" band="{{ true }}" live="{{ true }}" title="Live transcript" meta="73 messages" hint-size="100%,420px">
+<x-import component-from-global-scope="Hearth_5938e8.Transcript" messages="{{ messages }}" hint-size="100%,380px"></x-import>
+</x-import>
+</div>
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      queueGroups: [
+        { label: 'Queue — today', items: [
+          { icon: 'ti-user', label: 'Bob Stoops', meta: '1:44p', active: true },
+          { icon: 'ti-user', label: 'Maria Alvarez', meta: '2:15p' },
+          { icon: 'ti-user', label: 'Sam Ortiz', meta: '3:00p' },
+        ] },
+        { label: 'Views', items: [
+          { icon: 'ti-clock', label: 'Pending review', meta: '8' },
+          { icon: 'ti-alert-triangle', label: 'Needs documents', meta: '3' },
+          { icon: 'ti-check', label: 'Completed', meta: '21' },
+        ] },
+      ],
+      nav: [
+        { label: 'Queue', active: true, href: '#' },
+        { label: 'Residents', href: '#' },
+        { label: 'Reports', href: '#' },
+        { label: 'Settings', href: '#' },
+      ],
+      messages: [
+        { speaker: 'Caseworker', worker: true, time: '1:53 PM', text: 'And what do you pay in rent or mortgage each month?' },
+        { speaker: 'Applicant', time: '1:55 PM', text: "It's about $2,350 all in — mortgage, taxes, insurance.", flag: { text: 'High shelter costs — check excess shelter deduction', action: 'Add note' } },
+        { speaker: 'Caseworker', worker: true, time: '1:56 PM', text: 'Thanks — that may qualify you for a deduction. Let me note it.' },
+        { speaker: 'Applicant', time: '1:57 PM', text: 'Okay, thank you. Do you need anything else from me?' },
+        { speaker: 'Caseworker', worker: true, time: '1:57 PM', text: "Just a few documents — I'll text you the list after we hang up." },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

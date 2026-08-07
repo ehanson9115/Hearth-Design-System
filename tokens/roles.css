@@ -1,0 +1,56 @@
+/* ═══ LAYER 2 — ROLES (the public API) ══════════════════════════════════
+   Components reference ONLY these role names — never hue names, never raw
+   hex. Redundancy rule: color never signals function alone. Interactive
+   elements always carry a control shape or underline; data color appears
+   only in numeral/bar/chart contexts. */
+:root {
+  /* Action = the product's primary hue. All primary interactive intent, plus
+     the informational status family (royal is reserved for data). */
+  --ht-action:         var(--ht-primary);
+  --ht-action-hover:   var(--ht-primary-dark);
+  --ht-action-wash:    var(--ht-primary-wash);
+  --ht-action-tint:    var(--ht-primary-tint);
+  --ht-action-select:  var(--ht-primary-select);
+  --ht-action-stroke:  var(--ht-primary-stroke);
+
+  /* Data = royal. Progress, charts, numeric chips, hero depth. */
+  --ht-data:           var(--ht-royal);
+  --ht-data-text:      var(--ht-royal-text);
+  --ht-data-tint:      var(--ht-royal-tint);
+  --ht-data-mid:       var(--ht-royal-mid);
+
+  /* Surfaces */
+  --ht-bg:             var(--ht-page);
+  --ht-surface:        var(--ht-grey-0);
+  /* Cake-header zone — a soft step down from the white card body; the header
+     hairline does the real separating, so the fill stays light. */
+  --ht-head-zone:      color-mix(in srgb, var(--ht-grey-4) 45%, white);
+  --ht-sidebar-bg:     var(--ht-grey-2);
+  --ht-inset:          var(--ht-grey-3);
+  --ht-input-bg:       var(--ht-grey-1);
+
+  /* Focus ring — the action hue at 32%, so it follows a re-pointed primary. */
+  --ht-ring-color:     color-mix(in srgb, var(--ht-action) 32%, transparent);
+  --ht-ring-color-danger: color-mix(in srgb, var(--ht-red-vivid) 25%, transparent);
+
+  --ht-hero-gradient:  linear-gradient(135deg, var(--ht-action) 0%, var(--ht-data) 100%);
+  --ht-progress-fill:  var(--ht-royal);
+  --ht-progress-track: var(--ht-royal-tint);
+}
+
+/* Legacy aliases kept for back-compat with existing components */
+:root {
+  --ht-muted:     var(--ht-grey-2);
+  --ht-secondary: var(--ht-grey-4);
+  --ht-ink:       var(--ht-text-head);
+  --ht-green:     #218358;
+  --ht-amber:     var(--ht-amber-text);
+  --ht-red:       var(--ht-red-vivid);
+  --ht-red-border: var(--ht-red-line);
+  --ht-r-sm: 8px; --ht-r-md: 8px; --ht-r-lg: 12px; --ht-r-xl: 16px;
+  --ht-green-bg-soft: var(--ht-badge-success-bg); --ht-amber-bg-soft: var(--ht-badge-warning-bg); --ht-red-bg-soft: var(--ht-red-soft);
+  --ht-info: var(--ht-data-text); --ht-info-bg: var(--ht-data-tint);
+  /* Consumer-compat aliases (2026-08-07, from CE participant app): */
+  --ht-brand: var(--ht-action); --ht-on-brand: var(--ht-on-ink);
+  --ht-text-strong-muted: var(--ht-text-on-tint);
+}

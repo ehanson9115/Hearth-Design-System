@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Resident — Mobile home" description="Resident app mobile home screen: gradient hero, status alert, next appointment, quick actions, and the bottom tab bar." -->
+<helmet>
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css" rel="stylesheet">
+<script src="./ds-base.js"></script>
+<style>body{margin:0;background:var(--ht-sidebar-bg);font-family:var(--ht-font-sans);color:var(--ht-text)}</style>
+</helmet>
+<div style="min-height:100vh;background:var(--ht-sidebar-bg);display:flex;justify-content:center;align-items:flex-start;padding:28px 16px">
+<div style="width:375px;border:1px solid var(--ht-border);border-radius:28px;overflow:hidden;background:var(--ht-head-zone);box-shadow:var(--ht-shadow-lg)">
+<div style="background:var(--ht-hero-gradient);padding:52px 20px 20px;color:#fff">
+<p style="font-size:22px;font-weight:500;letter-spacing:-0.005em;margin:0">Good morning, Maria</p>
+<p style="font-size:13.5px;color:#E4DEF8;margin:3px 0 0">Your application is in review — one document left to upload.</p>
+</div>
+<div style="padding:16px;display:flex;flex-direction:column;gap:12px">
+<div style="background:var(--ht-surface);border:1px solid var(--ht-hairline);border-radius:var(--ht-r-card);padding:14px 16px">
+<p style="font-size:10.5px;font-weight:500;letter-spacing:0.07em;color:var(--ht-text-muted);margin:0 0 6px">NEXT APPOINTMENT</p>
+<div style="display:flex;gap:12px;align-items:center">
+<div style="width:46px;border-radius:8px;background:var(--ht-data-tint);text-align:center;padding:6px 0;flex-shrink:0">
+<div style="font-size:10px;font-weight:500;letter-spacing:0.06em;color:var(--ht-data-text)">JUL</div>
+<div style="font-size:20px;font-weight:500;color:var(--ht-text-head);line-height:1.1">28</div>
+</div>
+<div>
+<p style="font-size:14.5px;font-weight:500;color:var(--ht-text-head);margin:0">Phone interview</p>
+<p style="font-size:13px;color:var(--ht-text-muted);margin:1px 0 0">Tuesday, 10:30 AM · with Jordan Chen</p>
+</div>
+</div>
+</div>
+<x-import component-from-global-scope="Hearth_5938e8.DocumentsCard" badge="1 missing" subtitle="One more document finishes your application." docs="{{ docs }}" cta="Upload proof of income" hint-size="100%,260px"></x-import>
+</div>
+<x-import component-from-global-scope="Hearth_5938e8.MobileBottomNav" items="{{ navItems }}" hint-size="100%,84px"></x-import>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      docs: [
+        { title: 'Photo ID', subtitle: 'Added Jul 18' },
+        { title: 'Proof of address', subtitle: 'Added Jul 18' },
+        { title: 'Proof of income', subtitle: 'Last 30 days of pay stubs', missing: true },
+      ],
+      navItems: [
+        { label: 'Home', icon: 'ti-home', active: true, href: '#' },
+        { label: 'Appointments', icon: 'ti-calendar', href: '#' },
+        { label: 'Benefits', icon: 'ti-heart', href: '#' },
+        { label: 'Messages', icon: 'ti-mail', badge: 2, href: '#' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

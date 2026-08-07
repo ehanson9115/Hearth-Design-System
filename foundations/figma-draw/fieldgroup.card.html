@@ -1,0 +1,38 @@
+<!-- @dsCard group="To draw in Figma" viewport="760x560" name="FieldGroup — forms" subtitle="fieldset + legend · 12px radius · 22px padding · Flush variant · fields re-tint to grey/1" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../styles.css">
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css" rel="stylesheet">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:20px;background:var(--ht-bg)}.cols{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}.spec{font-family:var(--ht-font-sans);font-size:10.5px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:var(--ht-text-muted);margin:0 0 8px}</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { FieldGroup, Input } = window.Hearth_5938e8;
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <div className="cols">
+    <div>
+      <p className="spec">Flush=false (default)</p>
+      <FieldGroup legend="How can we reach you?" description="We only use this to send updates about your application.">
+        <Input label="Phone number" placeholder="(406) 555-0143" fullWidth />
+        <Input label="Email" placeholder="you@example.com" fullWidth />
+      </FieldGroup>
+    </div>
+    <div>
+      <p className="spec">Flush=true (border transparent)</p>
+      <FieldGroup flush legend="Home address" description="Where you live now, even if temporary.">
+        <Input label="Street address" placeholder="1200 Prospect Ave" fullWidth />
+        <Input label="City" placeholder="Helena" fullWidth />
+      </FieldGroup>
+    </div>
+  </div>
+);
+</script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+/* =========================================================================
+   HEARTH — the HT Design System · tokens v2
+   CIVIC provides the structure; Hearth provides the warmth.
+
+   Three layers:
+     1. PRIMITIVES  — raw values. Never referenced by components,
+                      never changed by themes.
+     2. ROLES       — the public API. Components reference ONLY this layer.
+     3. THEMES      — per-project remaps. A new project = a new theme
+                      block re-pointing roles. Nothing else changes.
+
+   The --ht-* prefix = Hearth token. Legacy hue names (--ht-primary,
+   --ht-royal, status hues) are kept as private aliases so existing
+   components keep working — new components must use role names.
+   ========================================================================= */
+
+/* ═══ LAYER 1 — PRIMITIVES ══════════════════════════════════════════════ */
+:root {
+  /* Type — Geist everywhere; self-host woff2 in production */
+  --ht-font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --ht-fs-greeting: 28px;  /* dashboards, 600 */
+  --ht-fs-hero:     22px;  /* 500 on dark (optical) */
+  --ht-fs-title:    20px;  /* page/step titles, 600 */
+  --ht-fs-section:  16px;
+  --ht-fs-label:    15px;  /* card headlines/labels/buttons */
+  --ht-fs-body:     14px;
+  --ht-fs-caption:  12.5px;
+  --ht-fs-micro:    11px;  /* mobile nav labels */
+  /* Weights 400/500/600 only, never 700. CTAs never above 500.
+     Tracking: +0.01em body; negative on titles; 500/-0.005em on dark. */
+
+  /* Grey ladder — violet-cast neutrals */
+  --ht-grey-0: #FFFFFF;   /* card */
+  --ht-grey-1: #FAFAFC;   /* header zones, inputs */
+  --ht-grey-2: #F5F5F9;   /* sidebar, tint blocks, hover rows */
+  --ht-grey-3: #ECECF2;   /* internal dividers, zebra */
+  --ht-grey-4: #E4E4EC;   /* hairline strokes, hover fills */
+  --ht-grey-5: #DBDAE5;   /* pressed */
+
+  /* Radii */
+  --ht-r-input: 6px;      /* form controls, option cards, insets, alerts */
+  --ht-r-card:  8px;      /* app cards/panels */
+  --ht-r-dash:  10px;     /* dashboard cards, buttons */
+  --ht-r-block: 12px;     /* editorial blocks, highlight card */
+
+  /* Focus ring */
+  --ht-ring: 0 0 0 3px;
+}
+
+/* ═══ LAYER 3 — THEME: HEALTHY TOGETHER (default) ═══════════════════════
+   Private hue palette. Themes swap THIS block (plus the role mapping
+   below if a project needs different hue→role assignments).
+   Applied themes so far: Healthy Together (default) · Atlas.           */
+:root,
+[data-theme="healthy-together"],
+[data-theme="atlas"] {
+  /* Brand violet */
+  --ht-primary:        #4C1EA8;
+  --ht-primary-dark:   #3B1683;
+  --ht-primary-tint:   #F2ECFD;
+  --ht-primary-select: #E7DDFA;   /* selected on grey surfaces */
+
+  /* Royal blue */
+  --ht-royal:          #4860FC;
+  --ht-royal-text:     #2C3ECF;   /* text-safe on white, 7.8:1 */
+  --ht-royal-tint:     #EEF0FE;
+  --ht-royal-mid:      #DDE2FD;   /* number chips, avatars */
+
+  /* Page + ink */
+  --ht-page:           #F8F7FC;   /* violet-tinted near-white */
+  --ht-hairline:       #E4E4EC;
+  --ht-border:         #D6D5E0;   /* interactive-control stroke */
+  --ht-border-strong:  #9C9AAF;
+  --ht-ink-surface:    #201C33;   /* admin bar + the ONE live band */
+  --ht-on-ink:         #FFFFFF;
+  --ht-on-ink-muted:   #C9C4DD;
+  --ht-on-ink-subtle:  #A9A4C0;
+
+  /* Text */
+  --ht-text:           #1D1A2E;
+  --ht-text-head:      #14111F;
+  --ht-text-muted:     #6B7280;
+  --ht-text-subtle:    #9CA3AF;
+
+  /* Status — vivid accents (dots/icons/checks) + AA text steps + tints.
+     Warning family is SUNFLOWER. */
+  --ht-green-vivid:    #16A34A;
+  --ht-green-text:     #196A47;
+  --ht-green-bg:       #E6F6EB;
+  --ht-green-line:     #BFE3CD;
+  --ht-amber-vivid:    #F5B700;
+  --ht-amber-text:     #7D5700;
+  --ht-amber-bg:       #FFF3BF;
+  --ht-amber-line:     #F0D25B;
+  --ht-amber-solid:    #FFC53D;
+  --ht-amber-note:     #FAE27E;
+  --ht-red-vivid:      #DC2626;
+  --ht-red-text:       #B91C1C;
+  --ht-red-bg:         #FEE2E2;
+  --ht-red-line:       #F2C7C7;
+  --ht-red-soft:       #FEF5F5;
+  --ht-info-line:      #C9D1FD;
+
+  /* Amber icons/glyphs ON an amber tint (a11y, 2026-07-22): vivid #F5B700 is
+     yellow-on-yellow and reads faint, so use this darker gold. Vivid amber
+     stays for dots on white + solid accents. */
+  --ht-amber-icon:     #A16207;
+
+  /* Status dot-pill fills — lightened & unified so no status reads heavier
+     than the rest (2026-07-22). Dot + AA text carry meaning; fill recedes.
+     Badges only — full notification-card tints stay stronger. */
+  --ht-badge-info-bg:     #F4F5FE;  --ht-badge-info-line:     #DDE2FD;
+  --ht-badge-success-bg:  #F0FAF4;  --ht-badge-success-line:  #D6EBDD;
+  --ht-badge-warning-bg:  #FFFBE6;  --ht-badge-warning-line:  #F0E2A8;
+  --ht-badge-danger-bg:   #FEF5F5;  --ht-badge-danger-line:   #F3D6D6;
+
+  /* Shadows — violet-tinted */
+  --ht-shadow-sm: 0 1px 2px rgba(59,22,131,0.05);
+  --ht-shadow-md: 0 4px 12px -2px rgba(59,22,131,0.08), 0 0 0 1px rgba(59,22,131,0.03);
+}
+
+/* ═══ LAYER 2 — ROLES (the public API) ══════════════════════════════════
+   Components reference ONLY these. Redundancy rule: color never
+   signals function alone — interactive elements always carry a
+   control shape or underline; data color appears only in
+   numeral/bar/chart contexts.                                          */
+:root {
+  --ht-action:         var(--ht-primary);
+  --ht-action-hover:   var(--ht-primary-dark);
+  --ht-action-tint:    var(--ht-primary-tint);
+  --ht-action-select:  var(--ht-primary-select);
+
+  --ht-data:           var(--ht-royal);
+  --ht-data-text:      var(--ht-royal-text);
+  --ht-data-tint:      var(--ht-royal-tint);
+  --ht-data-mid:       var(--ht-royal-mid);
+
+  --ht-bg:             var(--ht-page);
+  --ht-surface:        var(--ht-grey-0);
+  --ht-head-zone:      var(--ht-grey-1);
+  --ht-sidebar-bg:     var(--ht-grey-2);
+  --ht-inset:          var(--ht-grey-3);
+  --ht-input-bg:       var(--ht-grey-1);
+
+  --ht-hero-gradient:  linear-gradient(135deg, var(--ht-action) 0%, var(--ht-data) 100%);
+}
+
+/* Legacy aliases kept for back-compat with existing components */
+:root {
+  --ht-muted:     var(--ht-grey-2);
+  --ht-secondary: var(--ht-grey-4);
+  --ht-ink:       var(--ht-text-head);
+  --ht-green:     #218358;
+  --ht-amber:     var(--ht-amber-text);
+  --ht-red:       var(--ht-red-vivid);
+  --ht-red-border: var(--ht-red-line);
+  --ht-r-sm: 8px; --ht-r-md: 10px; --ht-r-lg: 12px; --ht-r-xl: 16px;
+  --ht-green-bg-soft: #F0FAF4; --ht-amber-bg-soft: #FFFBE6; --ht-red-bg-soft: var(--ht-red-soft);
+  --ht-info: var(--ht-data-text); --ht-info-bg: var(--ht-data-tint);
+}

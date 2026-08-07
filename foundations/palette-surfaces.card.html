@@ -1,0 +1,24 @@
+<!-- @dsCard group="Colors" viewport="700x210" name="Surfaces, ink & text" subtitle="Page, hairline, the one ink band, and the text ladder" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><link rel="stylesheet" href="../styles.css">
+<style>body{margin:0;padding:18px;background:var(--ht-bg);font-family:var(--ht-font-sans)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+.sw{border:1px solid var(--ht-hairline);border-radius:8px;overflow:hidden;background:#fff}
+.sw .c{height:44px}.sw .m{padding:6px 9px;font-size:10.5px;color:var(--ht-text-muted)}
+.sw .m b{display:block;font-size:11.5px;color:var(--ht-text-head);font-weight:500}
+.txt div{padding:3px 0;line-height:1.3}</style></head>
+<body>
+<div class="grid">
+<div class="sw"><div class="c" style="background:var(--ht-bg)"></div><div class="m"><b>--ht-bg</b>#F8F7FC page</div></div>
+<div class="sw"><div class="c" style="background:var(--ht-hairline)"></div><div class="m"><b>--ht-hairline</b>#E4E4EC</div></div>
+<div class="sw"><div class="c" style="background:var(--ht-border)"></div><div class="m"><b>--ht-border</b>#D6D5E0</div></div>
+<div class="sw"><div class="c" style="background:var(--ht-ink-surface)"></div><div class="m"><b>--ht-ink-surface</b>#201C33</div></div>
+</div>
+<div class="txt">
+<div style="color:var(--ht-text-head);font-size:16px;font-weight:500">--ht-text-head · #14111F · headings</div>
+<div style="color:var(--ht-text);font-size:14px">--ht-text · #1D1A2E · body</div>
+<div style="color:var(--ht-text-on-tint);font-size:14px">--ht-text-on-tint · #52525E · labels on a grey/tinted fill (AA there; muted is not)</div>
+<div style="color:var(--ht-text-muted);font-size:14px">--ht-text-muted · #6B7280 · secondary</div>
+<div style="color:var(--ht-text-subtle);font-size:14px">--ht-text-subtle · #9CA3AF · placeholder / timestamps</div>
+</div>
+</body></html>

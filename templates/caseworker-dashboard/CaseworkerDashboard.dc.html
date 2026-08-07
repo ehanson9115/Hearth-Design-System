@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Caseworker — Dashboard" description="Admin dashboard (spacious mode): greeting, announcement bar, metric row, recent-activity feed, and a caseload panel with sidebar + What's new." -->
+<helmet>
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css" rel="stylesheet">
+<script src="./ds-base.js"></script>
+<style>body{margin:0;background:var(--ht-sidebar-bg);font-family:var(--ht-font-sans);color:var(--ht-text)}</style>
+</helmet>
+<div style="min-height: 100vh; background: var(--ht-sidebar-bg); padding: 24px; position: relative">
+<div style="max-width:1240px;margin:0 auto;border:1px solid var(--ht-border);border-radius:12px;overflow:hidden;background:var(--ht-bg)">
+<x-import component-from-global-scope="Hearth_5938e8.DarkHeader" name="Healthy Together" role="Caseworker" nav="{{ nav }}" hint-size="100%,52px"></x-import>
+<div style="display:grid;grid-template-columns:220px 1fr">
+<x-import component-from-global-scope="Hearth_5938e8.SideNav" groups="{{ menuGroups }}" hint-size="220px,100%">
+<x-import component-from-global-scope="Hearth_5938e8.HighlightCard" items="{{ whatsNew }}" hint-size="100%,180px"></x-import>
+</x-import>
+<main style="padding:32px 34px">
+<h1 style="font-size:28px;font-weight:500;letter-spacing:-0.015em;color:var(--ht-text-head);margin:0">Good morning, Jordan</h1>
+<p style="font-size:14px;color:var(--ht-text-muted);margin:4px 0 24px">Monday, July 20 — you have 5 interviews scheduled today.</p>
+<div style="margin-bottom:24px">
+<x-import component-from-global-scope="Hearth_5938e8.AnnouncementBar" action="See how it works" hint-size="100%,60px" style="border-width: 2px; border-style: solid; border-color: #4027D0; border-radius: var(--ht-radius-md, 12px)">New: excess shelter deductions are now flagged automatically during interviews.</x-import>
+</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px">
+<x-import component-from-global-scope="Hearth_5938e8.MetricCard" value="8" label="Pending review" hint-size="100%,84px"></x-import>
+<x-import component-from-global-scope="Hearth_5938e8.MetricCard" value="3" label="Waiting on documents" variant="warn" hint-size="100%,84px"></x-import>
+<x-import component-from-global-scope="Hearth_5938e8.MetricCard" value="5" label="Interviews today" hint-size="100%,84px"></x-import>
+<x-import component-from-global-scope="Hearth_5938e8.MetricCard" value="21" trend="4" label="Completed this week" hint-size="100%,84px"></x-import>
+</div>
+<div style="display:grid;grid-template-columns:1.4fr 1fr;gap:16px;align-items:start">
+<x-import component-from-global-scope="Hearth_5938e8.Panel" title="Recent activity" icon="ti-activity" subtitle="Last updated 2 minutes ago" action="View queue" hint-size="100%,300px">
+<x-import component-from-global-scope="Hearth_5938e8.PanelBody" hint-size="100%,240px">
+<x-import component-from-global-scope="Hearth_5938e8.ActivityList" items="{{ activity }}" hint-size="100%,220px"></x-import>
+</x-import>
+</x-import>
+<x-import component-from-global-scope="Hearth_5938e8.Panel" title="Caseload by status" icon="ti-chart-donut" subtitle="32 open cases" hint-size="100%,300px">
+<x-import component-from-global-scope="Hearth_5938e8.PanelBody" hint-size="100%,240px">
+<div style="display:flex;flex-direction:column;gap:2px">
+<div style="display:flex;align-items:center;gap:8px;font-size:13px;padding:7px 0;border-bottom:1px solid var(--ht-inset)"><span style="width:10px;height:10px;border-radius:3px;background:var(--ht-action)"></span>Pending review<span style="margin-left:auto;font-weight:500;font-variant-numeric:tabular-nums">40%</span></div>
+<div style="display:flex;align-items:center;gap:8px;font-size:13px;padding:7px 0;border-bottom:1px solid var(--ht-inset)"><span style="width:10px;height:10px;border-radius:3px;background:var(--ht-data)"></span>In progress<span style="margin-left:auto;font-weight:500;font-variant-numeric:tabular-nums">30%</span></div>
+<div style="display:flex;align-items:center;gap:8px;font-size:13px;padding:7px 0;border-bottom:1px solid var(--ht-inset)"><span style="width:10px;height:10px;border-radius:3px;background:var(--ht-data-mid)"></span>Needs documents<span style="margin-left:auto;font-weight:500;font-variant-numeric:tabular-nums">20%</span></div>
+<div style="display:flex;align-items:center;gap:8px;font-size:13px;padding:7px 0"><span style="width:10px;height:10px;border-radius:3px;background:var(--ht-data-tint)"></span>Other<span style="margin-left:auto;font-weight:500;font-variant-numeric:tabular-nums">10%</span></div>
+</div>
+</x-import>
+</x-import>
+</div>
+</main>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      menuGroups: [
+        { label: 'Menu', items: [
+          { icon: 'ti-layout-dashboard', label: 'Dashboard', active: true },
+          { icon: 'ti-list-check', label: 'My queue', meta: '8' },
+          { icon: 'ti-users', label: 'Residents' },
+          { icon: 'ti-file-text', label: 'Documents', meta: '3' },
+          { icon: 'ti-chart-bar', label: 'Reports' },
+          { icon: 'ti-settings', label: 'Settings' },
+        ] },
+      ],
+      nav: [
+        { label: 'Home', active: true, href: '#' },
+        { label: 'Queue', href: '#' },
+        { label: 'Residents', href: '#' },
+        { label: 'Reports', href: '#' },
+      ],
+      whatsNew: [
+        { label: 'Auto shelter flags', href: '#' },
+        { label: 'Interview summaries', href: '#' },
+        { label: 'Spanish transcripts', href: '#' },
+      ],
+      activity: [
+        { name: 'Bob Stoops', text: 'interview completed, notes ready', when: '2:04 PM', badge: React.createElement(window.Hearth_5938e8.Badge, { variant: 'warning' }, 'Pending review') },
+        { name: 'Maria Alvarez', text: 'uploaded proof of address', when: '1:38 PM', badge: React.createElement(window.Hearth_5938e8.Badge, { variant: 'success' }, 'Complete') },
+        { name: 'Sam Ortiz', text: 'approved, notice sent', when: '11:20 AM', badge: React.createElement(window.Hearth_5938e8.Badge, { variant: 'success' }, 'Approved') },
+        { name: 'Dana Whitfield', text: 'flagged over income limit', when: 'Yesterday' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

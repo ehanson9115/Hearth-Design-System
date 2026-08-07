@@ -1,0 +1,96 @@
+<!-- @dsCard group="Resident — Mobile" viewport="760x1330" name="Resident mobile — status, activity, documents, hours" subtitle="Amber status card · activity checklist · documents · hours · status + transaction rows · bottom + action sheets" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../styles.css">
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css" rel="stylesheet">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:20px;background:var(--ht-bg)}.cols{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;align-items:start}.col{display:flex;flex-direction:column;gap:18px}</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { ProgramStatusCard, ActivityCard, DocumentsCard, HoursSummary, StatusRow, BottomSheet, TransactionRow, ActionSheet, Badge, Button } = window.Hearth_5938e8;
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <div className="cols">
+    <div className="col">
+      <ProgramStatusCard title="Your application is in review">
+        We received everything on July 22. Most reviews finish within 10 business days — we'll text you when there's news.
+      </ProgramStatusCard>
+      <ActivityCard
+        icon="ti-briefcase"
+        title="Reported activity"
+        subtitle="Week of July 21 · 3 of 4 complete"
+        items={[
+          { label: 'Applied to 3 job postings', done: true },
+          { label: 'Attended the resume workshop', done: true },
+          { label: 'Met with your case manager', done: true },
+          { label: 'Upload interview notes' },
+        ]}
+      />
+      <DocumentsCard
+        badge="3 missing"
+        subtitle="We still need these before your review can finish."
+        docs={[
+          { title: 'Photo ID', subtitle: 'Added July 18' },
+          { title: 'Proof of income', subtitle: 'Last 30 days of pay stubs', missing: true },
+          { title: 'Proof of address', subtitle: 'Utility bill or lease', missing: true },
+        ]}
+      />
+      <div style={{background:'var(--ht-surface)',border:'1px solid var(--ht-hairline)',borderRadius:'var(--ht-r-block)',padding:'3px 16px'}}>
+        <StatusRow icon="ti-school" title="Annual training"
+          subtitle="Completed Apr 28, 2026"
+          badge={<Badge variant="success">Complete</Badge>} />
+        <StatusRow icon="ti-calendar-event" title="Recertification interview"
+          subtitle="Aug 15, 2026 · 10:30 AM"
+          badge={<Badge variant="warning">Scheduled</Badge>} />
+        <StatusRow icon="ti-file-text" title="Income verification"
+          subtitle="Waiting on employer letter"
+          badge={<Badge variant="info">In progress</Badge>} />
+      </div>
+      <div style={{background:'var(--ht-surface)',border:'1px solid var(--ht-hairline)',borderRadius:'var(--ht-r-block)',padding:'4px 16px'}}>
+        <TransactionRow title="Safeway — WIC purchase" meta="Jul 24 · 3 items"
+          amount="$8.15" status="settled" />
+        <TransactionRow title="Benefit deposit" meta="Jul 1 · 9:42 AM"
+          amount="+$391.00" status="pending" icon="ti-building-bank" />
+      </div>
+    </div>
+    <div className="col">
+      <HoursSummary subtitle="Week of July 21" total="18 of 20 hrs">
+        <ActivityCard icon="ti-briefcase" title="Job search" subtitle="6 hrs reported" items={[
+          { label: 'Applied to 3 postings', done: true, value: '4 hrs' },
+          { label: 'Resume workshop', done: true, value: '2 hrs' },
+        ]} />
+        <ActivityCard icon="ti-school" title="Training" subtitle="12 hrs reported" items={[
+          { label: 'Certificate course', done: true, value: '10 hrs' },
+          { label: 'Practice lab', done: true, value: '2 hrs' },
+        ]} />
+      </HoursSummary>
+      <ProgramStatusCard tone="success" title="SNAP benefits approved">
+        Your first deposit lands August 1. Your card arrives in 7–10 days.
+      </ProgramStatusCard>
+      <BottomSheet title="Cancel this appointment?"
+        actions={<>
+          <Button variant="primary" fullWidth>Yes, cancel it</Button>
+          <Button variant="link">Keep appointment</Button>
+        </>}>
+        Tuesday, July 28 at 10:30 AM. You can book a new time right after.
+      </BottomSheet>
+      <ActionSheet
+        actions={[
+          { label: 'Take photo' },
+          { label: 'Choose from library' },
+          { label: 'Remove', destructive: true },
+        ]}
+        onCancel={()=>{}}
+      />
+    </div>
+  </div>
+);
+</script>
+</body>
+</html>

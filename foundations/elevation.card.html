@@ -1,0 +1,16 @@
+<!-- @dsCard group="Spacing" viewport="700x180" name="Elevation & focus" subtitle="Violet-tinted shadows sm/md/lg · the violet focus ring" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><link rel="stylesheet" href="../styles.css">
+<style>body{margin:0;padding:24px 20px;background:var(--ht-bg);font-family:var(--ht-font-sans)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:center}
+.b{height:60px;background:#fff;border-radius:var(--ht-r-card);display:grid;place-content:center;font-size:11.5px;color:var(--ht-text-muted)}
+.nm{text-align:center;font-size:11.5px;color:var(--ht-text-head);font-weight:500;margin-top:10px}
+.ring{box-shadow:var(--ht-ring) var(--ht-ring-color);border:1px solid var(--ht-action)}</style></head>
+<body>
+<div class="grid">
+<div><div class="b" style="box-shadow:var(--ht-shadow-sm)">sm</div><div class="nm">--ht-shadow-sm</div></div>
+<div><div class="b" style="box-shadow:var(--ht-shadow-md)">md</div><div class="nm">--ht-shadow-md</div></div>
+<div><div class="b" style="box-shadow:var(--ht-shadow-lg)">lg</div><div class="nm">--ht-shadow-lg</div></div>
+<div><div class="b ring">focus</div><div class="nm">--ht-ring</div></div>
+</div>
+</body></html>

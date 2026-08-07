@@ -1,0 +1,217 @@
+/* =========================================================================
+   HEARTH (HT Design System) — theme remap.
+   Re-points civic.css tokens at the Healthy Together palette.
+   Load order: civic.css -> design-system_ht-tokens_v1.css -> this file -> app.css
+   (same layering as Iowa Medicaid).
+
+   One system, two apps:
+   [data-theme="healthy-together"]              shared default
+   [data-theme="ht-resident"]                   warmer bg, larger type
+   [data-theme="ht-admin"]                      denser, neutral bg
+   ========================================================================= */
+
+/* ─── Token remap (civic → healthy together) ───────────────────────────── */
+:root,
+[data-theme="healthy-together"],
+[data-theme="ht-resident"],
+[data-theme="ht-admin"] {
+  /* Surfaces */
+  --civic-bg-app:               var(--ht-bg);
+  --civic-bg-card:              var(--ht-surface);
+  --civic-bg-popover:           var(--ht-surface);
+  --civic-bg-subtle:            var(--ht-muted);
+  --civic-bg-component:         var(--ht-secondary);
+  --civic-bg-component-hover:   #e1e1ea;
+  --civic-bg-input:             var(--ht-surface);
+  --civic-sidebar-bg:           var(--ht-sidebar-bg);
+
+  /* Text */
+  --civic-text-primary:         var(--ht-text);
+  --civic-text-secondary:       var(--ht-text-muted);
+  --civic-text-placeholder:     var(--ht-text-subtle);
+
+  /* Borders */
+  --civic-border-default:       var(--ht-border);
+  --civic-border-subtle:        var(--ht-border);
+  --civic-border-component:     var(--ht-border);
+  --civic-border-strong:        var(--ht-border-strong);
+  --civic-border-focus:         var(--ht-primary);
+
+  /* Accent — violet primary for all interactive elements */
+  --civic-accent-solid:         var(--ht-primary);
+  --civic-accent-solid-hover:   var(--ht-primary-dark);
+  --civic-accent-bg:            var(--ht-primary-tint);
+  --civic-accent-bg-hover:      #E9E0FB;
+  --civic-accent-text:          var(--ht-primary);
+  --civic-accent-on-solid:      #ffffff;
+
+  /* Status — Iowa's notification card colors, info re-tinted royal */
+  --civic-success-solid:        var(--ht-green);
+  --civic-success-bg:           var(--ht-green-bg);
+  --civic-success-text:         var(--ht-green);
+  --civic-warning-solid:        var(--ht-amber-solid);
+  --civic-warning-bg:           var(--ht-amber-bg);
+  --civic-warning-text:         var(--ht-amber);
+  --civic-info-solid:           var(--ht-royal);
+  --civic-info-bg:              var(--ht-info-bg);
+  --civic-info-text:            var(--ht-info);
+  --civic-destructive-solid:    var(--ht-red);
+  --civic-destructive-bg:       var(--ht-red-bg);
+  --civic-destructive-text:     var(--ht-red);
+  --civic-destructive-border:   var(--ht-red-border);
+
+  /* Focus ring — violet, clearly visible */
+  --civic-ring-color:           rgba(76,30,168,0.32);
+  --civic-ring-width:           3px;
+
+  /* Shadows — gently lifted, violet-tinted */
+  --civic-shadow-sm: var(--ht-shadow-sm);
+  --civic-shadow-md: var(--ht-shadow-md);
+  --civic-shadow-lg: 0 12px 32px -8px rgba(59, 22, 131, 0.12), 0 2px 6px rgba(59, 22, 131, 0.04);
+  --civic-shadow-xl: 0 24px 56px -12px rgba(59, 22, 131, 0.18), 0 4px 12px rgba(59, 22, 131, 0.06);
+}
+
+/* ─── Type: Geist everywhere, one scale, slight positive tracking ─────── */
+:root,
+[data-theme] {
+  --civic-font-sans: var(--ht-font-sans);
+}
+html, body, button, input, select, textarea {
+  font-family: var(--ht-font-sans);
+}
+body {
+  letter-spacing: 0.01em;
+}
+/* Light text on dark/violet surfaces reads optically bolder — drop
+   headlines to 500 and relax tracking there (dark-on-light keeps 600) */
+.hero h1, .hero h2, .hero h3 {
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+/* Buttons and CTAs use medium (500), never semibold — color and shape
+   carry the emphasis */
+button, .btn { font-weight: 500; }
+/* Label sits 6px above its input; when a hint follows the label
+   directly, the pair stays tight (3px) */
+.field label.field-label { margin-bottom: 6px; }
+.field label.field-label + .hint { margin-top: -3px; }
+/* Hints below inputs get 8px of air */
+.field .input + .hint, .field input + .hint,
+.field .input-wrap + .hint { margin-top: 8px; }
+
+/* ─── Form controls: tighter radius than cards/buttons (Emma, 2026-07-20) ─
+   Applies to inputs, selects, textareas, AND option/choice cards —
+   everything the user fills in reads crisp; buttons and panels stay round. */
+input, select, textarea,
+.choice {
+  border-radius: var(--ht-r-input);
+}
+
+/* Selected option cards: 1px stroke instead of Iowa's 2px — the violet
+   tint carries the selected state, so the ring can stay light */
+.choice.selected {
+  box-shadow: 0 0 0 1px var(--ht-primary);
+}
+
+/* Tighter gap between the radio/checkbox indicator and its label
+   (Iowa uses 12px; HT uses 8px) */
+.choice {
+  gap: 8px;
+  padding: 12px 16px;
+}
+.choice .label { gap: 0; }
+.choice .label .title,
+.choice .label .desc { line-height: 1.4; }
+
+/* Notification cards match option-card spacing and type: 8px icon gap,
+   6px radius, 12px vertical padding, 15px title / 14px body at 1.4 —
+   crisper and more compact than Iowa's defaults */
+.alert {
+  gap: 8px;
+  border-radius: var(--ht-r-input);
+  padding: 12px 16px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.alert .t { font-size: 15px; }
+/* Admin/compact variant: dense screens use the soft status bg and
+   tighter padding — full-strength tints are for resident-facing alerts */
+.alert.compact {
+  padding: 8px 12px;
+  font-size: 13px;
+  gap: 7px;
+}
+.alert.compact.destr { background: #FEF5F5; border-color: #F2D8D8; }
+.alert.compact.warning { background: var(--ht-amber-bg-soft); border-color: #F3E3B3; }
+.alert.compact.success { background: var(--ht-green-bg-soft); border-color: #CBE8D4; }
+.alert.compact .t { font-size: 14px; }
+/* Subcopy stays regular weight and softens toward gray so titles carry
+   the emphasis — reads less bold while keeping AA contrast */
+.alert .d {
+  margin-top: 0;
+  font-weight: 400;
+  color: color-mix(in srgb, currentColor 78%, #6B7280);
+}
+.choice .label .desc { font-weight: 400; }
+.choice.selected .label .desc { color: color-mix(in srgb, var(--ht-primary) 65%, #6B7280); }
+
+/* ─── Container rule (v3 — FINAL DIRECTION, 2026-07-20) ────────────────
+   Surfaces: WHITE cards with 1px --ht-hairline (#E4E4EC) strokes on
+   the --ht-page violet-tinted near-white (#F8F7FC).
+   Radius: 8px app cards, 10px dashboard cards, 12px editorial blocks.
+   Card headers (Cake-style): 15-16px/600 ink headline + 12.5px muted
+   subtitle — NOT caps eyebrows. Caps (10.5px/500 muted) are for
+   sub-sections inside a card only. The dark ink band survives solely
+   on the ONE live/primary panel per screen.
+   Status accents (dots, icons, checks, live): vivid —
+   green #16A34A, amber #F59E0B, red #DC2626. Text on white keeps
+   the darker AA steps (#196A47 / #B45309 / #B91C1C).
+   Marketing/editorial: open layout + hairlines; tint block only when
+   a group needs gathering; bare green check icons. */
+
+/* ─── Badges: dot pills for statuses, plain pills for tags ─────────────
+   Tint bg + darkest-of-family text, all AA at 12px:
+   success #196A47 on green-bg · warning #7D5700 on amber-bg ·
+   danger #B91C1C on red-bg · info royal-text on royal-tint ·
+   brand primary on primary-tint · neutral #52525E on grey-4 */
+
+/* ─── Royal blue secondary: progress, hero depth ───────────────────────── */
+:root,
+[data-theme] {
+  --ht-progress-fill:           var(--ht-royal);
+  --ht-progress-track:          var(--ht-royal-tint);
+  --ht-hero-gradient:           linear-gradient(135deg, var(--ht-primary) 0%, var(--ht-royal) 100%);
+}
+
+/* ─── Resident variant: warmer, bigger, calmer ─────────────────────────── */
+[data-theme="ht-resident"] {
+  --civic-bg-app:               #F7F6FB;   /* slightly warmer violet-white */
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ─── Admin dark header (violet ink) ───────────────────────────────────
+   Admin app only; resident app stays light. Logo chip keeps solid
+   violet as the single brand moment. Buttons on ink are ghost
+   (white 12% fill + 25% border), never violet-on-ink. */
+.app-header-dark {
+  background: var(--ht-ink-surface);
+  color: var(--ht-on-ink);
+}
+.app-header-dark .nav-item { color: var(--ht-on-ink-muted); }
+.app-header-dark .nav-item.active,
+.app-header-dark .nav-item:hover { color: var(--ht-on-ink); }
+.app-header-dark .meta { color: var(--ht-on-ink-subtle); }
+.app-header-dark .btn-ghost {
+  color: var(--ht-on-ink);
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+}
+.app-header-dark .btn-ghost:hover { background: rgba(255,255,255,0.2); }
+
+/* ─── Admin variant: denser, cooler ────────────────────────────────────── */
+[data-theme="ht-admin"] {
+  --civic-bg-app:               #F2F3F6;   /* cooler, flatter */
+  font-size: 14px;
+  line-height: 1.5;
+}
