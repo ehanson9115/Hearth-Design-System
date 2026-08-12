@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "hearth-static",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "5417", "--directory", "/Users/emmahanson/Downloads/Hearth"],
+      "port": 5417
+    }
+  ]
+}

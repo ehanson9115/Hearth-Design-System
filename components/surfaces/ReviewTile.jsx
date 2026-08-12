@@ -11,11 +11,11 @@ function ensureStyles() {
 .ht-review__head{display:flex;align-items:baseline;justify-content:space-between;background:var(--ht-head-zone);border-bottom:1px solid var(--ht-grey-3);padding:11px 16px 9px}
 .ht-review__head h4{font-size:15px;font-weight:500;color:var(--ht-text-head);margin:0}
 .ht-review__edit{font-size:13px;font-weight:500;color:var(--ht-data-text);text-decoration:underline;text-underline-offset:3px;background:none;border:none;cursor:pointer;font-family:inherit;padding:0}
-.ht-review__row{margin:0 0 4px;padding:0 16px;font-size:14px;line-height:1.5}
-.ht-review__row:first-of-type{padding-top:11px}
-.ht-review__row:last-child{margin-bottom:0;padding-bottom:13px}
-.ht-review__k{color:var(--ht-text-muted)}
-.ht-review__v{color:var(--ht-text);font-weight:500}
+.ht-review__row{margin:0;padding:9px 16px;font-size:14px;line-height:1.5;border-top:1px solid var(--ht-grey-3)}
+.ht-review__row:first-of-type{border-top:none;padding-top:11px}
+.ht-review__row:last-child{padding-bottom:13px}
+.ht-review__k{color:var(--ht-text-head);font-weight:500}
+.ht-review__v{color:var(--ht-text);font-weight:400}
 .ht-review__v--missing{color:var(--ht-red-text)}
 `;
   document.head.appendChild(el);
