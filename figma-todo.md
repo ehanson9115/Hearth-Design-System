@@ -206,6 +206,10 @@ Decorative only — pairs with adjacent text; never carries meaning alone.
   sunflower/100, red/100 — this supersedes the tint values in the
   2026-08-03 a11y levelling (the LEVELLING principle stands; the depth
   moved one step).
+- **Button Link variant pinned to 13px (code, 2026-08-12, Emma).** Text
+  links no longer inherit the button size ladder — always 13px underlined
+  (matches the standing 13px text-link ruling). Update the kit's Button
+  Link variant.
 - **MetricCard trend text (a11y, 2026-08-12).** Trend now uses
   `green/text` / `red/text`, not the vivid steps (13px text on white needs the
   AA step). Update the symbol's trend color.

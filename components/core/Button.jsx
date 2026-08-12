@@ -26,7 +26,7 @@ function ensureStyles() {
 .ht-btn--danger:focus-visible{box-shadow:var(--ht-ring) var(--ht-ring-color-danger)}
 .ht-btn--ghost{background:rgba(255,255,255,0.12);color:var(--ht-on-ink);border-color:rgba(255,255,255,0.25)}
 .ht-btn--ghost:hover:not([disabled]){background:rgba(255,255,255,0.2)}
-.ht-btn--link{background:none;padding:0;min-height:0;color:var(--ht-data-text);text-decoration:underline;text-underline-offset:3px;border-radius:4px}
+.ht-btn--link{background:none;padding:0;min-height:0;font-size:13px;color:var(--ht-data-text);text-decoration:underline;text-underline-offset:3px;border-radius:4px}
 .ht-btn--link:hover:not([disabled]){color:var(--ht-primary-dark)}
 `;
   document.head.appendChild(el);
