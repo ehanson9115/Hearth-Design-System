@@ -11,8 +11,8 @@ function ensureStyles() {
 .ht-metric__n{font-size:26px;font-weight:500;letter-spacing:-0.01em;color:var(--ht-text-head);font-variant-numeric:tabular-nums;line-height:1.1;display:flex;align-items:baseline;gap:6px}
 .ht-metric--warn .ht-metric__n{color:#B45309}
 .ht-metric__trend{font-size:13px;font-weight:500}
-.ht-metric__trend--up{color:var(--ht-green-vivid)}
-.ht-metric__trend--down{color:var(--ht-red-vivid)}
+.ht-metric__trend--up{color:var(--ht-green-text)}
+.ht-metric__trend--down{color:var(--ht-red-text)}
 .ht-metric__label{font-size:12.5px;color:var(--ht-text-muted);margin-top:4px}
 `;
   document.head.appendChild(el);
