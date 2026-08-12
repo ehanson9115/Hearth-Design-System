@@ -13,14 +13,14 @@
   --ht-primary:        #4C1EA8;
   --ht-primary-dark:   #3B1683;
   --ht-primary-wash:   color-mix(in srgb, var(--ht-primary) 5%, white);   /* outlined info card */
-  --ht-primary-tint:   color-mix(in srgb, var(--ht-primary) 8%, white);   /* tint fills, badges */
-  --ht-primary-select: color-mix(in srgb, var(--ht-primary) 14%, white);  /* selected on grey surfaces */
+  --ht-primary-tint:   color-mix(in srgb, var(--ht-primary) 12%, white);  /* tint fills, badges (deepened 8->12% 2026-08-12) */
+  --ht-primary-select: color-mix(in srgb, var(--ht-primary) 18%, white);  /* selected on grey surfaces (deepened 14->18% 2026-08-12) */
   --ht-primary-stroke: #E0D3F8;  /* tint-button + selected-card stroke (Figma violet/stroke) */
 
   /* Royal blue */
   --ht-royal:          #4860FC;
   --ht-royal-text:     #2C3ECF;   /* text-safe on white, 7.8:1 */
-  --ht-royal-tint:     #EEF0FE;
+  --ht-royal-tint:     color-mix(in srgb, var(--ht-royal) 12%, white);  /* was literal #EEF0FE; now rule-derived like the violet tints (2026-08-12) */
   --ht-royal-mid:      #DDE2FD;   /* number chips, avatars */
 
   /* Page + ink */
@@ -54,7 +54,7 @@
      fill only improves their contrast. */
   --ht-green-vivid:    #16A34A;
   --ht-green-text:     #196A47;
-  --ht-green-bg:       #E4F7EC;
+  --ht-green-bg:       #D4F0DF;  /* deepened 2026-08-12 (was #E4F7EC); green-text 5.43:1 */
   --ht-green-line:     #ABE3C4;
   /* Live pulse — reads brighter than success green on the dark ink band, where
      #16A34A goes muddy. The ONE deliberately separate green; dots on light
@@ -62,13 +62,13 @@
   --ht-live:           #3DD68C;
   --ht-amber-vivid:    #F5B700;
   --ht-amber-text:     #7D5700;
-  --ht-amber-bg:       #FEF4D8;
+  --ht-amber-bg:       #FDEFC7;  /* deepened 2026-08-12 (was #FEF4D8); amber-text 5.67:1, amber-icon glyphs 4.3:1 */
   --ht-amber-line:     #F0D585;
   --ht-amber-solid:    #FFC53D;
   --ht-amber-note:     #FAE27E;
   --ht-red-vivid:      #DC2626;
   --ht-red-text:       #B91C1C;
-  --ht-red-bg:         #FEE2E2;
+  --ht-red-bg:         #FBD3D3;  /* deepened 2026-08-12 (was #FEE2E2); red-text 4.73:1 */
   --ht-red-line:       #F2C7C7;
   --ht-red-soft:       var(--ht-red-wash);
   --ht-info-line:      #C9D1FD;

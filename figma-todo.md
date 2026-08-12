@@ -193,6 +193,19 @@ Decorative only — pairs with adjacent text; never carries meaning alone.
   component keeps the `level` prop for compatibility; it no longer changes
   size. Update the kit's Eyebrow set (Level=Page symbol) and any specs
   quoting 13px.
+- **SegmentedControl md height 44 -> 42 (code, 2026-08-12, Emma).** The md
+  (mobile) size felt oversized; 42px buttons + 3px track = 48px total, the
+  touch-target floor. Update the kit's SegmentedControl md variant.
+- **GLOBAL tint rule deepened (code, 2026-08-12, Emma).** Tints read too
+  light everywhere. New rule: `primary-tint` = 12% mix (was 8), `primary-
+  select` = 18% (was 14); `royal-tint` is now rule-derived at 12% (was
+  literal #EEF0FE); status tints deepened one step — green/bg #D4F0DF,
+  amber/bg #FDEFC7, red/bg #FBD3D3. All AA pairs re-verified (green-text
+  5.43, amber-text 5.67, red-text 4.73, action-on-select 7.34). Figma
+  variables to update: violet/100, violet/150, royal/100, green/100,
+  sunflower/100, red/100 — this supersedes the tint values in the
+  2026-08-03 a11y levelling (the LEVELLING principle stands; the depth
+  moved one step).
 - **MetricCard trend text (a11y, 2026-08-12).** Trend now uses
   `green/text` / `red/text`, not the vivid steps (13px text on white needs the
   AA step). Update the symbol's trend color.
