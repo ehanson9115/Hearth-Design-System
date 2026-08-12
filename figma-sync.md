@@ -1,3 +1,33 @@
+# Figma sync — 2026-08-12 (code -> Figma push)
+
+Emma's design-QA rulings (ht-design PR #375) pushed INTO the kit
+(rL6ZmEg0OhxMPuvQmtpNH8) via the Figma MCP. Direction: code -> Figma.
+
+**Variables updated (Primitives):** violet/100 -> #EAE4F5 (12% rule),
+violet/150 -> #DFD7EF (18%), royal/100 -> #E9ECFF (12%), green/100 ->
+#D4F0DF, sunflower/100 -> #FDEFC7, red/100 -> #FBD3D3. **Variables
+created (Theme):** the 8 badge/* fill+line pairs at the levelled depths
+(VariableID:283:2-9) — closes the "missing from Figma" badge gap.
+
+**Symbols updated:** Badge set 15:27 (4 semantic tones rebound to
+badge/* vars; Neutral 112:137 -> grey/5 + #C9C8D3 ring) · Button
+Secondary 15:6/15:8 (violet #C6B7E3 stroke @1.5) · Entry card 22:9
+(stroke -> #C6B7E3) · Eyebrow Level=Page 63:3 (13 -> 10.5/+7%) ·
+Program tag 38:3 (violet/150 fill + ring) · Program card 20:2/20:17
+logo slots (violet fallback) + CTA3 131:184 (amber-vivid ring) ·
+ReviewTile 161:101 (dividers -> grey/3, label 500 head / value 400).
+
+**No kit counterpart (skipped, still code-only):** MetricCard trend
+element (kit card has no trend), Avatar (no symbol anywhere — kit gap),
+RecordCard (no symbol; pending draw), Button Link/Danger/desktop-size
+variants, SegmentedControl md size. These stay in figma-todo.md.
+
+**Known drift left in place:** several kit titles still carry Geist
+SemiBold from the 2026-07-31 title-weight pass; the 2026-08-01 ruling
+retired 600 — needs its own sweep, not bundled here.
+
+---
+
 # Figma sync — 2026-08-07
 
 Source: **Hearth — HT Design System** (`.fig` attached 2026-08-07), all 33
