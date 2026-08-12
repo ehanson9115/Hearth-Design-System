@@ -162,6 +162,10 @@ Decorative only — pairs with adjacent text; never carries meaning alone.
   and the key/value emphasis swapped: label = `text/heading` at 500, value =
   `text/primary` at 400 (missing values stay `red/text`, now 400 — color
   carries the alarm). Update the Figma `ReviewTile` rows to match.
+- **ProgramCard pending slot ring (code, 2026-08-12, Emma).** The logo slot's
+  grey hairline inset ring now switches to `amber/vivid` in the pending tone —
+  a grey ring on the sunflower slot read as dirt. Update the Figma
+  `Program card/CTA3` pending variant.
 - **MetricCard trend text (a11y, 2026-08-12).** Trend now uses
   `green/text` / `red/text`, not the vivid steps (13px text on white needs the
   AA step). Update the symbol's trend color.
