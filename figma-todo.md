@@ -175,6 +175,11 @@ Decorative only — pairs with adjacent text; never carries meaning alone.
 - **RecordCard Remove drops its trash icon (code, 2026-08-12, Emma).** The
   danger action is the red underlined text alone. The drawing spec in §5 is
   unaffected (it never included the icon).
+- **Button Secondary + Danger strokes thickened to 1.5px (code, 2026-08-12,
+  Emma).** The 1px `border/interactive` stroke read too faint on white
+  secondaries; both bordered variants now carry 1.5px (they pair inside
+  `ConfirmDialog`, so they move together). Restroke the kit's Button
+  Secondary and Danger variants.
 - **MetricCard trend text (a11y, 2026-08-12).** Trend now uses
   `green/text` / `red/text`, not the vivid steps (13px text on white needs the
   AA step). Update the symbol's trend color.

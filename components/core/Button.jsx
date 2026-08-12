@@ -17,11 +17,11 @@ function ensureStyles() {
 .ht-btn--primary{background:var(--ht-action);color:#fff}
 .ht-btn--primary:hover:not([disabled]){background:var(--ht-action-hover)}
 .ht-btn--primary:active:not([disabled]){background:var(--ht-primary-dark)}
-.ht-btn--secondary{background:var(--ht-surface);color:var(--ht-action);border-color:var(--ht-border)}
+.ht-btn--secondary{background:var(--ht-surface);color:var(--ht-action);border-color:var(--ht-border);border-width:1.5px}
 .ht-btn--secondary:hover:not([disabled]){background:var(--ht-grey-1)}
 .ht-btn--tint{background:var(--ht-action-tint);color:var(--ht-action)}
 .ht-btn--tint:hover:not([disabled]){background:var(--ht-action-select)}
-.ht-btn--danger{background:var(--ht-surface);color:var(--ht-red-text);border-color:var(--ht-red-line)}
+.ht-btn--danger{background:var(--ht-surface);color:var(--ht-red-text);border-color:var(--ht-red-line);border-width:1.5px}
 .ht-btn--danger:hover:not([disabled]){background:var(--ht-red-soft)}
 .ht-btn--danger:focus-visible{box-shadow:var(--ht-ring) var(--ht-ring-color-danger)}
 .ht-btn--ghost{background:rgba(255,255,255,0.12);color:var(--ht-on-ink);border-color:rgba(255,255,255,0.25)}
