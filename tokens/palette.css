@@ -90,10 +90,10 @@
      than the rest (2026-07-22). Dot + AA text carry meaning; fill recedes.
      Badges use these; the notification-card tints above now sit at the same
      depth, so the two families finally agree. */
-  --ht-badge-info-bg:     #F4F5FE;  --ht-badge-info-line:     #DDE2FD;
-  --ht-badge-success-bg:  #DCF4E5;  --ht-badge-success-line:  #A8DCBC;
-  --ht-badge-warning-bg:  #FFF2C2;  --ht-badge-warning-line:  #EBCF6B;
-  --ht-badge-danger-bg:   #FEF5F5;  --ht-badge-danger-line:   #F3D6D6;
+  --ht-badge-info-bg:     #E5E8FE;  --ht-badge-info-line:     #CBD2FD;
+  --ht-badge-success-bg:  #CCEED9;  --ht-badge-success-line:  #96D5AE;
+  --ht-badge-warning-bg:  #FEEDB2;  --ht-badge-warning-line:  #ECCC5E;
+  --ht-badge-danger-bg:   #FBE0E0;  --ht-badge-danger-line:   #F0C1C1;
 
   /* Shadows — cast in the brand hue, so they follow a re-pointed primary. */
   --ht-shadow-sm: 0 1px 2px color-mix(in srgb, var(--ht-primary-dark) 5%, transparent);

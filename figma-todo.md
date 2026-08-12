@@ -220,6 +220,12 @@ Decorative only — pairs with adjacent text; never carries meaning alone.
   default) and `sm` (34px, in-card compact). Desktop admin norms run
   32-40px; sm's 13px text whispers on data-heavy screens. Add a Size axis
   (or a Desktop variant) to the kit's Button set.
+- **Semantic badge fills levelled to the new depth (code, 2026-08-12,
+  Emma).** The four `badge/*` fill+line pairs deepened to match today's
+  darker brand/neutral badges: success #CCEED9/#96D5AE, warning
+  #FEEDB2/#ECCC5E, danger #FBE0E0/#F0C1C1, info #E5E8FE/#CBD2FD. All text
+  pairs re-verified AA (lowest 5.19:1). Dots stay status-only; pill vs
+  chip shapes unchanged (principled). Update the kit's badge/* variables.
 - **MetricCard trend text (a11y, 2026-08-12).** Trend now uses
   `green/text` / `red/text`, not the vivid steps (13px text on white needs the
   AA step). Update the symbol's trend color.
