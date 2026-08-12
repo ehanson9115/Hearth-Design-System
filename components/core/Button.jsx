@@ -17,7 +17,7 @@ function ensureStyles() {
 .ht-btn--primary{background:var(--ht-action);color:#fff}
 .ht-btn--primary:hover:not([disabled]){background:var(--ht-action-hover)}
 .ht-btn--primary:active:not([disabled]){background:var(--ht-primary-dark)}
-.ht-btn--secondary{background:var(--ht-surface);color:var(--ht-action);border-color:var(--ht-border);border-width:1.5px}
+.ht-btn--secondary{background:var(--ht-surface);color:var(--ht-action);border-color:color-mix(in srgb, var(--ht-action) 32%, white);border-width:1.5px}
 .ht-btn--secondary:hover:not([disabled]){background:var(--ht-grey-1)}
 .ht-btn--tint{background:var(--ht-action-tint);color:var(--ht-action)}
 .ht-btn--tint:hover:not([disabled]){background:var(--ht-action-select)}

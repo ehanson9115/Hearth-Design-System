@@ -210,6 +210,10 @@ Decorative only — pairs with adjacent text; never carries meaning alone.
   links no longer inherit the button size ladder — always 13px underlined
   (matches the standing 13px text-link ruling). Update the kit's Button
   Link variant.
+- **Button Secondary stroke is violet now (code, 2026-08-12, Emma).**
+  1.5px `color-mix(action 32%, white)` replaces the grey `border/interactive`
+  stroke — secondaries read as brand actions, not neutral chrome. Update the
+  kit's Button Secondary variant (with the 1.5px width from earlier today).
 - **MetricCard trend text (a11y, 2026-08-12).** Trend now uses
   `green/text` / `red/text`, not the vivid steps (13px text on white needs the
   AA step). Update the symbol's trend color.
