@@ -180,6 +180,19 @@ Decorative only — pairs with adjacent text; never carries meaning alone.
   secondaries; both bordered variants now carry 1.5px (they pair inside
   `ConfirmDialog`, so they move together). Restroke the kit's Button
   Secondary and Danger variants.
+- **Tint chips darkened: Avatar, ProgramTag, Badge brand/neutral (code,
+  2026-08-12, Emma).** The formula from EntryCard generalizes: tinted chips
+  get a 1px inset ring at 32% of their family hue and a one-step-darker fill.
+  Avatar: fill 20% data-mix (was royal-200), ring 32% data-mix. ProgramTag:
+  fill `action/select` (was tint), ring 32% action-mix. Badge Brand: same as
+  ProgramTag. Badge Neutral: fill `grey/5` (was grey-4), ring 55%
+  border-strong mix. Status badges already had their `badge/*-line` rings —
+  unchanged. Update the kit's Avatar, Program tag, and Badge symbols.
+- **Eyebrows unified at 10.5px (code, 2026-08-12, Emma).** The 13px `page`
+  level is retired — all eyebrows are 10.5/500/+0.07em uppercase. The
+  component keeps the `level` prop for compatibility; it no longer changes
+  size. Update the kit's Eyebrow set (Level=Page symbol) and any specs
+  quoting 13px.
 - **MetricCard trend text (a11y, 2026-08-12).** Trend now uses
   `green/text` / `red/text`, not the vivid steps (13px text on white needs the
   AA step). Update the symbol's trend color.

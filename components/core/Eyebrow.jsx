@@ -7,16 +7,16 @@ function ensureStyles() {
   const el = document.createElement('style');
   el.setAttribute('data-ht', 'eyebrow');
   el.textContent = `
-.ht-eyebrow{display:block;font-family:var(--ht-font-sans);font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--ht-text-muted)}
+.ht-eyebrow{display:block;font-family:var(--ht-font-sans);font-size:10.5px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:var(--ht-text-muted)}
 .ht-eyebrow--card{font-size:10.5px;font-weight:500}
 `;
   document.head.appendChild(el);
 }
 
 /**
- * Hearth eyebrow — the tiny uppercase section label. `level="page"` (13px)
- * sits above page and section titles; `level="card"` (10.5px) is the only
- * CAPS treatment allowed inside a card.
+ * Hearth eyebrow — the tiny uppercase section label. All eyebrows render
+ * 10.5px/500/+0.07em (unified 2026-08-12); `level` is kept for API
+ * compatibility and no longer changes size.
  */
 export function Eyebrow({ level = 'page', as = 'div', children, className = '', ...rest }) {
   ensureStyles();

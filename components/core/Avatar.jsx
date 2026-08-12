@@ -7,7 +7,7 @@ function ensureStyles() {
   const el = document.createElement('style');
   el.setAttribute('data-ht', 'avatar');
   el.textContent = `
-.ht-avatar{border-radius:999px;background:var(--ht-data-mid);color:var(--ht-data-text);font-family:var(--ht-font-sans);font-weight:500;display:grid;place-content:center;flex-shrink:0;overflow:hidden}
+.ht-avatar{border-radius:999px;background:color-mix(in srgb, var(--ht-data) 20%, white);box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--ht-data) 32%, white);color:var(--ht-data-text);font-family:var(--ht-font-sans);font-weight:500;display:grid;place-content:center;flex-shrink:0;overflow:hidden}
 .ht-avatar img{width:100%;height:100%;object-fit:cover}
 .ht-avatar--sm{width:24px;height:24px;font-size:10px}
 .ht-avatar--md{width:28px;height:28px;font-size:11px}
