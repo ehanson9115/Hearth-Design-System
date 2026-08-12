@@ -95,7 +95,7 @@ export function RecordCard({
             {onEdit && <button type="button" className="ht-record__act" onClick={onEdit}>{editLabel}</button>}
             {onRemove && (
               <button type="button" className="ht-record__act ht-record__act--danger" onClick={onRemove}>
-                <i className="ti ti-trash" aria-hidden="true" />{removeLabel}
+                {removeLabel}
               </button>
             )}
           </div>

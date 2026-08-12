@@ -12,7 +12,8 @@ function ensureStyles() {
 .ht-progcard.is-status{gap:8px;padding:8px 18px 16px}
 .ht-progcard.tone-pending{box-shadow:inset 0 0 0 1px var(--ht-amber-vivid),var(--ht-shadow-float)}
 .ht-progcard-head{display:flex;gap:12px;align-items:center}
-.ht-progcard-logo{width:44px;height:44px;border-radius:50%;background:var(--ht-grey-3);box-shadow:inset 0 0 0 1px var(--ht-hairline);flex-shrink:0;display:grid;place-items:center;overflow:hidden;color:var(--ht-text-muted);font-size:20px}
+.ht-progcard-logo{width:44px;height:44px;border-radius:50%;background:var(--ht-action-tint);box-shadow:inset 0 0 0 1px var(--ht-action-stroke);flex-shrink:0;display:grid;place-items:center;overflow:hidden;color:var(--ht-action);font-size:20px}
+.ht-progcard-logo:has(>img){background:var(--ht-grey-3);box-shadow:inset 0 0 0 1px var(--ht-hairline)}
 .ht-progcard-logo>img{width:100%;height:100%;object-fit:cover}
 .ht-progcard.is-status .ht-progcard-logo{width:32px;height:32px;font-size:16px}
 .ht-progcard.tone-pending .ht-progcard-logo{background:var(--ht-amber-solid);color:var(--ht-amber-text);box-shadow:inset 0 0 0 1px var(--ht-amber-vivid)}

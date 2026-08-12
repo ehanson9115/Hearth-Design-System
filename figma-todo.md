@@ -166,6 +166,15 @@ Decorative only — pairs with adjacent text; never carries meaning alone.
   grey hairline inset ring now switches to `amber/vivid` in the pending tone —
   a grey ring on the sunflower slot read as dirt. Update the Figma
   `Program card/CTA3` pending variant.
+- **ProgramCard icon fallback is now violet (code, 2026-08-12, Emma).** When
+  the 44px logo slot holds an icon instead of a real logo image, it renders
+  `action/tint` fill + `action/default` glyph + 1px `action/stroke` inset ring
+  (was grey-3/muted/hairline — read as empty). Slots holding an `<img>` keep
+  the neutral grey + hairline containment. Update the `Program card` symbol's
+  icon-placeholder state.
+- **RecordCard Remove drops its trash icon (code, 2026-08-12, Emma).** The
+  danger action is the red underlined text alone. The drawing spec in §5 is
+  unaffected (it never included the icon).
 - **MetricCard trend text (a11y, 2026-08-12).** Trend now uses
   `green/text` / `red/text`, not the vivid steps (13px text on white needs the
   AA step). Update the symbol's trend color.
