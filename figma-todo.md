@@ -214,6 +214,12 @@ Decorative only — pairs with adjacent text; never carries meaning alone.
   1.5px `color-mix(action 32%, white)` replaces the grey `border/interactive`
   stroke — secondaries read as brand actions, not neutral chrome. Update the
   kit's Button Secondary variant (with the 1.5px width from earlier today).
+- **NEW Button size `desktop` (code, 2026-08-12, Emma).** 38px min-height,
+  14px text, 8x16 padding — the caseworker/admin density default, sitting
+  between `md` (44px, resident/touch — the tap-target floor, unchanged
+  default) and `sm` (34px, in-card compact). Desktop admin norms run
+  32-40px; sm's 13px text whispers on data-heavy screens. Add a Size axis
+  (or a Desktop variant) to the kit's Button set.
 - **MetricCard trend text (a11y, 2026-08-12).** Trend now uses
   `green/text` / `red/text`, not the vivid steps (13px text on white needs the
   AA step). Update the symbol's trend color.

@@ -11,6 +11,7 @@ function ensureStyles() {
 .ht-btn:focus-visible{outline:none;box-shadow:var(--ht-ring) var(--ht-ring-color)}
 .ht-btn[disabled]{opacity:.5;cursor:not-allowed}
 .ht-btn--md{font-size:14px;padding:10px 18px;min-height:44px}
+.ht-btn--desktop{font-size:14px;padding:8px 16px;min-height:38px}
 .ht-btn--sm{font-size:13px;padding:8px 14px;border-radius:var(--ht-r-card)}
 .ht-btn--full{width:100%}
 .ht-btn i{font-size:1.12em;line-height:1}

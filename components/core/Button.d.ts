@@ -1,7 +1,7 @@
 import React from 'react';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'tint' | 'ghost' | 'link' | 'danger';
-export type ButtonSize = 'md' | 'sm';
+export type ButtonSize = 'md' | 'desktop' | 'sm';
 
 /**
  * Hearth button — medium-weight CTA. Never semibold.
@@ -13,7 +13,9 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
    *  irreversible actions inside a ConfirmDialog only. Never a red fill: a
    *  solid red button reads as the recommended action, which it never is. */
   variant?: ButtonVariant;
-  /** `md` (44px min height) or compact `sm`. Ignored for `link`. */
+  /** `md` (44px, resident/touch default), `desktop` (38px, caseworker/admin
+   *  density — 14px text), or `sm` (34px, in-card compact). Ignored for
+   *  `link`. Touch surfaces stay on `md`: 44px is the tap-target floor. */
   size?: ButtonSize;
   /** Leading Tabler icon class, e.g. "ti-calendar". */
   icon?: string;
