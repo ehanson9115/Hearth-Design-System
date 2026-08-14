@@ -22,6 +22,20 @@ element (kit card has no trend), Avatar (no symbol anywhere — kit gap),
 RecordCard (no symbol; pending draw), Button Link/Danger/desktop-size
 variants, SegmentedControl md size. These stay in figma-todo.md.
 
+**Truth audit (same day, second pass):** swept the whole file for
+now-false content. Retired weights corrected — 49 text nodes set Geist
+SemiBold/Bold -> Medium across Lists, Mobile Patterns, Notification
+Cards, Cards & Panels (incl. two straight Bold headings), Panels,
+Resident Cards, Step Flow, States, Admin Header, Button, Action Sheet,
+Pills & Controls, Getting Started, and the three composed Screens
+pages (600 retired 2026-08-01; the 2026-07-31 title-weight pass
+predated the ruling). Deleted both unfinished Transaction-row drafts:
+variant `Status=Status3` (221:353, zero instances) and the spec frame
+`Mobile-Patterns / Transaction row` (238:397) — ChecklistRow's numbered
+kind covers the use case in code. No stale hex labels exist (the file
+annotates by token name). Left alone on purpose: `Screen-WIC-Participant`
+(600/700 pending Emma's weight decision) and the `To Add` scratch page.
+
 **Known drift left in place:** several kit titles still carry Geist
 SemiBold from the 2026-07-31 title-weight pass; the 2026-08-01 ruling
 retired 600 — needs its own sweep, not bundled here.
