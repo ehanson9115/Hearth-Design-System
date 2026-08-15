@@ -1,14 +1,21 @@
-# Figma to-do — 6 components to draw (+ file fixes below)
+# Figma to-do — DRAWN 2026-08-12 (file fixes below)
 
-_Checked at the 2026-08-07 sync: none have symbols yet. `IconTile` added later the same day._
+**All 7 unsymbolled components were built in the kit on 2026-08-12** from the
+draw-sheet + the specs below, as token-true variant sets with descriptions:
 
-These five exist in code and ship in the templates, but the Figma file has no
-symbol for them. They are confirmed intentional (see `readme.md` → *Intentional
-additions*); the gap is Figma-side. Specs below are transcribed from the built
-components so the Figma work is mechanical.
+| Component | Set / node | Page |
+|---|---|---|
+| `Avatar` | `362:20` (Size sm/md/lg × Content Initials/Image) | Avatar |
+| `IconTile` | `363:1585` (Tone×Size×Shape + solid Action/Success, 24 variants) | Icons |
+| `Stepper` | `364:31` (State Default/Min/Max) | Stepper (new) |
+| `FieldGroup` | `365:27` (Flush false/true, real Input instances) | Field Group (new) |
+| `NoticeTimeline` | card `367:45` (Open) + item `366:27` (Latest) | Notice Timeline (new) |
+| `SideNav` | rail `368:392` + item `368:20` (Default/Hover/Active) | Side Nav (new) |
+| `RecordCard` | `369:52` (Confirmed false/true; uses IconTile instance) | Record Card (new) |
 
-All five use the existing Theme variables — no new tokens needed. Geist
-throughout; weights 400/500 only.
+Next /design-sync should verify them against these specs and then this file can
+shrink to just the section below. Original drawing specs kept for reference.
+
 
 ---
 
