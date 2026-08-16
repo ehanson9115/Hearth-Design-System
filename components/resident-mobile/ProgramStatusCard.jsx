@@ -14,7 +14,7 @@ function ensureStyles() {
 .ht-pstat__ic{width:32px;height:32px;border-radius:999px;flex-shrink:0;display:grid;place-content:center;font-size:17px;background:var(--ht-amber-bg);color:var(--ht-amber-icon)}
 .ht-pstat--neutral .ht-pstat__ic{background:var(--ht-grey-2);color:var(--ht-text-muted)}
 .ht-pstat--success .ht-pstat__ic{background:var(--ht-green-bg);color:var(--ht-green-text)}
-.ht-pstat__title{font-size:17px;font-weight:500;color:var(--ht-text-head);line-height:1.3;margin:0}
+.ht-pstat__title{font-size:15px;font-weight:500;color:var(--ht-text-head);line-height:1.3;margin:0}
 .ht-pstat__rule{height:1px;background:var(--ht-grey-3);margin:0 -18px}
 .ht-pstat__meta{font-size:14px;line-height:1.45;color:var(--ht-text-muted);margin:12px 0 0;text-wrap:pretty}
 .ht-pstat__meta > * + *{margin-top:6px}

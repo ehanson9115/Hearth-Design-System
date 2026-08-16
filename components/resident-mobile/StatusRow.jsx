@@ -10,8 +10,8 @@ function ensureStyles() {
 .ht-statusrow{display:flex;align-items:center;gap:12px;padding:13px 0;font-family:var(--ht-font-sans)}
 .ht-statusrow + .ht-statusrow{border-top:1px solid var(--ht-grey-3)}
 .ht-statusrow__ic{width:36px;height:36px;border-radius:var(--ht-r-card);flex-shrink:0;display:grid;place-content:center;font-size:17px;background:var(--ht-action-tint);color:var(--ht-action)}
-.ht-statusrow__title{font-size:15px;font-weight:500;color:var(--ht-text-head);line-height:1.35;margin:0}
-.ht-statusrow__sub{font-size:var(--ht-fs-caption);color:var(--ht-text-muted);line-height:1.35;margin:1px 0 0}
+.ht-statusrow__title{font-size:14px;font-weight:500;color:var(--ht-text-head);line-height:1.35;margin:0}
+.ht-statusrow__sub{font-size:13px;color:var(--ht-text-muted);line-height:1.35;margin:1px 0 0}
 .ht-statusrow__end{margin-left:auto;padding-left:10px;flex-shrink:0}
 `;
   document.head.appendChild(el);

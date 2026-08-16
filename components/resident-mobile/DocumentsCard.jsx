@@ -9,15 +9,16 @@ function ensureStyles() {
   el.textContent = `
 .ht-doccard{background:var(--ht-surface);border:1px solid var(--ht-hairline);border-radius:var(--ht-r-block);padding:16px;font-family:var(--ht-font-sans)}
 .ht-doccard__head{display:flex;align-items:center;gap:10px}
-.ht-doccard__title{font-size:17px;font-weight:500;color:var(--ht-text-head);line-height:1.3;margin:0}
+.ht-doccard__title{font-size:15px;font-weight:500;color:var(--ht-text-head);line-height:1.3;margin:0}
 .ht-doccard__badge{margin-left:auto;display:inline-flex;align-items:center;gap:5px;flex-shrink:0;font-size:12.5px;font-weight:500;line-height:1.5;padding:3px 10px;border-radius:999px;background:var(--ht-badge-warning-bg);color:var(--ht-amber-text);box-shadow:inset 0 0 0 1px var(--ht-badge-warning-line);white-space:nowrap}
 .ht-doccard__badge i{width:6px;height:6px;border-radius:999px;background:var(--ht-amber-vivid);flex-shrink:0}
-.ht-doccard__sub{font-size:14px;line-height:1.4;color:var(--ht-text-muted);margin:4px 0 0;text-wrap:pretty}
-.ht-doccard__rows{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.ht-doccard__sub{font-size:13px;line-height:1.4;color:var(--ht-text-muted);margin:4px 0 0;text-wrap:pretty}
+.ht-doccard__rows{display:flex;flex-direction:column;gap:0;margin-top:14px}
 .ht-doccard__row{display:flex;align-items:flex-start;gap:10px;text-align:left}
+.ht-doccard__row + .ht-doccard__row{border-top:1px solid var(--ht-grey-3);margin-top:10px;padding-top:10px}
 .ht-doccard__ic{width:24px;height:24px;border-radius:6px;flex-shrink:0;display:grid;place-content:center;font-size:14px;background:var(--ht-grey-2);color:var(--ht-text-muted)}
 .ht-doccard__row.is-missing .ht-doccard__ic{background:var(--ht-amber-bg);color:var(--ht-amber-icon)}
-.ht-doccard__rtitle{font-size:15px;font-weight:500;color:var(--ht-text-head);line-height:1.35}
+.ht-doccard__rtitle{font-size:14px;font-weight:500;color:var(--ht-text-head);line-height:1.35}
 .ht-doccard__rsub{font-size:13px;line-height:1.35;color:var(--ht-text-muted);margin-top:1px}
 .ht-doccard__cta{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;height:44px;margin-top:16px;border:0;border-radius:var(--ht-r-card);background:var(--ht-action);color:#fff;font-family:inherit;font-size:15px;font-weight:500;cursor:pointer;transition:background 140ms}
 .ht-doccard__cta:hover{background:var(--ht-action-hover,var(--ht-action))}

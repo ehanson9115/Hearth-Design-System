@@ -158,6 +158,15 @@ Decorative only — pairs with adjacent text; never carries meaning alone.
 
 ## Also worth fixing in the file
 
+- **Mobile type ruling APPLIED both sides (2026-08-16, Emma).** Resident-mobile
+  card headers 15/13 (was 17/14: ActivityCard, DocumentsCard, HoursSummary,
+  ProgramStatusCard, BottomSheet titles; HoursSummary numeric total stays 17)
+  and row pairs 14/13 (StatusRow, TransactionRow incl. amount 14, DocumentsCard
+  rows, ActivityCard checklist rows). DocumentsCard rows now divide with 1px
+  grey/3 hairlines (10px air each side). Code + kit symbols both updated —
+  next /design-sync just verifies.
+
+
 - **EntryCard outline darkened (code, 2026-08-12, Emma).** Border is now
   `color-mix(in srgb, var(--ht-action) 32%, white)` (≈`#C6B7E3` on the default
   violet) instead of the shared `#E0D3F8` tint-line literal. Restroke the Figma

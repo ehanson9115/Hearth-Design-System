@@ -9,7 +9,7 @@ function ensureStyles() {
   el.textContent = `
 .ht-sheet{background:var(--ht-surface);border-radius:var(--ht-r-xl) var(--ht-r-xl) 0 0;padding:8px 16px 16px;box-shadow:var(--ht-shadow-lg);font-family:var(--ht-font-sans)}
 .ht-sheet__handle{width:36px;height:4px;border-radius:2px;background:var(--ht-grey-4);margin:0 auto 16px}
-.ht-sheet__title{font-size:17px;font-weight:500;color:var(--ht-text-head);line-height:1.3;margin:0}
+.ht-sheet__title{font-size:15px;font-weight:500;color:var(--ht-text-head);line-height:1.3;margin:0}
 .ht-sheet__body{font-size:14.5px;line-height:1.45;color:var(--ht-text-muted);margin-top:6px}
 .ht-sheet__actions{display:flex;flex-direction:column;gap:8px;margin-top:16px}
 `;

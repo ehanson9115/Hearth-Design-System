@@ -10,8 +10,8 @@ function ensureStyles() {
 .ht-hours{font-family:var(--ht-font-sans)}
 .ht-hours__head{display:flex;align-items:flex-start;gap:10px;width:100%;background:none;border:0;padding:0;font-family:inherit;text-align:left;color:inherit}
 .ht-hours__head--btn{cursor:pointer}
-.ht-hours__title{font-size:17px;font-weight:500;color:var(--ht-text-head);line-height:1.3;margin:0}
-.ht-hours__sub{font-size:14px;line-height:1.4;color:var(--ht-text-muted);margin:3px 0 0;text-wrap:pretty}
+.ht-hours__title{font-size:15px;font-weight:500;color:var(--ht-text-head);line-height:1.3;margin:0}
+.ht-hours__sub{font-size:13px;line-height:1.4;color:var(--ht-text-muted);margin:3px 0 0;text-wrap:pretty}
 .ht-hours__total{margin-left:auto;padding-left:10px;font-size:17px;font-weight:500;color:var(--ht-text-head);white-space:nowrap}
 .ht-hours__chev{margin-left:auto;padding-left:10px;flex-shrink:0;font-size:18px;color:var(--ht-text-muted);transition:transform 160ms}
 .ht-hours__chev.is-open{transform:rotate(180deg)}
