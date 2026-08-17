@@ -158,6 +158,12 @@ Decorative only — pairs with adjacent text; never carries meaning alone.
 
 ## Also worth fixing in the file
 
+- **Radius capped at 12 system-wide (2026-08-16, Emma).** `--ht-r-xl` and the
+  16px hero tier are retired — 12 (`r-block`) is the roundest corner in the
+  system (pills/circles at 999 are shapes, not corners). Applied both sides:
+  token 16->12 (ProgramCard + BottomSheet follow), Figma `radius/hero` variable
+  + the CTA3 literal. **Open question:** ActionSheet still carries its
+  ratified OS-convention 13px — keep the exception or bring it to 12?
 - **Mobile type ruling APPLIED both sides (2026-08-16, Emma).** Resident-mobile
   card headers 15/13 (was 17/14: ActivityCard, DocumentsCard, HoursSummary,
   ProgramStatusCard, BottomSheet titles; HoursSummary numeric total stays 17)

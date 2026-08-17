@@ -47,7 +47,7 @@
   --ht-amber:     var(--ht-amber-text);
   --ht-red:       var(--ht-red-vivid);
   --ht-red-border: var(--ht-red-line);
-  --ht-r-sm: 8px; --ht-r-md: 8px; --ht-r-lg: 12px; --ht-r-xl: 16px;
+  --ht-r-sm: 8px; --ht-r-md: 8px; --ht-r-lg: 12px; --ht-r-xl: 12px;  /* capped 16 -> 12 (2026-08-16, Emma): 12 is the roundest corner in the system */
   --ht-green-bg-soft: var(--ht-badge-success-bg); --ht-amber-bg-soft: var(--ht-badge-warning-bg); --ht-red-bg-soft: var(--ht-red-soft);
   --ht-info: var(--ht-data-text); --ht-info-bg: var(--ht-data-tint);
   /* Consumer-compat aliases (2026-08-07, from CE participant app): */
