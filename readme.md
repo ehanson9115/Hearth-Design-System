@@ -295,9 +295,9 @@ The two mock files map to these: `mock-caseworker.html` → Case detail;
   ink), `navigation/TopNav` (step-flow header with royal progress rail),
   `surfaces/EntryCard` (violet-tint doorway card; shares AnnouncementBar's
   `#E0D3F8` tint-line literal), `resident-mobile/TransactionRow` (amount over
-  AA status word) and `resident-mobile/ActionSheet` (keeps the OS conventions
-  on purpose: 13px radius, 20px type — the two sanctioned deviations from the
-  radius/type scales). After this pass the Figma library and this project are
+  AA status word) and `resident-mobile/ActionSheet` (keeps the OS convention
+  on purpose: 20px type — the one sanctioned deviation from the type scale;
+  its former 13px radius was brought under the 12px system cap 2026-08-18). After this pass the Figma library and this project are
   1:1 on the resident side.
 - Every other component maps to a family in `component-kit.html`. Components render
   Tabler glyphs directly via a class string; a dedicated `Icon` wrapper was not
