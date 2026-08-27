@@ -1,3 +1,25 @@
+# Sync incident + reconciliation — 2026-08-27
+
+A 2026-08-25 session pushed straight to isapp/ht-design canon (bf66b9d:
+lighter surfaces incl. page #FCFBFE / sidebar grey-1 / inset grey-2 /
+muted grey-1 / head-zone 35%, the --ht-disabled-* trio, --ht-shadow-rail,
+card shadow-sm, IncomeButton, Storybook stories) without updating this
+mirror. ht-design PR #524, built FROM this stale mirror, then wholesale-
+reverted those roles.css changes on merge — briefly breaking disabled
+Button rendering in the deployed Storybook (Button.jsx referenced the
+deleted --ht-disabled-* tokens).
+
+Reconciled same day: ht-design #530 restores the 8/25 roles.css lines
+merged with the 10 mapping-gap roles; this mirror re-synced wholesale
+from canon (06de058); claude.ai/design project patched (it had the 8/25
+state except the clobbered roles.css); ht-platform #3765 re-pinned.
+
+**Standing rule from this:** before building any canon PR from this
+mirror, pull isapp/ht-design's design-systems/hearth/ forward first —
+other sessions commit to canon directly and this mirror is downstream.
+
+---
+
 # Figma sync — 2026-08-14 (Storybook design links + Code Connect)
 
 Not a token/component sync — this pass wires up the two Figma↔code loops that
