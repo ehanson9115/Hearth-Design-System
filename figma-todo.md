@@ -158,6 +158,13 @@ Decorative only — pairs with adjacent text; never carries meaning alone.
 
 ## Also worth fixing in the file
 
+- **7 neutral surface roles added (2026-08-19, Emma).** `--ht-surface-subtle`,
+  `--ht-component(-hover/-active)`, `--ht-popover`, `--ht-placeholder`,
+  `--ht-track` — closes the CIVIC↔Hearth gaps in ht-platform's
+  DL-010/MAPPING.md. Pure aliases onto the existing grey ladder; matching
+  Theme variables added to the kit. ht-platform's MAPPING.md rows for
+  civic-bg-subtle/component*/popover/placeholder/track can move from
+  MISSING to mapped.
 - **Radius capped at 12 system-wide (2026-08-16, Emma).** `--ht-r-xl` and the
   16px hero tier are retired — 12 (`r-block`) is the roundest corner in the
   system (pills/circles at 999 are shapes, not corners). Applied both sides:

@@ -38,6 +38,21 @@
   --ht-progress-track: var(--ht-royal-tint);
 }
 
+/* Neutral surface roles (2026-08-19, Emma) — added to close the CIVIC <-> Hearth
+   mapping gaps recorded in ht-platform DL-010/MAPPING.md. Each aliases the grey
+   step Hearth components already use; nothing re-renders.
+   civic-bg-subtle / -component / -component-hover / -component-active /
+   -popover / -placeholder / -track now have 1:1 Hearth names. */
+:root {
+  --ht-surface-subtle:   var(--ht-grey-2);   /* quiet section fill (= --ht-muted) */
+  --ht-component:        var(--ht-grey-3);   /* neutral control fill, idle */
+  --ht-component-hover:  var(--ht-grey-4);   /* hover step (fig: surface/hover) */
+  --ht-component-active: var(--ht-grey-5);   /* pressed step (fig: surface/pressed) — press darkens, never scales */
+  --ht-popover:          var(--ht-surface);  /* floating menus/popovers; pair with --ht-shadow-lg */
+  --ht-placeholder:      var(--ht-grey-4);   /* skeleton/placeholder fill (matches Skeleton) */
+  --ht-track:            var(--ht-grey-4);   /* NEUTRAL track (segmented); data progress stays --ht-progress-track */
+}
+
 /* Legacy aliases kept for back-compat with existing components */
 :root {
   --ht-muted:     var(--ht-grey-2);
