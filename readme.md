@@ -161,27 +161,38 @@ navigating government benefits.
 - **Tabler Icons**, loaded as a **webfont** — the source uses
   `@tabler/icons-webfont@3` via jsDelivr CDN (with an older `2.44.0` fallback).
   Rendered as `<i class="ti ti-{name}">`. Stroke style, ~1.75px, rounded joins.
-- Common glyphs seen in the source: `ti-heart` (the brand mark), `ti-calendar`,
+- Common glyphs seen in the source: `ti-heart` (the Benefits tab), `ti-calendar`,
   `ti-upload`, `ti-message`/`ti-mail`, `ti-clipboard-list`, `ti-alert-triangle`,
   `ti-circle-check`, `ti-circle-x`, `ti-info-circle`, `ti-speakerphone`, `ti-wand`,
   `ti-users`, `ti-file-text`, `ti-home`.
 - Components that render icons (Button, NotificationCard) take a **Tabler class
   string** (e.g. `icon="ti-calendar"`); **the host page must load the Tabler
   webfont** (all cards/UI kits here do).
-- **No emoji.** No custom SVG icon set. Unicode is used only for tiny inline
-  affordances in the source (▲ trend arrow, ✓ check, → arrow) — prefer Tabler
-  glyphs for anything semantic.
+- **No emoji.** UI **icons** come from Tabler — don't draw a second icon set.
+- **Custom SVG artwork is fine** (2026-08-19, Emma): brand marks and illustration
+  are drawn as inline SVG, `HTMark` being the first. Artwork is not an icon set;
+  the Tabler rule above governs icons, not vector graphics.
+- **Never a Unicode glyph where an icon belongs** — no `✓`, no `✔`. A text
+  character inherits font metrics instead of icon metrics, so it lands at the
+  wrong weight and baseline beside real icons. Use `ti-check`. (The ▲ trend
+  arrow and → in older source are the only survivors, and neither is semantic.)
 - **This is a CDN link, not copied binaries** — Tabler is not vendored into
   `assets/`. Flag: if you need offline/self-hosted icons, vendor the Tabler webfont.
 
 ## Logo / brand mark
 
-- **No logo file exists** in the source. The "mark" is a Tabler **`ti-heart`**
-  glyph in a solid-violet rounded chip, next to the wordmark **"Healthy Together"**
-  (or the theme's product name). We have **not** invented a logo — the thumbnail and
-  headers render the name in Geist with the heart-chip convention.
-- Flag: if there is a real Hearth / Healthy Together logo, drop it into `assets/`
-  and we'll wire it in.
+- The mark is **`HTMark`**, exported from `components/navigation/DarkHeader.jsx`:
+  the real Healthy Together product icon as inline SVG (white ground, blue wave,
+  pink heart). Extracted from the master lockup by dropping the wordmark and
+  cropping the viewBox to the 51-unit icon box, so it is vector and stays crisp
+  at the header's 26px. It replaces the old `ti-heart`-in-a-violet-chip
+  placeholder (2026-08-19, Emma).
+- It carries its own white ground, so it is **not** placed on the violet chip.
+  `DarkHeader` sits it beside the wordmark **"Healthy Together"** (or the theme's
+  product name).
+- **Other brands supply their own**: pass a node as `logo`. `logoIcon` still
+  accepts a Tabler glyph and restores the solid-violet chip — that path is what a
+  theme without its own mark should use.
 
 ---
 
@@ -203,7 +214,7 @@ Root:
 ### Components (all 48 built)
 Namespace: `window.Hearth_5938e8`. Mount with `const { Name } = window.Hearth_5938e8`.
 (48 components; 53 exports once compound subparts are counted.)
-- **core/** — `Button`, `Badge`, `Avatar`, `Pill`, `SegmentedControl`, `ProgressBar`,
+- **core/** — `Button`, `IncomeButton`, `Badge`, `Avatar`, `Pill`, `SegmentedControl`, `ProgressBar`,
   `Eyebrow`, `ProgramTag`, `IconTile`
 - **forms/** — `Input`, `FieldGroup`, `Select`, `OptionCard`, `FileUpload`,
   `StepNav`, `SegmentedYesNo`, `Stepper`

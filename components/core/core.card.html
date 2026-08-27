@@ -1,4 +1,4 @@
-<!-- @dsCard group="Components" viewport="700x500" name="Core — buttons, badges, pills, progress" subtitle="CTAs · status/tag pills + chips · avatars · program tags · segmented · eyebrows · progress" -->
+<!-- @dsCard group="Components" viewport="700x500" name="Core — buttons, badges, pills, progress" subtitle="CTAs · income handoffs · status/tag pills + chips · avatars · program tags · segmented · eyebrows · progress" -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +14,7 @@
 <body>
 <div id="root"></div>
 <script type="text/babel">
-const { Button, Badge, Avatar, Pill, SegmentedControl, ProgressBar, Eyebrow, ProgramTag, IconTile } = window.Hearth_5938e8;
+const { Button, IncomeButton, Badge, Avatar, Pill, SegmentedControl, ProgressBar, Eyebrow, ProgramTag, IconTile } = window.Hearth_5938e8;
 function Demo(){
   const [seg,setSeg] = React.useState('Yes');
   const [view,setView] = React.useState('Transactions');
@@ -27,6 +27,10 @@ function Demo(){
       <Button variant="primary" size="sm">Copy notes</Button>
       <Button variant="primary" disabled>Disabled</Button>
       <Button variant="link" href="#">Learn what's covered</Button>
+    </div>
+    <div className="grp">
+      <IncomeButton provider="truv" />
+      <IncomeButton provider="argyle" />
     </div>
     <div className="grp">
       <Badge variant="success">Approved</Badge>

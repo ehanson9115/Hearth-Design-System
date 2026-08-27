@@ -7,7 +7,7 @@ function ensureStyles() {
   const el = document.createElement('style');
   el.setAttribute('data-ht', 'panel');
   el.textContent = `
-.ht-panel{background:var(--ht-surface);border:1px solid var(--ht-hairline);border-radius:var(--ht-r-card);overflow:hidden;font-family:var(--ht-font-sans)}
+.ht-panel{background:var(--ht-surface);border:1px solid var(--ht-hairline);border-radius:var(--ht-r-card);overflow:hidden;font-family:var(--ht-font-sans);box-shadow:var(--ht-shadow-md)}
 .ht-panel__head{display:flex;align-items:baseline;gap:7px;padding:14px 18px 0;font-size:15px;font-weight:500;letter-spacing:-0.005em;color:var(--ht-text-head);background:var(--ht-head-zone)}
 .ht-panel__head i{font-size:15px;color:var(--ht-action);align-self:center}
 .ht-panel__action{margin-left:auto;font-size:12.5px;font-weight:500;color:var(--ht-action);background:none;border:none;border-radius:5px;padding:3px 9px;cursor:pointer;font-family:inherit}
@@ -23,6 +23,12 @@ function ensureStyles() {
 `;
   document.head.appendChild(el);
 }
+
+/* Panel is the CONTAINER tier, so it carries shadow-md while the seven card
+ * surfaces carry shadow-sm (Emma's standing rule: cards sm, container panels
+ * md). Note md includes a faint 0 0 0 1px ring that sits under the hairline
+ * border — 3% of primary-dark, so it reads as a slight edge, not a doubled
+ * stroke. */
 
 /**
  * Hearth panel — the "card with header zone" (Cake-style: 15–16px/500 ink

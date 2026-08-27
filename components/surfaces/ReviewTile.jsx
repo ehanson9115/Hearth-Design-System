@@ -7,7 +7,7 @@ function ensureStyles() {
   const el = document.createElement('style');
   el.setAttribute('data-ht', 'review-tile');
   el.textContent = `
-.ht-review{background:var(--ht-surface);border:1px solid var(--ht-hairline);border-radius:var(--ht-r-input);overflow:hidden;font-family:var(--ht-font-sans)}
+.ht-review{background:var(--ht-surface);border:1px solid var(--ht-hairline);border-radius:var(--ht-r-input);overflow:hidden;font-family:var(--ht-font-sans);box-shadow:var(--ht-shadow-sm)}
 .ht-review__head{display:flex;align-items:baseline;justify-content:space-between;background:var(--ht-head-zone);border-bottom:1px solid var(--ht-grey-3);padding:11px 16px 9px}
 .ht-review__head h4{font-size:15px;font-weight:500;color:var(--ht-text-head);margin:0}
 .ht-review__edit{font-size:13px;font-weight:500;color:var(--ht-data-text);text-decoration:underline;text-underline-offset:3px;background:none;border:none;cursor:pointer;font-family:inherit;padding:0}

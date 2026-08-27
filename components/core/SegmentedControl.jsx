@@ -9,7 +9,7 @@ function ensureStyles() {
   el.textContent = `
 .ht-seg{display:inline-flex;background:var(--ht-grey-4);padding:3px;border-radius:999px;gap:2px;font-family:var(--ht-font-sans)}
 .ht-seg--full{display:flex;width:100%}
-.ht-seg--full .ht-seg__btn{flex:1;padding:0 12px;overflow:hidden;text-overflow:ellipsis}
+.ht-seg--full .ht-seg__btn{flex:1 1 auto;padding:0 12px}
 .ht-seg__btn{height:34px;padding:0 18px;border:none;background:transparent;font-family:inherit;font-size:15px;font-weight:500;color:var(--ht-text-on-tint);border-radius:999px;cursor:pointer;transition:background 140ms,color 140ms;white-space:nowrap}
 .ht-seg--md .ht-seg__btn{height:42px}
 .ht-seg__btn:hover{color:var(--ht-text-head)}

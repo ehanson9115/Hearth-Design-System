@@ -1,0 +1,63 @@
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css" rel="stylesheet">
+
+<style>
+  /* Dark mode for the docs-page chrome, same treatment as CIVIC's Storybook.
+     Hearth's token layer is single mode, so these use the same concrete dark
+     values as the manager chrome. The embedded story canvas (.docs-story)
+     stays untouched: components render on their own surface. */
+  html.dark .sbdocs-wrapper,
+  html.dark .sbdocs-content,
+  html.dark [class*="sbdocs"] {
+    background: #111113 !important;
+    color: #edeef0 !important;
+  }
+  html.dark .sbdocs-content table:not(.docs-story table),
+  html.dark .sbdocs-content thead:not(.docs-story thead),
+  html.dark .sbdocs-content tbody:not(.docs-story tbody),
+  html.dark .sbdocs-content tr:not(.docs-story tr),
+  html.dark .sbdocs-content th:not(.docs-story th),
+  html.dark .sbdocs-content td:not(.docs-story td) {
+    background: #111113 !important;
+    color: #edeef0 !important;
+    border-color: #363a3f !important;
+  }
+  html.dark [class*="docblock-argstable"] tr,
+  html.dark [class*="docblock-argstable"] td,
+  html.dark [class*="docblock-argstable"] th,
+  html.dark [class*="docblock-argstable"] tbody tr:nth-child(odd),
+  html.dark [class*="docblock-argstable"] tbody tr:nth-child(even) {
+    background: #111113 !important;
+    color: #edeef0 !important;
+    border-color: #363a3f !important;
+  }
+  html.dark .sb-bar,
+  html.dark .sb-preview-toolbar,
+  html.dark .sbdocs-preview > div:not(.docs-story) {
+    background: #111113 !important;
+    border-color: #363a3f !important;
+  }
+  html.dark .sb-bar button,
+  html.dark .sb-preview-toolbar button,
+  html.dark .sbdocs-preview-actions button {
+    color: #edeef0 !important;
+  }
+  html.dark .sbdocs-content input:not(.docs-story input),
+  html.dark .sbdocs-content textarea:not(.docs-story textarea),
+  html.dark .sbdocs-content select:not(.docs-story select),
+  html.dark .sbdocs-content button:not(.docs-story button) {
+    background: #18191b !important;
+    color: #edeef0 !important;
+    border-color: #363a3f !important;
+  }
+  html.dark .sbdocs-content code:not(.docs-story code) {
+    background: #18191b !important;
+    color: #edeef0 !important;
+  }
+  html.dark .sbdocs-content p:not(.docs-story p),
+  html.dark .sbdocs-content li:not(.docs-story li),
+  html.dark .sbdocs-content h1:not(.docs-story h1),
+  html.dark .sbdocs-content h2:not(.docs-story h2),
+  html.dark .sbdocs-content h3:not(.docs-story h3) {
+    color: #edeef0 !important;
+  }
+</style>

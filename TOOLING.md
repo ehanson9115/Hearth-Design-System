@@ -14,6 +14,34 @@ them without updating everything listed below.
 | `.thumbnail` (root and `templates/*/`) | Captured preview images for the package and each template. | `_ds_manifest.json` thumbnail entries; the design tool's gallery. |
 | `templates/*/ds-base.js` | Tiny loader that resolves the package root and injects `styles.css` + `_ds_bundle.js` into a template page. | Each template's `*.dc.html` entry. |
 
+## Storybook
+
+The browsable component reference, deployed to
+`https://isapp.github.io/ht-design/hearth/` by
+`.github/workflows/design-systems-storybook.yml` (one workflow builds this and
+CIVIC's Storybook together; the two share one Pages site).
+
+```bash
+pnpm install     # once
+pnpm dev         # local dev server on :6007 (CIVIC's uses :6006)
+pnpm build       # static build to storybook-static/ (gitignored)
+```
+
+- Config lives in `.storybook/`; stories are co-located next to each component
+  (`components/<family>/<Name>.stories.jsx`) plus token pages under
+  `foundations/`.
+- A new component needs a sibling `.stories.jsx` alongside its `.d.ts` and
+  `.prompt.md`. Story args come from the `.prompt.md` example; keep argTypes
+  minimal (controls for enum/boolean/number props, callbacks and data props
+  hidden), matching the Button story.
+- `.storybook/preview.jsx` bootstraps `window.Hearth_5938e8` with every
+  component, mirroring `_ds_bundle.js`. Components that read that namespace at
+  render time (ConfirmDialog's default action row) depend on it.
+- Press `d` anywhere in Storybook to toggle dark mode. The toggle flips a
+  `.dark` class on the story frame plus the manager chrome; component visuals
+  follow the token layer, which is single mode today, so they keep their light
+  values until `tokens/` defines dark overrides.
+
 ## Editing rules
 
 - Component changes go in `components/**/*.jsx` (with the sibling `.d.ts` and

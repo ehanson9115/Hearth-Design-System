@@ -22,16 +22,33 @@
   /* Surfaces */
   --ht-bg:             var(--ht-page);
   --ht-surface:        var(--ht-grey-0);
-  /* Cake-header zone — a soft step down from the white card body; the header
-     hairline does the real separating, so the fill stays light. */
-  --ht-head-zone:      color-mix(in srgb, var(--ht-grey-4) 45%, white);
-  --ht-sidebar-bg:     var(--ht-grey-2);
-  --ht-inset:          var(--ht-grey-3);
+  /* Cake-header zone — a soft step down from the white card body. 35% of
+     grey-4 (~#F6F6F8, 9 levels off white): lighter than the original 45% but
+     still observable, which the 25% pass was not (2026-08-19, Emma). */
+  --ht-head-zone:      color-mix(in srgb, var(--ht-grey-4) 35%, white);
+  /* Surface FILLS all sit one rung lighter than they used to (2026-08-19,
+     Emma: "lighter universally"). Deliberately done at the ROLE layer, not by
+     editing the grey ramp: grey-3 is a divider stroke 14 times over and grey-4
+     is the hairline, so moving the primitives would have thinned every border
+     in the system while trying to lighten fills. */
+  --ht-sidebar-bg:     var(--ht-grey-1);
+  --ht-inset:          var(--ht-grey-2);
+  /* Held at grey-1 on purpose — an input's fill IS its affordance, and taking
+     it to near-white makes fields stop reading as fields. */
   --ht-input-bg:       var(--ht-grey-1);
 
   /* Focus ring — the action hue at 32%, so it follows a re-pointed primary. */
   --ht-ring-color:     color-mix(in srgb, var(--ht-action) 32%, transparent);
   --ht-ring-color-danger: color-mix(in srgb, var(--ht-red-vivid) 25%, transparent);
+  /* Disabled — an inert control reads as a grey shape, never a faded colored
+     one: dimming the action hue keeps it looking pressable. Filled variants
+     drop to the grey fill; bordered variants keep the white card face and
+     grey the stroke. Exempt from the contrast gate (WCAG 1.4.3 excludes
+     disabled controls), but text stays at the muted step so the label is
+     still readable. */
+  --ht-disabled-bg:    var(--ht-grey-3);
+  --ht-disabled-line:  var(--ht-grey-4);
+  --ht-disabled-text:  var(--ht-text-muted);
 
   --ht-hero-gradient:  linear-gradient(135deg, var(--ht-action) 0%, var(--ht-data) 100%);
   --ht-progress-fill:  var(--ht-royal);
@@ -44,7 +61,7 @@
    civic-bg-subtle / -component / -component-hover / -component-active /
    -popover / -placeholder / -track now have 1:1 Hearth names. */
 :root {
-  --ht-surface-subtle:   var(--ht-grey-2);   /* quiet section fill (= --ht-muted) */
+  --ht-surface-subtle:   var(--ht-grey-2);   /* quiet section fill */
   --ht-component:        var(--ht-grey-3);   /* neutral control fill, idle */
   --ht-component-hover:  var(--ht-grey-4);   /* hover step (fig: surface/hover) */
   --ht-component-active: var(--ht-grey-5);   /* pressed step (fig: surface/pressed) — press darkens, never scales */
@@ -63,7 +80,7 @@
 
 /* Legacy aliases kept for back-compat with existing components */
 :root {
-  --ht-muted:     var(--ht-grey-2);
+  --ht-muted:     var(--ht-grey-1);
   --ht-secondary: var(--ht-grey-4);
   --ht-ink:       var(--ht-text-head);
   --ht-green:     #218358;

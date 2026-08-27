@@ -22,6 +22,12 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   /** Trailing Tabler icon class. */
   iconRight?: string;
   fullWidth?: boolean;
+  /** Inert state. Renders a grey shape, never a faded violet one — filled
+   *  variants drop to `--ht-disabled-bg`, bordered variants keep the white
+   *  face and grey the stroke, `ghost` stays white-alpha on ink. Forces the
+   *  `button` element even when `href` is set. Prefer `disabled` over
+   *  dropping the handler, and put the reason next to the button. */
+  disabled?: boolean;
   /** Render as an anchor instead of a button. */
   href?: string;
   children?: React.ReactNode;

@@ -7,7 +7,7 @@ function ensureStyles() {
   const el = document.createElement('style');
   el.setAttribute('data-ht', 'record-card');
   el.textContent = `
-.ht-record{box-sizing:border-box;background:var(--ht-surface);border:1px solid var(--ht-hairline);border-radius:var(--ht-r-block);padding:16px;font-family:var(--ht-font-sans)}
+.ht-record{box-sizing:border-box;background:var(--ht-surface);border:1px solid var(--ht-hairline);border-radius:var(--ht-r-block);padding:16px;font-family:var(--ht-font-sans);box-shadow:var(--ht-shadow-sm)}
 .ht-record__head{display:flex;align-items:flex-start;gap:12px}
 .ht-record__ic{box-sizing:border-box;width:40px;height:40px;border-radius:10px;flex-shrink:0;display:grid;place-content:center;font-size:19px;background:var(--ht-action-tint);color:var(--ht-action)}
 .ht-record__title{font-size:17px;font-weight:500;color:var(--ht-text-head);line-height:1.3;margin:0}

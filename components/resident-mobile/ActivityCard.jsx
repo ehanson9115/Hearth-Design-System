@@ -7,7 +7,7 @@ function ensureStyles() {
   const el = document.createElement('style');
   el.setAttribute('data-ht', 'activity-card');
   el.textContent = `
-.ht-actcard{background:var(--ht-surface);border:1px solid var(--ht-hairline);border-radius:var(--ht-r-block);padding:16px;font-family:var(--ht-font-sans)}
+.ht-actcard{background:var(--ht-surface);border:1px solid var(--ht-hairline);border-radius:var(--ht-r-block);padding:16px;font-family:var(--ht-font-sans);box-shadow:var(--ht-shadow-sm)}
 .ht-actcard__head{display:flex;align-items:flex-start;gap:10px}
 .ht-actcard__ic{width:24px;height:24px;border-radius:6px;flex-shrink:0;display:grid;place-content:center;font-size:14px;background:var(--ht-grey-2);color:var(--ht-text-muted)}
 .ht-actcard__title{font-size:15px;font-weight:500;color:var(--ht-text-head);line-height:1.3;margin:0}

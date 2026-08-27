@@ -12,6 +12,13 @@ function ensureStyles() {
 .ht-sheet__title{font-size:15px;font-weight:500;color:var(--ht-text-head);line-height:1.3;margin:0}
 .ht-sheet__body{font-size:14.5px;line-height:1.45;color:var(--ht-text-muted);margin-top:6px}
 .ht-sheet__actions{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+/* A link acting as a sheet action is a real tap target, so it takes the 44px
+ * touch floor here — the variant's own min-height:0 is right for links sitting
+ * inline in prose, wrong for a stacked action. Stated as a real box rather than
+ * an expanded pseudo-element hit area: with only an 8px gap, a 44px zone
+ * centred on a 19px link would overlap the button above and steal taps from its
+ * bottom edge. The underline stays tight to the text either way. */
+.ht-sheet__actions .ht-btn--link{min-height:44px;padding:0 12px}
 `;
   document.head.appendChild(el);
 }

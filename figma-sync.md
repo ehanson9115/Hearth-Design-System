@@ -1,3 +1,51 @@
+# Figma sync — 2026-08-14 (Storybook design links + Code Connect)
+
+Not a token/component sync — this pass wires up the two Figma↔code loops that
+were previously entirely manual (this file). Direction: infrastructure, both ways.
+
+**Storybook → Figma.** Added `@storybook/addon-designs` (registered in
+`.storybook/main.js`); every mapped component's `.stories.jsx` now carries a
+`parameters.design.figma` link to its canonical Figma node, alongside existing
+`docs` params. `ProgramCard.stories.jsx`'s `StatusPending` story links the
+`Program card/CTA3` node specifically.
+
+**Figma → code (Code Connect).** Added `figma.config.json` (parserless
+`.figma.ts` templates, `include: components/**/*.figma.ts`) and 44 template
+files — one per mapped component (some components have two, see below). CI:
+`.github/workflows/hearth-code-connect.yml` publishes on push to main
+(path-filtered), manual dispatch, and a Monday 09:00 UTC cron, reusing the
+`FIGMA_TOKEN` secret civic's equivalent workflow already uses. No build step
+needed (parserless templates don't require parsing the JSX).
+
+**Coverage:** 40 of Hearth's 48 code components now have a Code Connect
+template (44 files: `Eyebrow`/`EyebrowCard` and `ProgramCard`/`ProgramCardStatus`
+each split into two templates for their two distinct Figma nodes). The 7
+components with no Figma symbol (`FieldGroup`, `Stepper`, `NoticeTimeline`,
+`SideNav`, `RecordCard`, `IconTile`, `Avatar` — all already tracked in
+`figma-todo.md`) were skipped, not stubbed.
+
+**New duplicate-node findings** (join the existing `Input` duplicate below —
+none deleted, all just flagged for Figma-side cleanup):
+- `FileUpload` has two structurally-identical component sets (`163:22`,
+  `278:1700`) on the same page. Connected `163:22`; `278:1700` is unmapped.
+- `Skeleton` has two identically-named, property-less components on different
+  pages (`193:10` on "Notification Cards", `158:6` on "States"). Connected
+  `158:6` (topically correct home); `193:10` looks like a misplaced duplicate.
+
+**Gaps surfaced while authoring templates** (approximations, not blockers —
+worth a design/code decision, not urgent):
+- `Badge`'s Figma `Tone=Solid Success` has no code equivalent (`Badge.jsx` has
+  no solid-fill variant); approximated as `variant="success" check`.
+- `SegmentedControl`'s Figma symbol models a single segment/label; the code
+  component renders the whole multi-option control. The template is
+  illustrative only — real usage needs manual authoring beyond what Code
+  Connect can generate.
+- `ReviewTile`'s Figma node merges each row's label and value into one text
+  run with no sub-layer split, so only `title` could be mapped; `items` and
+  the Edit action are omitted rather than guessed.
+
+---
+
 # Figma sync — 2026-08-12 (code -> Figma push)
 
 Emma's design-QA rulings (ht-design PR #375) pushed INTO the kit

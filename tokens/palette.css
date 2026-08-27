@@ -24,7 +24,7 @@
   --ht-royal-mid:      #DDE2FD;   /* number chips, avatars */
 
   /* Page + ink */
-  --ht-page:           #F8F7FC;   /* violet-tinted near-white */
+  --ht-page:           #FCFBFE;   /* violet-tinted near-white (lightened from #F8F7FC, 2026-08-19 Emma) */
   --ht-hairline:       #E4E4EC;
   --ht-border:         #D6D5E0;   /* interactive-control stroke */
   --ht-border-strong:  #9C9AAF;
@@ -97,6 +97,10 @@
 
   /* Shadows — cast in the brand hue, so they follow a re-pointed primary. */
   --ht-shadow-sm: 0 1px 2px color-mix(in srgb, var(--ht-primary-dark) 5%, transparent);
+  /* shadow-sm thrown sideways, for a vertical rail's inward edge. Same 5% so a
+     rail and a card read as the same elevation step; blur is 3px not 2px
+     because it has to register across a near-white field (2026-08-19, Emma). */
+  --ht-shadow-rail: 1px 0 3px color-mix(in srgb, var(--ht-primary-dark) 5%, transparent);
   --ht-shadow-md: 0 4px 12px -2px color-mix(in srgb, var(--ht-primary-dark) 8%, transparent), 0 0 0 1px color-mix(in srgb, var(--ht-primary-dark) 3%, transparent);
   --ht-shadow-lg: 0 12px 32px -8px color-mix(in srgb, var(--ht-primary-dark) 12%, transparent), 0 2px 6px color-mix(in srgb, var(--ht-primary-dark) 4%, transparent);
   /* Float — the wide soft cast on editorial cards that sit directly on the page

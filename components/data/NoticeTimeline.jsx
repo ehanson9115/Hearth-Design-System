@@ -7,7 +7,7 @@ function ensureStyles() {
   const el = document.createElement('style');
   el.setAttribute('data-ht', 'notice-timeline');
   el.textContent = `
-.ht-notices{box-sizing:border-box;background:var(--ht-surface);border:1px solid var(--ht-hairline);border-radius:var(--ht-r-block);overflow:hidden;font-family:var(--ht-font-sans)}
+.ht-notices{box-sizing:border-box;background:var(--ht-surface);border:1px solid var(--ht-hairline);border-radius:var(--ht-r-block);overflow:hidden;font-family:var(--ht-font-sans);box-shadow:var(--ht-shadow-sm)}
 .ht-notices__head{display:flex;align-items:center;gap:10px;width:100%;padding:13px 16px;background:var(--ht-head-zone);border:0;border-bottom:1px solid var(--ht-grey-3);font-family:inherit;text-align:left;cursor:pointer;color:inherit}
 .ht-notices__head--static{cursor:default}
 .ht-notices__head > i:first-child{font-size:17px;color:var(--ht-action);flex-shrink:0}

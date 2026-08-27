@@ -7,7 +7,7 @@ function ensureStyles() {
   const el = document.createElement('style');
   el.setAttribute('data-ht', 'metric-card');
   el.textContent = `
-.ht-metric{background:var(--ht-surface);border:1px solid var(--ht-hairline);border-radius:var(--ht-r-card);padding:18px 20px;font-family:var(--ht-font-sans)}
+.ht-metric{background:var(--ht-surface);border:1px solid var(--ht-hairline);border-radius:var(--ht-r-card);padding:18px 20px;font-family:var(--ht-font-sans);box-shadow:var(--ht-shadow-sm)}
 .ht-metric__n{font-size:26px;font-weight:500;letter-spacing:-0.01em;color:var(--ht-text-head);font-variant-numeric:tabular-nums;line-height:1.1;display:flex;align-items:baseline;gap:6px}
 .ht-metric--warn .ht-metric__n{color:#B45309}
 .ht-metric__trend{font-size:13px;font-weight:500}

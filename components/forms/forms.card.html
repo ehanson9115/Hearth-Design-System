@@ -14,7 +14,7 @@
 <body>
 <div id="root"></div>
 <script type="text/babel">
-const { Input, OptionCard, FileUpload, StepNav, StepNavSpacer, StepNavSaveLater, Button, ProgressBar, SegmentedYesNo, Stepper, Select } = window.Hearth_5938e8;
+const { Input, OptionCard, FileUpload, StepNav, Button, ProgressBar, SegmentedYesNo, Stepper, Select } = window.Hearth_5938e8;
 function Demo(){
   const [contact,setContact] = React.useState('sms');
   const [progs,setProgs] = React.useState(['food']);
@@ -56,18 +56,18 @@ function Demo(){
         <div style={{fontSize:14,fontWeight:500,marginBottom:6}}>How many people are applying today?</div>
         <Stepper value={people} onChange={setPeople} min={1} max={12} label="people applying" />
       </div>
-      <StepNav step={3} of={5} section="About your household"
+      <StepNav step={3} of={5}
         title="Who lives with you?"
         hint="Include everyone who shares meals or bills with you."
-        onBack={()=>{}}
-        footer={<>
-          <Button variant="secondary" size="sm">Back</Button>
-          <StepNavSpacer/>
-          <StepNavSaveLater/>
-          <Button variant="primary" size="sm">Continue</Button>
-        </>}>
+        onBack={()=>{}}>
         <ProgressBar value={60} fullWidth/>
       </StepNav>
+      {/* Actions sit BELOW the block, as a sibling — StepNav is headline only. */}
+      <div style={{display:'flex',alignItems:'center',gap:12,paddingTop:16,borderTop:'1px solid var(--ht-grey-3)'}}>
+        <Button variant="secondary" size="sm">Back</Button>
+        <span style={{flex:1}}/>
+        <Button variant="primary" size="sm">Continue</Button>
+      </div>
     </div>
   </div>);
 }

@@ -16,6 +16,11 @@ function ensureStyles() {
 .ht-tx__msg p{margin:3px 0 0;font-size:13px;line-height:1.5;color:var(--ht-text)}
 .ht-tx__msg--flagged{background:var(--ht-amber-wash);border-radius:var(--ht-r-input);margin:3px 8px;padding:10px 12px 11px;border-top:none !important;box-shadow:inset 0 0 0 1px var(--ht-amber-vivid)}
 .ht-tx__msg--flagged + .ht-tx__msg{border-top:none}
+/* A flagged turn is inset 8px from the sides, so as the LAST turn its 3px
+ * bottom margin left the outline almost touching the panel border. 12px puts
+ * it on the same footing as a plain turn's 13px bottom padding, so the card
+ * closes the same way whether or not the last turn is flagged. */
+.ht-tx__msg--flagged:last-child{margin-bottom:12px}
 .ht-tx__flag{display:flex;align-items:center;gap:6px;margin-top:8px;padding:6px 10px;background:var(--ht-amber-note);border-radius:var(--ht-r-input);font-size:12.5px;font-weight:500;color:var(--ht-amber-text)}
 .ht-tx__flag > i{font-size:14px;color:var(--ht-amber-icon)}
 .ht-tx__flag button{margin-left:auto;font-size:12.5px;font-weight:500;color:var(--ht-action);background:none;border:none;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-family:inherit}

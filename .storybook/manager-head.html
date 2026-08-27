@@ -1,0 +1,70 @@
+<style>
+  /* Dark mode for the Storybook manager frame. Same treatment as CIVIC's. */
+  body.hearth-dark {
+    background: #111113 !important;
+    color: #edeef0 !important;
+    color-scheme: dark;
+  }
+  body.hearth-dark #root,
+  body.hearth-dark #storybook-sidebar-region,
+  body.hearth-dark [role="navigation"],
+  body.hearth-dark [role="main"] {
+    background: #111113 !important;
+    color: #edeef0 !important;
+    border-color: #363a3f !important;
+  }
+  body.hearth-dark input,
+  body.hearth-dark [type="search"] {
+    background: #18191b !important;
+    color: #edeef0 !important;
+    border-color: #363a3f !important;
+  }
+  body.hearth-dark hr,
+  body.hearth-dark [role="separator"] {
+    border-color: #363a3f !important;
+  }
+  body.hearth-dark a:not([data-selected="true"]) {
+    color: #edeef0 !important;
+  }
+  body.hearth-dark a[data-selected="true"] {
+    background-color: rgba(110, 86, 207, 0.14) !important;
+    color: #b5b2ff !important;
+    border-radius: 4px !important;
+  }
+  body.hearth-dark a:not([data-selected="true"]):hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 4px !important;
+  }
+</style>
+
+<script>
+  (function () {
+    var DARK_KEY = 'hearth-dark';
+
+    function applyDark(isDark) {
+      if (isDark) {
+        document.body.classList.add('hearth-dark');
+      } else {
+        document.body.classList.remove('hearth-dark');
+      }
+    }
+
+    function init() {
+      var stored = localStorage.getItem(DARK_KEY);
+      var isDark = stored !== null
+        ? stored === '1'
+        : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      applyDark(isDark);
+    }
+
+    if (document.body) {
+      init();
+    } else {
+      document.addEventListener('DOMContentLoaded', init);
+    }
+
+    window.addEventListener('storage', function (e) {
+      if (e.key === DARK_KEY) applyDark(e.newValue === '1');
+    });
+  })();
+</script>

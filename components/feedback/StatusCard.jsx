@@ -7,7 +7,7 @@ function ensureStyles() {
   const el = document.createElement('style');
   el.setAttribute('data-ht', 'status-card');
   el.textContent = `
-.ht-statuscard{max-width:460px;text-align:center;background:var(--ht-surface);border:1px solid var(--ht-hairline);border-radius:var(--ht-r-card);padding:24px 16px;font-family:var(--ht-font-sans)}
+.ht-statuscard{max-width:460px;text-align:center;background:var(--ht-surface);border:1px solid var(--ht-hairline);border-radius:var(--ht-r-card);padding:24px 16px;font-family:var(--ht-font-sans);box-shadow:var(--ht-shadow-sm)}
 .ht-statuscard__ic{width:36px;height:36px;border-radius:999px;display:grid;place-content:center;font-size:17px;margin:0 auto 8px}
 .ht-statuscard__ic--success{background:var(--ht-green-vivid);color:#fff}
 .ht-statuscard__ic--empty,.ht-statuscard__ic--error{width:40px;height:40px;background:var(--ht-action-tint);color:var(--ht-action);font-size:19px}
