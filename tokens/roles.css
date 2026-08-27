@@ -53,6 +53,14 @@
   --ht-track:            var(--ht-grey-4);   /* NEUTRAL track (segmented); data progress stays --ht-progress-track */
 }
 
+/* Border roles (2026-08-19, Emma) — closes the border rows of DL-010/MAPPING.md.
+   civic-border-subtle / -focus / -popover now have 1:1 Hearth names. */
+:root {
+  --ht-divider:        var(--ht-grey-3);   /* in-card dividers (kit: border/divider) — maps civic-border-subtle */
+  --ht-border-focus:   var(--ht-action);   /* focused control border; pairs with the 3px --ht-ring — maps civic-border-focus */
+  --ht-border-popover: var(--ht-hairline); /* floating surface stroke; pair with --ht-shadow-lg — maps civic-border-popover */
+}
+
 /* Legacy aliases kept for back-compat with existing components */
 :root {
   --ht-muted:     var(--ht-grey-2);

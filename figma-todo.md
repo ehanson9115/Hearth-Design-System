@@ -158,6 +158,11 @@ Decorative only — pairs with adjacent text; never carries meaning alone.
 
 ## Also worth fixing in the file
 
+- **3 border roles added (2026-08-19, Emma).** `--ht-divider` (grey-3 — the
+  kit's existing `border/divider`), `--ht-border-focus` (action), and
+  `--ht-border-popover` (hairline) — closes the border rows of
+  DL-010/MAPPING.md (civic-border-subtle/-focus/-popover). Kit gains
+  `border/focus` + `border/popover`; `border/divider` already existed.
 - **7 neutral surface roles added (2026-08-19, Emma).** `--ht-surface-subtle`,
   `--ht-component(-hover/-active)`, `--ht-popover`, `--ht-placeholder`,
   `--ht-track` — closes the CIVIC↔Hearth gaps in ht-platform's
