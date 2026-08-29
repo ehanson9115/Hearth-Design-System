@@ -1,3 +1,24 @@
+# Kit screens added — WIC + Farmer mobile (2026-08-27)
+
+Four mobile screens added to the kit's Screens section, rebuilt as native
+Figma compositions from the live wic-mt2 prototype (localhost captures used
+as reference; icon glyphs are org-library instances):
+
+- **Screen — WIC Participant** page gains `WIC — Wallet` (633:2: stacked
+  WIC/FMNP wallet cards, benefit periods with levelled badge chips, manage-card
+  row, 5-tab nav with scan FAB) and `WIC — Updates` (636:12: amber outlined
+  safety-alert card, needs-your-attention rows with status rings + date steps).
+- New page **Screen — WIC Farmer** (638:21): `Farmer — Home` (640:10: deep-green
+  hero #1D9E75→#04342C, glass chips, floating quick-action card, selling
+  locations, green 5-tab nav) and `Farmer — New sale (amount)` (keypad step).
+
+WIC screens use Hearth violet; farmer keeps its green theme per the standing
+ruling. Values honor current canon (12px radius cap, deepened badge chips,
+never-truncate — one prototype truncation was rewritten). These are
+compositions, not components — no code counterpart expected.
+
+---
+
 # Sync incident + reconciliation — 2026-08-27
 
 A 2026-08-25 session pushed straight to isapp/ht-design canon (bf66b9d:
