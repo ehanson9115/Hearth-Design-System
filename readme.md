@@ -101,6 +101,10 @@ Last read as a read-only mounted codebase at `hearth/`:
   marks its selected side with tint + 1px stroke and no indicator — a two-option
   pair is read as a unit, so the fill is unambiguous. Three or more options still
   require option cards with indicators (`OptionCard`).
+- **Form fields are always contained.** Inputs sit inside a bordered
+  field-group card (`FieldGroup`; contained `Input`s re-tint to grey-1) —
+  never floating directly on the page (ratified 2026-08-28, from the WIC
+  identity-lookup pattern).
 - **WCAG AA** contrast and **48px touch targets** are non-negotiable. Text on
   white always uses the darker AA text step, not the vivid accent.
 

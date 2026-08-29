@@ -1,3 +1,23 @@
+# Kit screens batch 2 — WIC mobile (2026-08-28)
+
+Six more frames on **Screen — WIC Participant** (from the live prototype;
+notice banner intentionally omitted from Home per Emma):
+
+`WIC — Create account (identity lookup)` 645:21 (contained field card — this
+pattern is now a rulebook line: form fields are ALWAYS contained) ·
+`WIC — Home` 646:23 (violet hero #9A72F0→#490BBC, frosted still-buy card with
+illustrated food tiles, upcoming-visit card, quick rows, nav) ·
+`WIC — Switch household (sheet)` (scrim + bottom sheet, selected household =
+tint + 1px action stroke per canon, phone-link info band) ·
+`WIC — Appointment detail` (green outlined Confirmed banner, icon-led detail
+rows, calendar CTA + violet-stroke secondary, red text cancel) ·
+`WIC — Health records` (certification card + Active chip, recert prompt with
+sm buttons, health-notes rows) · `WIC — Farmers Market Finder` (stylized map:
+street grid, river, park, FMNP-green pins, zoom/locate controls, search pill;
+markets sheet with open-today card + deep-green directions CTA).
+
+---
+
 # Kit screens added — WIC + Farmer mobile (2026-08-27)
 
 Four mobile screens added to the kit's Screens section, rebuilt as native
