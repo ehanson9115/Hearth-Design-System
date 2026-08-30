@@ -1,3 +1,21 @@
+# Screens re-composed from library components (2026-08-30)
+
+Per Emma's ruling, the 10 new WIC/Farmer screens now compose from existing
+kit components instead of drawings wherever a 1:1 symbol exists: Buttons
+(Primary/Secondary + the new Disabled state — farmer keypad CTA included),
+Badges (Active/10-days-left/Open-today; "Scheduled" moved to Tone=Info royal,
+which is MORE canon than the drawn violet — royal is the informational
+family), and IconTiles (Health records shield + recert amber, Home quick-row
+tiles with glyph swaps). 467 solid fills/strokes bound to kit variables
+(grey ladder, violet/royal/status families); farmer-theme literals kept
+(the green family has no kit variables by design — farmer keeps its own
+theme). Remaining drawings are pieces with no symbol yet: the 5-tab nav +
+scan FAB (promotion candidate — appears on 5 screens), date tile, wallet
+cards, sheets, the map. Button icon-slot and sm/desktop sizes are still
+kit gaps; when those land, CTAs can regain their leading icons as instances.
+
+---
+
 # Kit screens batch 2 — WIC mobile (2026-08-28)
 
 Six more frames on **Screen — WIC Participant** (from the live prototype;
