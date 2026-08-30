@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Resident — Sign in / Create account" description="Identity-lookup sign-in (doubles as account creation): brand mark, plain-language lede, one CONTAINED field-group card — inputs never float on the page — and a single primary CTA. No password." -->
+<helmet>
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css" rel="stylesheet">
+<script src="./ds-base.js"></script>
+<style>body{margin:0;background:var(--ht-sidebar-bg);font-family:var(--ht-font-sans);color:var(--ht-text)}</style>
+</helmet>
+<div style="min-height:100vh;background:var(--ht-sidebar-bg);display:flex;justify-content:center;align-items:flex-start;padding:28px 16px">
+<div style="width:375px;border:1px solid var(--ht-border);border-radius:28px;overflow:hidden;background:var(--ht-bg);box-shadow:var(--ht-shadow-lg)">
+
+  <!-- step header -->
+  <div style="background:var(--ht-surface);border-bottom:1px solid var(--ht-hairline);padding:52px 20px 14px;display:flex;align-items:center;gap:14px">
+    <button aria-label="Back" style="width:32px;height:32px;border-radius:999px;border:0;background:var(--ht-inset);color:var(--ht-text-head);cursor:pointer;display:grid;place-content:center"><i class="ti ti-chevron-left" style="font-size:16px"></i></button>
+    <div>
+      <p style="font-size:17px;font-weight:500;color:var(--ht-text-head);margin:0">Sign in</p>
+      <p style="font-size:12.5px;font-weight:500;color:var(--ht-action);margin:2px 0 0">Step 1 of 2</p>
+    </div>
+  </div>
+
+  <div style="padding:20px">
+    <!-- brand -->
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+      <div style="width:44px;height:44px;border-radius:999px;background:var(--ht-surface);box-shadow:var(--ht-shadow-sm);display:grid;place-content:center;color:var(--ht-action)"><i class="ti ti-heart" style="font-size:22px"></i></div>
+      <div>
+        <p style="font-size:16px;font-weight:500;color:var(--ht-text-head);margin:0">Healthy Together</p>
+        <p style="font-size:13px;color:var(--ht-text-muted);margin:1px 0 0">Montana WIC &amp; Farmers Market</p>
+      </div>
+    </div>
+
+    <p style="font-size:14.5px;line-height:1.5;color:var(--ht-text);margin:0 0 16px">Enter your details and we'll look you up in Montana's records. No password needed.</p>
+
+    <!-- THE CONTAINED FIELD GROUP — inputs never float on the page -->
+    <div style="background:var(--ht-surface);border:1px solid var(--ht-hairline);border-radius:var(--ht-r-block);padding:18px 16px;display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;gap:12px">
+        <label style="flex:1;display:block">
+          <span style="display:block;font-size:14px;font-weight:500;color:var(--ht-text-head);margin-bottom:6px">First name</span>
+          <input value="Maria" style="box-sizing:border-box;width:100%;height:48px;border-radius:var(--ht-r-input);border:1px solid var(--ht-border);background:var(--ht-input-bg);padding:0 13px;font:400 15px var(--ht-font-sans);color:var(--ht-text)">
+        </label>
+        <label style="flex:1;display:block">
+          <span style="display:block;font-size:14px;font-weight:500;color:var(--ht-text-head);margin-bottom:6px">Last name</span>
+          <input value="Torres" style="box-sizing:border-box;width:100%;height:48px;border-radius:var(--ht-r-input);border:1px solid var(--ht-border);background:var(--ht-input-bg);padding:0 13px;font:400 15px var(--ht-font-sans);color:var(--ht-text)">
+        </label>
+      </div>
+      <label style="display:block">
+        <span style="display:block;font-size:14px;font-weight:500;color:var(--ht-text-head);margin-bottom:6px">Phone number</span>
+        <input value="(406) 555-0143" inputmode="tel" style="box-sizing:border-box;width:100%;height:48px;border-radius:var(--ht-r-input);border:1px solid var(--ht-border);background:var(--ht-input-bg);padding:0 13px;font:400 15px var(--ht-font-sans);color:var(--ht-text)">
+      </label>
+      <label style="display:block">
+        <span style="display:block;font-size:14px;font-weight:500;color:var(--ht-text-head);margin-bottom:6px">Email address</span>
+        <input value="maria.torres@email.com" inputmode="email" style="box-sizing:border-box;width:100%;height:48px;border-radius:var(--ht-r-input);border:1px solid var(--ht-border);background:var(--ht-input-bg);padding:0 13px;font:400 15px var(--ht-font-sans);color:var(--ht-text)">
+      </label>
+      <label style="display:block;max-width:180px">
+        <span style="display:block;font-size:14px;font-weight:500;color:var(--ht-text-head);margin-bottom:6px">ZIP code</span>
+        <input value="59601" inputmode="numeric" style="box-sizing:border-box;width:100%;height:48px;border-radius:var(--ht-r-input);border:1px solid var(--ht-border);background:var(--ht-input-bg);padding:0 13px;font:400 15px var(--ht-font-sans);color:var(--ht-text)">
+      </label>
+    </div>
+
+    <!-- one primary CTA -->
+    <button style="box-sizing:border-box;width:100%;min-height:48px;margin-top:16px;border:0;border-radius:var(--ht-r-card);background:var(--ht-action);color:#fff;font:500 15px var(--ht-font-sans);cursor:pointer">Continue</button>
+
+    <p style="display:flex;align-items:center;justify-content:center;gap:7px;font-size:13px;color:var(--ht-text-muted);margin:14px 0 6px"><i class="ti ti-lock" style="font-size:14px"></i> Your information is private and secure.</p>
+  </div>
+</div>
+</div>
+</x-dc>
+</body>
+</html>

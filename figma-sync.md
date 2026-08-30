@@ -1,3 +1,14 @@
+# New template: Resident — Sign in / Create account (2026-08-30)
+
+`templates/wic-sign-in/` — the identity-lookup pattern as a starting point,
+registered in the manifest so Claude Design's Templates picker offers it.
+This is the composition behind the contained-fields rulebook line: one
+field-group card (48px inputs on grey-1), single primary CTA, no password.
+Prompted login/account screens in consuming projects now have both the RULE
+(readme) and the COMPOSITION (this template) to follow. Note: the kit's
+Figma screens are reference for humans; Claude Design reads this package —
+the two carry the same pattern by construction.
+
 # Screens re-composed from library components (2026-08-30)
 
 Per Emma's ruling, the 10 new WIC/Farmer screens now compose from existing
