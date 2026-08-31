@@ -192,6 +192,13 @@ navigating government benefits.
   at the header's 26px. It replaces the old `ti-heart`-in-a-violet-chip
   placeholder (2026-08-19, Emma).
 - It carries its own white ground, so it is **not** placed on the violet chip.
+- **Standalone files live in `assets/`** (added 2026-08-31): `ht-logomark.svg`
+  (the badge alone), `ht-logo-horizontal.svg` (full lockup, ink text),
+  `ht-logo-horizontal-white.svg` (for the ink band).
+- **Rule (Emma, 2026-08-31): anywhere the product says "Healthy Together",
+  use the logomark — never the `ti-heart` glyph.** `ti-heart` remains
+  available only as a generic glyph (e.g. a Benefits tab icon), never as the
+  brand.
   `DarkHeader` sits it beside the wordmark **"Healthy Together"** (or the theme's
   product name).
 - **Other brands supply their own**: pass a node as `logo`. `logoIcon` still
