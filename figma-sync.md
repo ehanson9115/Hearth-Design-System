@@ -1,3 +1,19 @@
+# Real brand mark everywhere (2026-08-31)
+
+Emma supplied the real Healthy Together logo files. Ruling: **anywhere the
+product says "Healthy Together", use the logomark — never the ti-heart
+glyph** (ti-heart survives only as a generic glyph, e.g. a Benefits tab
+icon; the mark carries its own white ground and never sits on a violet chip).
+
+Applied: `assets/` gains ht-logomark.svg + horizontal lockups (ink + white);
+the wic-sign-in template renders the real mark; readme rule added. Kit gains
+an **HT Logomark component (662:1548, Icons page)** built from the SVG —
+instanced into the Sign in, Create account and Splash screens and the
+DarkHeader symbol (which replaces the last violet-chip-heart in the kit).
+Code's DarkHeader already carried HTMark from 2026-08-25.
+
+---
+
 # New template: Resident — Sign in / Create account (2026-08-30)
 
 `templates/wic-sign-in/` — the identity-lookup pattern as a starting point,
