@@ -22,6 +22,7 @@ If the user invokes this skill without any other guidance, ask them what they wa
 - White cards, 1px `--ht-hairline` on the `--ht-bg` tinted page. One primary CTA and one dark ink band per screen.
 - Purple = interactive/selected; green = status only; warning family is sunflower.
 - Color never signals function alone. WCAG AA + 48px touch targets are non-negotiable.
+- Brand: anywhere the product says "Healthy Together", render the real logomark (`assets/ht-logomark.svg`, or the `HTMark` export from DarkHeader) — NEVER the `ti-heart` glyph, never on a violet chip. Horizontal lockups (ink/white) are in `assets/`.
 - Icons: Tabler outline webfont (`<i class="ti ti-…">`); load the CDN webfont on the host page. No emoji in UI.
 
 ## Building a screen
