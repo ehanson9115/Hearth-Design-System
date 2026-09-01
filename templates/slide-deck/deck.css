@@ -31,7 +31,7 @@
 
 body {
   margin: 0;
-  background: #0b0b0d;
+  background: #201C33; /* Hearth ink letterbox */
   font-family: 'Geist', system-ui, -apple-system, sans-serif;
   color: var(--civic-text-primary);
 }
@@ -166,28 +166,8 @@ deck-stage * {
   color: var(--civic-text-secondary);
   font-size: var(--t-small);
 }
-.image-ph::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    -45deg,
-    transparent 0px,
-    transparent 28px,
-    rgba(0,0,0,0.025) 28px,
-    rgba(0,0,0,0.025) 29px
-  );
-  pointer-events: none;
-}
-.slide.inverse .image-ph::after {
-  background: repeating-linear-gradient(
-    -45deg,
-    transparent 0px,
-    transparent 28px,
-    rgba(255,255,255,0.035) 28px,
-    rgba(255,255,255,0.035) 29px
-  );
-}
+/* Placeholders are a flat component fill — no hatch/gradient washes
+   (Emma, 2026-09-01: the deck uses ink + the action ramp only). */
 .image-ph .label {
   position: relative;
   z-index: 1;

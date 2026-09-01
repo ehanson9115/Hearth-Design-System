@@ -165,24 +165,25 @@
    Dark mode — flip by adding .dark to <html>
    ========================================================================= */
 .dark {
-  --civic-bg-app: #111113;
-  --civic-bg-card: #18191b;
-  --civic-bg-popover: #18191b;
-  --civic-bg-subtle: #212225;
-  --civic-bg-component: #212225;
-  --civic-bg-component-hover: #2e3135;
-  --civic-bg-input: #1a1d21;
-  --civic-sidebar-bg: #18191b;
+  /* Hearth ink family — dark surfaces derive from #201C33, never CIVIC slate */
+  --civic-bg-app: #201C33;
+  --civic-bg-card: #302C45;
+  --civic-bg-popover: #302C45;
+  --civic-bg-subtle: #2B2740;
+  --civic-bg-component: #2B2740;
+  --civic-bg-component-hover: #3A3552;
+  --civic-bg-input: #2B2740;
+  --civic-sidebar-bg: #262138;
 
-  --civic-text-primary: #edeef0;
-  --civic-text-secondary: #b0b4ba;
-  --civic-text-placeholder: #777b84;
+  --civic-text-primary: #F4F2FA;
+  --civic-text-secondary: #B9B3CC;
+  --civic-text-placeholder: #8D87A6;
 
-  --civic-border-default: #363a3f;
-  --civic-border-popover: #363a3f;
+  --civic-border-default: #3E3957;
+  --civic-border-popover: #3E3957;
 
-  --civic-accent-bg: #202248;
-  --civic-accent-text: #b1a9ff;
+  --civic-accent-bg: #3B1683;
+  --civic-accent-text: #EAE4F5;
 
   --civic-ring-color: rgb(123 122 254 / 0.67);
   --civic-overlay-bg: rgb(0 0 0 / 0.5);
