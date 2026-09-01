@@ -278,3 +278,9 @@ Decorative only — pairs with adjacent text; never carries meaning alone.
   code as the reference.
 - **Five stale token values** — see `figma-sync.md` → *Divergences*. The status
   tints and lines in the file predate the accessibility pass.
+
+## Not Figma work (recorded 2026-09-01)
+- **`templates/slide-deck/`** (Justin Stephens' Master Slide Deck Template
+  2026, imported 2026-09-01) is intentionally **code-only** — a 28-layout
+  `<deck-stage>` presentation template, not a product screen. No Figma symbol
+  planned; decks are authored in Claude Design, not composed from kit symbols.
