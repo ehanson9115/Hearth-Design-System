@@ -288,6 +288,17 @@ Full-screen compositions consuming projects can copy or follow. Each lives in
 - **Resident — Mobile home** (`templates/resident-mobile-home/`) — resident app
   home in a phone frame: gradient hero, status alert, next appointment, quick
   actions, bottom tab bar.
+- **Resident — Sign in / Create account** (`templates/wic-sign-in/`) — identity
+  lookup sign-in: brand logomark, one contained field-group card (inputs never
+  float on the page), single primary CTA, no password.
+- **Slide deck — HT master template** (`templates/slide-deck/`) — Justin
+  Stephens' Master Slide Deck Template 2026, imported 2026-09-01: 28 slide
+  layouts on the `<deck-stage>` web component (1920×1080, keyboard nav,
+  print-to-PDF), CIVIC tokens with the Hearth action ramp (`#4C1EA8` /
+  `#3B1683` / 12% tint) as the default accent, dark slides on Hearth ink
+  `#201C33`, real HT lockup logos in `uploads/`. Entry is `SlideDeck.dc.html`;
+  it keeps its own `civic-tokens.css` + `deck.css` rather than `ds-base.js` —
+  deck type runs at projection scale, outside the product type ladder.
 
 The two mock files map to these: `mock-caseworker.html` → Case detail;
 `mock-dashboard-mobile.html` → Dashboard + Resident mobile home.
