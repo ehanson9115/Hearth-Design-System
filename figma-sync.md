@@ -1,3 +1,25 @@
+# Logos page synced into assets/ (2026-09-01)
+
+Emma added a **Logos page to the kit (675:831)** — the full brand family —
+and asked for it in the system. Synced Figma -> code:
+
+- `assets/` now carries 12 files: 4 marks (`ht-logomark.svg` full-color —
+  replaces the 08-31 cropped-from-lockup version with the kit component
+  675:836 — plus `-onecolor`, `-reverse`, `-gray`) and 8 lockups
+  (horizontal + vertical x gradient/flat x ink/white wordmark), matching the
+  kit's `Logo Full Horizontal` (675:901) and `Logo Full Vertical` (675:866)
+  variant sets (`Has Gradient=True/False`).
+- Export gotcha recorded: Figma exports bake a `#F5F5F5` canvas backdrop
+  rect into node exports (SVG and PNG alike) — SVGs had the rect stripped;
+  transparent PNGs were re-rendered from the cleaned SVGs.
+- The slide-deck template's `uploads/deck_logo*.png` switched from the
+  gradient lockups to the **flat** ones — completing the 2026-09-01 deck
+  ruling (ink + action ramp only, no gradients).
+- readme *Logo / brand mark* section now documents the family and when to
+  use each variant.
+
+---
+
 # Real brand mark everywhere (2026-08-31)
 
 Emma supplied the real Healthy Together logo files. Ruling: **anywhere the

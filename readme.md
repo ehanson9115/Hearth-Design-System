@@ -192,9 +192,21 @@ navigating government benefits.
   at the header's 26px. It replaces the old `ti-heart`-in-a-violet-chip
   placeholder (2026-08-19, Emma).
 - It carries its own white ground, so it is **not** placed on the violet chip.
-- **Standalone files live in `assets/`** (added 2026-08-31): `ht-logomark.svg`
-  (the badge alone), `ht-logo-horizontal.svg` (full lockup, ink text),
-  `ht-logo-horizontal-white.svg` (for the ink band).
+- **Standalone files live in `assets/`** — the full family, exported from the
+  kit's **Logos** page (Figma `675:831`, synced 2026-09-01; supersedes the
+  2026-08-31 cropped-from-lockup set):
+  - Marks: `ht-logomark.svg` (full-color badge), `ht-logomark-onecolor.svg`
+    (single blue), `ht-logomark-reverse.svg` (black), `ht-logomark-gray.svg`.
+  - Horizontal lockups: `ht-logo-horizontal.svg` / `-white.svg` (gradient
+    badge, ink / white wordmark), `ht-logo-horizontal-flat.svg` /
+    `-flat-white.svg` (**Has Gradient=False** — flat badge colors).
+  - Vertical (stacked) lockups: `ht-logo-vertical.svg` / `-white.svg` /
+    `-flat.svg` / `-flat-white.svg`, same scheme.
+- **Which variant:** gradient lockups are the default product brand moment;
+  the **flat** variants are for surfaces where gradients are ruled out (e.g.
+  the slide-deck template — ink + action ramp only, ruled 2026-09-01); the
+  one-color / reverse / gray marks are for constrained or monochrome contexts
+  (favicons, print, watermarks).
 - **Rule (Emma, 2026-08-31): anywhere the product says "Healthy Together",
   use the logomark — never the `ti-heart` glyph.** `ti-heart` remains
   available only as a generic glyph (e.g. a Benefits tab icon), never as the
